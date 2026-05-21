@@ -104,7 +104,7 @@ FORCE_CPU = True          # safer with joblib and SHAP; set False if you know GP
 # Global SHAP is most useful for comparing ablation feature sets.
 RUN_GLOBAL_FEATURE_SHAP = True
 RUN_NODE_FEATURE_SHAP = True   # set False for a fast global-only test
-RUN_EDGE_SHAP = False
+RUN_EDGE_SHAP = True
 
 TOP_N_EDGES = 20
 TOP_N_GLOBAL_FEATURES = 20
