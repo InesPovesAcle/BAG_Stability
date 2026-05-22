@@ -80,7 +80,7 @@ ALLOW_NONFDR_MAIN_FALLBACK = False
 COMMON_MIN_COHORTS = 2
 FIGURE_FORMATS = ["png", "pdf"]
 
-SCREENING_OUTDIR = RESULTS_ROOT / "cbag_metadata_variable_screening"
+SCREENING_OUTDIR = RESULTS_ROOT / "Figure5_AssociationsOnly"
 FINAL_FIGURE_OUTDIR = SCREENING_OUTDIR / "final_figures"
 MERGED_OUTDIR = SCREENING_OUTDIR / "merged_tables"
 
