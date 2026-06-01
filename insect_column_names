@@ -1,0 +1,16 @@
+for f in /mnt/newStor/paros/paros_WORK/ines/data/harmonization/harmonized_metadata/*_harmonized_metadata.csv; do
+  echo
+  echo "===== $f ====="
+  python - <<PY
+import pandas as pd
+f = "$f"
+df = pd.read_csv(f, nrows=1, low_memory=False)
+for c in df.columns:
+    if any(tok.lower() in c.lower() for tok in [
+        "connectome", "session", "dwi", "mri", "runno", "ptid", "rid",
+        "apoe", "sex", "gender", "normcog", "mci", "ad_01", "dementia",
+        "dx", "cognitive"
+    ]):
+        print(c)
+PY
+done

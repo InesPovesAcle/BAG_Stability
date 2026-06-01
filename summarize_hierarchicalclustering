@@ -1,0 +1,22 @@
+BASE="/mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Figure6_SHAP/cross_cohort_aggregated/imaging_only/subject_shap_clusters_metadata"
+
+cd "$BASE"
+
+find . -maxdepth 1 -type f \( \
+  -name "*subject_clusters_with_metadata.csv" -o \
+  -name "*cluster_distribution_all_variables_stats.csv" -o \
+  -name "*cluster_distribution_*_counts.csv" -o \
+  -name "*cluster_distribution_*_proportions.csv" -o \
+  -name "*cluster_distribution_*_stats.csv" -o \
+  -name "*cluster_centroids_scaled.csv" -o \
+  -name "*cluster_centroid_distance_euclidean.csv" -o \
+  -name "*cluster_centroid_distance_correlation.csv" -o \
+  -name "*cluster_compactness.csv" -o \
+  -name "*cluster_pair_distance_summary.csv" -o \
+  -name "*ranked_SHAP_features.csv" -o \
+  -name "*manifest.csv" -o \
+  -name "*metadata_load_log.csv" -o \
+  -name "*input_load_log.csv" -o \
+  -name "*cluster_distribution_*.png" -o \
+  -name "*hierarchical_heatmap.png" \
+\) -print0 | tar --null -czf shap_cluster_metadata_results_imaging_only_FINAL.tar.gz --files-from -

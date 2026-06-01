@@ -109,25 +109,34 @@ PREFERRED_MODEL_ORDER = [
 ]
 
 DEFAULT_SUBJECT_ID_CANDIDATES = [
+    # Figure 5 / harmonized metadata session-connectome keys first.
+    "CONNECTOME_KEY_USED_FOR_INTERSECTION", "CONNECTOME_KEY_CLEAN", "table1_session_key",
+    "DWI", "DWI_key", "connectome_key", "connectome_full_key", "graph_id",
+    "runno", "MRI_Exam", "MRI_Exam_fixed",
+    # subject-level fallbacks.
     "subject", "subject_id", "Subject_ID", "PTID", "ptid", "RID", "rid",
-    "participant_id", "participant", "match_id", "regional_id", "runno",
-    "MRI_Exam", "graph_id", "connectome_key", "connectome_full_key",
+    "participant_id", "participant", "match_id", "regional_id", "Subject", "ID", "id",
 ]
 
 DEFAULT_APOE4_CANDIDATES = [
-    "APOE4", "apoe4", "APOE4_carrier", "APOE4_carriage", "apoe4_carrier",
-    "apoe4_carriage", "APOE_e4", "APOE_e4_carrier", "APOE", "apoe", "genotype",
-    "APOE_genotype", "apoe_genotype",
+    "APOE4_carriage", "APOE4_strict_34_44_carrier", "APOE4_carrier", "APOE4_Positivity",
+    "APOE4", "apoe4", "apoe4_carrier", "apoe4_carriage", "APOE_e4", "APOE_e4_carrier",
+    "APOE_genotype_harmonized", "APOE_Label_for_table1", "APOE", "apoe", "genotype",
+    "APOE_genotype", "apoe_genotype", "APOE4_dosage",
 ]
 DEFAULT_SEX_CANDIDATES = [
-    "Sex", "sex", "SEX", "Gender", "gender", "GENDER", "PTGENDER",
+    "sex_label_for_table1", "sex_label", "sex", "Sex", "SEX", "SUBJECT_SEX",
+    "PTGENDER", "PTSEX", "SEX_from_covars", "Gender", "gender", "GENDER",
 ]
 DEFAULT_COG_CANDIDATES = [
+    "DX_Label_harmonized", "cognitive_impairment_composite", "NORMCOG_01", "MCI_01",
+    "AD_01", "DEMENTIA_01", "Global_Cognition_Composite",
     "cognitive_status", "Cognitive_Status", "DX", "dx", "diagnosis", "Diagnosis",
     "clinical_diagnosis", "Clinical_Diagnosis", "Group", "group", "Status", "status",
     "ResearchGroup", "research_group",
 ]
 DEFAULT_AD_CANDIDATES = [
+    "AD_01", "DEMENTIA_01", "DX_Label_harmonized",
     "AD", "ad", "AD_status", "ad_status", "AD_diagnosis", "ad_diagnosis",
     "is_AD", "is_ad", "Diagnosis_AD", "diagnosis_ad", "dementia", "Dementia",
 ]
@@ -155,7 +164,7 @@ def parse_args() -> argparse.Namespace:
     p.add_argument("--distance-metric", default="euclidean", help="euclidean for ward; correlation works with average/complete")
     p.add_argument("--n-permutations", type=int, default=1000)
     p.add_argument("--random-state", type=int, default=42)
-    p.add_argument("--metadata-root", default=None, help="Default: $WORK/ines/results/harmonized")
+    p.add_argument("--metadata-root", default=None, help="Default: $WORK/ines/data/harmonization/harmonized_metadata")
     p.add_argument("--subject-id-col", default=None)
     p.add_argument("--apoe4-col", default=None)
     p.add_argument("--sex-col", default=None)
@@ -176,6 +185,67 @@ def ensure_dir(path: Path) -> Path:
 
 def safe_filename(x) -> str:
     return re.sub(r"[^A-Za-z0-9_.-]", "_", str(x))
+
+
+def normalize_name(x: object) -> str:
+    s = str(x).lower()
+    s = re.sub(r"[^a-z0-9]+", "_", s)
+    return re.sub(r"_+", "_", s).strip("_")
+
+
+def normalize_connectome_key(x: object, cohort: Optional[str] = None) -> Optional[str]:
+    """Normalize SHAP filenames and harmonized metadata IDs to a common session key.
+
+    This mirrors the Figure 5 harmonized-metadata merge logic: it handles ADNI/HABS
+    visit keys (R/H####_y#), ADRC D#### IDs, and AD-DECODE S##### IDs, while also
+    stripping common file/path suffixes.
+    """
+    if pd.isna(x):
+        return None
+    s = str(x).strip()
+    if not s or s.lower() in {"nan", "none", "<na>"}:
+        return None
+
+    s = Path(s).stem
+    s = re.sub(r"^\._", "", s)
+    s = re.sub(r"\.0$", "", s)
+    s = re.sub(r"_conn_plain$", "", s, flags=re.I)
+    s = re.sub(r"conn_plain$", "", s, flags=re.I)
+    s = re.sub(r"_connectomics$", "", s, flags=re.I)
+
+    m = re.search(r"ADRC\s*0*(\d{4})", s, flags=re.I)
+    if m:
+        return f"d{int(m.group(1)):04d}"
+
+    m = re.search(r"\b([RH]\d{4,5}_y\d+)\b", s, flags=re.I)
+    if m:
+        return m.group(1).lower()
+
+    m = re.search(r"\b(S\d{5})\b", s, flags=re.I)
+    if m:
+        return m.group(1).lower()
+
+    if cohort == "AD_DECODE" and re.fullmatch(r"\d+(?:\.0)?", s):
+        return f"s{int(float(s)):05d}"
+
+    m = re.search(r"\b(D\d{4})\b", s, flags=re.I)
+    if m:
+        return m.group(1).lower()
+
+    m = re.search(r"\b([A-Za-z]\d{5})\b", s, flags=re.I)
+    if m:
+        return m.group(1).lower()
+    m = re.search(r"\b([A-Za-z]\d{4})\b", s, flags=re.I)
+    if m:
+        return m.group(1).lower()
+
+    s2 = re.sub(r"_master_T.*$", "", s, flags=re.I)
+    s2 = re.sub(r"_temp_T.*$", "", s2, flags=re.I)
+    s2 = re.sub(r"_T\d?.*$", "", s2, flags=re.I)
+    if s2 != s:
+        return normalize_connectome_key(s2, cohort=cohort)
+
+    return normalize_name(s) or None
 
 
 def first_existing_col(df: pd.DataFrame, candidates: List[Optional[str]]) -> Optional[str]:
@@ -402,10 +472,12 @@ def load_subject_shap(out_base: Path, cohorts: List[str], model: str, kind: str,
                 continue
 
             subject_safe = f.stem.replace(prefix, "")
+            subject_norm = normalize_connectome_key(subject_safe, cohort=cohort) or safe_filename(subject_safe)
             tmp = pd.DataFrame({
                 "cohort": cohort,
                 "subject_safe": subject_safe,
-                "subject_key": cohort + "__" + subject_safe,
+                "subject_norm": subject_norm,
+                "subject_key": cohort + "__" + subject_norm,
                 "feature_label": df[label_col].astype(str),
                 "shap_value": pd.to_numeric(df[value_col], errors="coerce"),
                 "abs_shap": pd.to_numeric(df["abs_SHAP"], errors="coerce"),
@@ -445,15 +517,97 @@ def build_subject_feature_matrix(long_df: pd.DataFrame, top_n: int) -> Tuple[pd.
 # Metadata
 # =============================================================================
 def metadata_candidates(metadata_root: Path, cohort: str, model: str) -> List[Path]:
+    """Return candidate metadata files.
+
+    Preferred input is the final Figure 5 harmonized metadata directory:
+      $WORK/ines/data/harmonization/harmonized_metadata/<COHORT>_harmonized_metadata.csv
+
+    For backwards compatibility, this also supports the older graph-folder metadata root.
+    """
     cfg = COHORT_CONFIG[cohort]
-    graph_dir = metadata_root / cfg["cohort_dir"] / "graphs" / model
     fp = cfg["file_prefix"]
     return [
-        graph_dir / f"{fp}_metadata_all_aligned_raw.csv",
-        graph_dir / f"{fp}_metadata_all_aligned.csv",
-        graph_dir / f"{fp}_metadata_aligned_raw.csv",
-        graph_dir / f"{fp}_metadata_aligned.csv",
+        metadata_root / f"{cohort}_harmonized_metadata.csv",
+        metadata_root / cfg["cohort_dir"] / f"{cohort}_harmonized_metadata.csv",
+        metadata_root / cfg["cohort_dir"] / "graphs" / model / f"{fp}_metadata_all_aligned_raw.csv",
+        metadata_root / cfg["cohort_dir"] / "graphs" / model / f"{fp}_metadata_all_aligned.csv",
+        metadata_root / cfg["cohort_dir"] / "graphs" / model / f"{fp}_metadata_aligned_raw.csv",
+        metadata_root / cfg["cohort_dir"] / "graphs" / model / f"{fp}_metadata_aligned.csv",
     ]
+
+
+def derive_cognitive_status_from_harmonized(df: pd.DataFrame, explicit_col: Optional[str]) -> pd.Series:
+    """CN/MCI/AD status from harmonized metadata columns."""
+    out = pd.Series("Missing", index=df.index, dtype="object")
+
+    norm_col = first_existing_col(df, ["NORMCOG_01"])
+    mci_col = first_existing_col(df, ["MCI_01"])
+    ad_col = first_existing_col(df, ["AD_01"])
+    dem_col = first_existing_col(df, ["DEMENTIA_01"])
+    dx_col = first_existing_col(df, [explicit_col, "DX_Label_harmonized", "DX", "diagnosis", "Diagnosis"])
+    comp_col = first_existing_col(df, ["cognitive_impairment_composite"])
+
+    if norm_col is not None:
+        x = pd.to_numeric(df[norm_col], errors="coerce")
+        out.loc[x.eq(1)] = "CN"
+        out.loc[x.eq(0)] = "Impaired"
+
+    if mci_col is not None:
+        x = pd.to_numeric(df[mci_col], errors="coerce")
+        out.loc[x.eq(1)] = "MCI"
+    if ad_col is not None:
+        x = pd.to_numeric(df[ad_col], errors="coerce")
+        out.loc[x.eq(1)] = "AD"
+    if dem_col is not None:
+        x = pd.to_numeric(df[dem_col], errors="coerce")
+        out.loc[x.eq(1) & out.eq("Missing")] = "Dementia"
+
+    if dx_col is not None:
+        dx = df[dx_col].astype(str).str.lower().str.strip()
+        known = ~dx.isin(["", "nan", "none", "unknown", "<na>", "missing"])
+        out.loc[known & dx.str.contains("normal|normcog|control|cn", regex=True, na=False)] = "CN"
+        out.loc[known & dx.str.contains("mci", regex=True, na=False)] = "MCI"
+        out.loc[known & dx.str.contains("ad|dement|alzheimer", regex=True, na=False)] = "AD"
+
+    if comp_col is not None:
+        x = pd.to_numeric(df[comp_col], errors="coerce")
+        out.loc[out.eq("Missing") & x.eq(0)] = "CN"
+        out.loc[out.eq("Missing") & x.eq(1)] = "Impaired"
+
+    return out
+
+
+def derive_ad_status_from_harmonized(df: pd.DataFrame, explicit_col: Optional[str]) -> pd.Series:
+    """Binary AD/dementia status from harmonized columns."""
+    out = pd.Series("Missing", index=df.index, dtype="object")
+
+    ad_col = first_existing_col(df, [explicit_col, "AD_01"])
+    dem_col = first_existing_col(df, ["DEMENTIA_01"])
+    norm_col = first_existing_col(df, ["NORMCOG_01"])
+    mci_col = first_existing_col(df, ["MCI_01"])
+    dx_col = first_existing_col(df, ["DX_Label_harmonized", "DX", "diagnosis", "Diagnosis"])
+
+    if norm_col is not None:
+        x = pd.to_numeric(df[norm_col], errors="coerce")
+        out.loc[x.eq(1)] = "Non-AD"
+    if mci_col is not None:
+        x = pd.to_numeric(df[mci_col], errors="coerce")
+        out.loc[x.eq(1)] = "Non-AD"
+    if ad_col is not None:
+        x = pd.to_numeric(df[ad_col], errors="coerce")
+        out.loc[x.eq(1)] = "AD"
+        out.loc[x.eq(0) & out.eq("Missing")] = "Non-AD"
+    if dem_col is not None:
+        x = pd.to_numeric(df[dem_col], errors="coerce")
+        out.loc[x.eq(1)] = "AD"
+
+    if dx_col is not None:
+        dx = df[dx_col].astype(str).str.lower().str.strip()
+        known = ~dx.isin(["", "nan", "none", "unknown", "<na>", "missing"])
+        out.loc[known & dx.str.contains("ad|dement|alzheimer", regex=True, na=False)] = "AD"
+        out.loc[known & dx.str.contains("normal|normcog|control|cn|mci", regex=True, na=False) & out.eq("Missing")] = "Non-AD"
+
+    return out
 
 
 def load_metadata(
@@ -475,7 +629,7 @@ def load_metadata(
             logs.append({"cohort": cohort, "metadata_path": "", "status": "missing"})
             continue
         try:
-            df = pd.read_csv(path)
+            df = pd.read_csv(path, low_memory=False)
         except Exception as e:
             logs.append({"cohort": cohort, "metadata_path": str(path), "status": f"failed: {e}"})
             continue
@@ -493,35 +647,44 @@ def load_metadata(
         out["cohort"] = cohort
         if sid_col is not None:
             out["subject_raw"] = df[sid_col].astype(str)
+            out["subject_norm"] = df[sid_col].map(lambda x: normalize_connectome_key(x, cohort=cohort))
             out["subject_safe"] = out["subject_raw"].map(safe_filename)
-            out["subject_key"] = cohort + "__" + out["subject_safe"]
+            out["subject_key"] = cohort + "__" + out["subject_norm"].astype(str)
+            out = out[out["subject_norm"].notna()].copy()
         else:
-            # Fallback: row order rarely matches SHAP filenames, but log clearly.
             out["subject_raw"] = np.arange(len(df)).astype(str)
+            out["subject_norm"] = out["subject_raw"]
             out["subject_safe"] = out["subject_raw"].map(safe_filename)
-            out["subject_key"] = cohort + "__" + out["subject_safe"]
+            out["subject_key"] = cohort + "__" + out["subject_norm"].astype(str)
 
-        out["apoe4_carriage"] = df[ap_col].map(normalize_apoe4) if ap_col else "Missing"
-        out["sex"] = df[sx_col].map(normalize_sex) if sx_col else "Missing"
-        out["cognitive_status"] = df[cg_col].map(normalize_cognitive_status) if cg_col else "Missing"
-        if ad_status_col:
-            out["ad_status"] = df[ad_status_col].map(normalize_ad_status)
-        elif cg_col:
-            out["ad_status"] = df[cg_col].map(normalize_ad_status)
-        else:
-            out["ad_status"] = "Missing"
+        out["apoe4_carriage"] = df.loc[out.index, ap_col].map(normalize_apoe4) if ap_col else "Missing"
+        out["sex"] = df.loc[out.index, sx_col].map(normalize_sex) if sx_col else "Missing"
+        out["cognitive_status"] = derive_cognitive_status_from_harmonized(df.loc[out.index], cognitive_status_col)
+        out["ad_status"] = derive_ad_status_from_harmonized(df.loc[out.index], ad_col)
 
-        frames.append(out.drop_duplicates("subject_key"))
+        # Prioritize rows with useful phenotype data if duplicate session keys exist.
+        out["_has_dx"] = out["cognitive_status"].ne("Missing")
+        out["_has_apoe"] = out["apoe4_carriage"].ne("Missing")
+        out["_has_sex"] = out["sex"].ne("Missing")
+        out["_orig_order"] = np.arange(len(out))
+        out = (
+            out.sort_values(["subject_key", "_has_dx", "_has_apoe", "_has_sex", "_orig_order"], ascending=[True, False, False, False, True])
+            .drop_duplicates("subject_key", keep="first")
+            .drop(columns=["_has_dx", "_has_apoe", "_has_sex", "_orig_order"], errors="ignore")
+        )
+        frames.append(out)
+
         logs.append({
             "cohort": cohort,
             "metadata_path": str(path),
             "status": "loaded",
             "n_rows": len(df),
+            "n_unique_subject_keys": int(out["subject_key"].nunique()),
             "subject_id_col": sid_col or "",
             "apoe4_col": ap_col or "",
             "sex_col": sx_col or "",
-            "cognitive_status_col": cg_col or "",
-            "ad_col": ad_status_col or "derived_from_cognitive_status" if cg_col and not ad_status_col else "",
+            "cognitive_status_col": cg_col or "derived_from_harmonized_flags",
+            "ad_col": ad_status_col or "derived_from_harmonized_flags",
         })
 
     if not frames:
@@ -585,7 +748,7 @@ def cluster_distance_outputs(matrix_scaled: pd.DataFrame, clusters: pd.DataFrame
         sub = matrix_scaled.loc[labels[labels == lab].index]
         centroids.append(sub.mean(axis=0))
     centroids = pd.DataFrame(centroids, index=[f"cluster_{x}" for x in labs], columns=matrix_scaled.columns)
-    path = out_prefix.with_suffix("_cluster_centroids_scaled.csv")
+    path = out_prefix.with_name(out_prefix.name + "_cluster_centroids_scaled.csv")
     centroids.to_csv(path)
     outputs.append(str(path))
 
@@ -594,7 +757,7 @@ def cluster_distance_outputs(matrix_scaled: pd.DataFrame, clusters: pd.DataFrame
         index=centroids.index,
         columns=centroids.index,
     )
-    path = out_prefix.with_suffix("_cluster_centroid_distance_euclidean.csv")
+    path = out_prefix.with_name(out_prefix.name + "_cluster_centroid_distance_euclidean.csv")
     eu.to_csv(path)
     outputs.append(str(path))
 
@@ -603,7 +766,7 @@ def cluster_distance_outputs(matrix_scaled: pd.DataFrame, clusters: pd.DataFrame
         index=centroids.index,
         columns=centroids.index,
     ).replace([np.inf, -np.inf], np.nan).fillna(0.0)
-    path = out_prefix.with_suffix("_cluster_centroid_distance_correlation.csv")
+    path = out_prefix.with_name(out_prefix.name + "_cluster_centroid_distance_correlation.csv")
     corr_dist.to_csv(path)
     outputs.append(str(path))
 
@@ -620,7 +783,7 @@ def cluster_distance_outputs(matrix_scaled: pd.DataFrame, clusters: pd.DataFrame
             "median_distance_to_centroid": float(np.median(d)) if len(d) else np.nan,
             "sd_distance_to_centroid": float(np.std(d, ddof=1)) if len(d) > 1 else np.nan,
         })
-    path = out_prefix.with_suffix("_cluster_compactness.csv")
+    path = out_prefix.with_name(out_prefix.name + "_cluster_compactness.csv")
     pd.DataFrame(compact).to_csv(path, index=False)
     outputs.append(str(path))
 
@@ -639,7 +802,7 @@ def cluster_distance_outputs(matrix_scaled: pd.DataFrame, clusters: pd.DataFrame
                 "min_between_subject_distance": float(np.min(d)) if len(d) else np.nan,
                 "max_between_subject_distance": float(np.max(d)) if len(d) else np.nan,
             })
-    path = out_prefix.with_suffix("_cluster_pair_distance_summary.csv")
+    path = out_prefix.with_name(out_prefix.name + "_cluster_pair_distance_summary.csv")
     pd.DataFrame(pair_rows).to_csv(path, index=False)
     outputs.append(str(path))
     return outputs
@@ -663,7 +826,7 @@ def distribution_stats(subject_meta: pd.DataFrame, variable: str, out_prefix: Pa
     df = df[df[variable] != "Missing"].copy()
     if df.empty or df["shap_cluster"].nunique() < 2 or df[variable].nunique() < 2:
         counts = pd.crosstab(subject_meta["shap_cluster"], subject_meta[variable].fillna("Missing"))
-        path = out_prefix.with_suffix(f"_cluster_distribution_{variable}_counts.csv")
+        path = out_prefix.with_name(out_prefix.name + f"_cluster_distribution_{variable}_counts.csv")
         counts.to_csv(path)
         outputs.append(str(path))
         stats = pd.DataFrame([{
@@ -673,7 +836,7 @@ def distribution_stats(subject_meta: pd.DataFrame, variable: str, out_prefix: Pa
             "n_clusters": df["shap_cluster"].nunique() if not df.empty else 0,
             "n_categories": df[variable].nunique() if not df.empty else 0,
         }])
-        path = out_prefix.with_suffix(f"_cluster_distribution_{variable}_stats.csv")
+        path = out_prefix.with_name(out_prefix.name + f"_cluster_distribution_{variable}_stats.csv")
         stats.to_csv(path, index=False)
         outputs.append(str(path))
         return outputs
@@ -681,10 +844,10 @@ def distribution_stats(subject_meta: pd.DataFrame, variable: str, out_prefix: Pa
     counts = pd.crosstab(df["shap_cluster"], df[variable])
     props = counts.div(counts.sum(axis=1).replace(0, np.nan), axis=0).fillna(0.0)
 
-    path = out_prefix.with_suffix(f"_cluster_distribution_{variable}_counts.csv")
+    path = out_prefix.with_name(out_prefix.name + f"_cluster_distribution_{variable}_counts.csv")
     counts.to_csv(path)
     outputs.append(str(path))
-    path = out_prefix.with_suffix(f"_cluster_distribution_{variable}_proportions.csv")
+    path = out_prefix.with_name(out_prefix.name + f"_cluster_distribution_{variable}_proportions.csv")
     props.to_csv(path)
     outputs.append(str(path))
 
@@ -716,11 +879,11 @@ def distribution_stats(subject_meta: pd.DataFrame, variable: str, out_prefix: Pa
         "permutation_p": perm_p,
         "cramers_v": cramers_v(counts),
     }])
-    path = out_prefix.with_suffix(f"_cluster_distribution_{variable}_stats.csv")
+    path = out_prefix.with_name(out_prefix.name + f"_cluster_distribution_{variable}_stats.csv")
     stats.to_csv(path, index=False)
     outputs.append(str(path))
 
-    path = out_prefix.with_suffix(f"_cluster_distribution_{variable}.png")
+    path = out_prefix.with_name(out_prefix.name + f"_cluster_distribution_{variable}.png")
     plot_distribution(props, path, f"Distribution of {variable} by SHAP cluster", dpi=dpi)
     outputs.append(str(path))
     return outputs
@@ -739,7 +902,7 @@ def analyze_one_kind(
     outputs = []
 
     long_df, load_log = load_subject_shap(out_base, cohorts, model, kind, args.value_col)
-    path = prefix.with_suffix("_input_load_log.csv")
+    path = prefix.with_name(prefix.name + "_input_load_log.csv")
     load_log.to_csv(path, index=False)
     outputs.append(str(path))
     if long_df.empty:
@@ -752,18 +915,18 @@ def analyze_one_kind(
         print(f"Not enough subjects for {kind}: n_subjects={matrix_raw.shape[0]}, n_clusters={args.n_clusters}")
         return outputs
 
-    path = prefix.with_suffix("_subject_level_long.csv")
+    path = prefix.with_name(prefix.name + "_subject_level_long.csv")
     long_df.to_csv(path, index=False)
     outputs.append(str(path))
-    path = prefix.with_suffix("_ranked_SHAP_features.csv")
+    path = prefix.with_name(prefix.name + "_ranked_SHAP_features.csv")
     ranked.to_csv(path, index=False)
     outputs.append(str(path))
-    path = prefix.with_suffix("_matrix_raw.csv")
+    path = prefix.with_name(prefix.name + "_matrix_raw.csv")
     matrix_raw.to_csv(path)
     outputs.append(str(path))
 
     matrix_scaled = zscore_columns(matrix_raw) if int(args.standardize) else matrix_raw.astype(float).copy()
-    path = prefix.with_suffix("_matrix_scaled.csv")
+    path = prefix.with_name(prefix.name + "_matrix_scaled.csv")
     matrix_scaled.to_csv(path)
     outputs.append(str(path))
 
@@ -783,13 +946,16 @@ def analyze_one_kind(
         cognitive_status_col=args.cognitive_status_col,
         ad_col=args.ad_col,
     )
-    path = prefix.with_suffix("_metadata_load_log.csv")
+    path = prefix.with_name(prefix.name + "_metadata_load_log.csv")
     meta_log.to_csv(path, index=False)
     outputs.append(str(path))
 
     subject_info = clusters.copy()
     subject_info["cohort"] = subject_info["subject_key"].str.split("__", n=1).str[0]
-    subject_info["subject_safe"] = subject_info["subject_key"].str.split("__", n=1).str[1]
+    subject_info["subject_norm"] = subject_info["subject_key"].str.split("__", n=1).str[1]
+    # Recover the original SHAP filename subject string when available.
+    shap_ids = long_df[["subject_key", "subject_safe"]].drop_duplicates("subject_key")
+    subject_info = subject_info.merge(shap_ids, on="subject_key", how="left")
     if not meta.empty:
         subject_info = subject_info.merge(
             meta[["subject_key", "subject_raw", "apoe4_carriage", "sex", "cognitive_status", "ad_status"]],
@@ -801,34 +967,34 @@ def analyze_one_kind(
             subject_info[col] = "Missing"
         subject_info[col] = subject_info[col].fillna("Missing")
 
-    path = prefix.with_suffix("_subject_clusters_with_metadata.csv")
+    path = prefix.with_name(prefix.name + "_subject_clusters_with_metadata.csv")
     subject_info.sort_values(["shap_cluster", "cohort", "subject_safe"]).to_csv(path, index=False)
     outputs.append(str(path))
 
     # Clustered matrices and order files.
     ordered_raw = matrix_raw.iloc[order, :]
     ordered_scaled = matrix_scaled.iloc[order, :]
-    path = prefix.with_suffix("_clustered_matrix_raw.csv")
+    path = prefix.with_name(prefix.name + "_clustered_matrix_raw.csv")
     ordered_raw.to_csv(path)
     outputs.append(str(path))
-    path = prefix.with_suffix("_clustered_matrix_scaled.csv")
+    path = prefix.with_name(prefix.name + "_clustered_matrix_scaled.csv")
     ordered_scaled.to_csv(path)
     outputs.append(str(path))
     row_order = pd.DataFrame({
         "order_index": np.arange(len(order)),
         "subject_key": matrix_scaled.index[order],
     }).merge(subject_info, on="subject_key", how="left")
-    path = prefix.with_suffix("_row_order_clusters_metadata.csv")
+    path = prefix.with_name(prefix.name + "_row_order_clusters_metadata.csv")
     row_order.to_csv(path, index=False)
     outputs.append(str(path))
     col_order = pd.DataFrame({"column_order": np.arange(matrix_scaled.shape[1]), "feature_label": matrix_scaled.columns})
-    path = prefix.with_suffix("_column_order.csv")
+    path = prefix.with_name(prefix.name + "_column_order.csv")
     col_order.to_csv(path, index=False)
     outputs.append(str(path))
 
     # Heatmap.
-    png = prefix.with_suffix("_hierarchical_heatmap.png")
-    pdf = prefix.with_suffix("_hierarchical_heatmap.pdf")
+    png = prefix.with_name(prefix.name + "_hierarchical_heatmap.png")
+    pdf = prefix.with_name(prefix.name + "_hierarchical_heatmap.pdf")
     save_heatmap(
         matrix_scaled,
         subject_info=subject_info,
@@ -848,7 +1014,7 @@ def analyze_one_kind(
     for variable in ["apoe4_carriage", "sex", "cognitive_status", "ad_status"]:
         before = set(outputs)
         outputs.extend(distribution_stats(subject_info, variable, prefix, args.n_permutations, args.random_state, args.dpi))
-        stats_file = prefix.with_suffix(f"_cluster_distribution_{variable}_stats.csv")
+        stats_file = prefix.with_name(prefix.name + f"_cluster_distribution_{variable}_stats.csv")
         if stats_file.exists():
             try:
                 all_stats.append(pd.read_csv(stats_file))
@@ -856,13 +1022,13 @@ def analyze_one_kind(
                 pass
 
     if all_stats:
-        path = prefix.with_suffix("_cluster_distribution_all_variables_stats.csv")
+        path = prefix.with_name(prefix.name + "_cluster_distribution_all_variables_stats.csv")
         pd.concat(all_stats, ignore_index=True).to_csv(path, index=False)
         outputs.append(str(path))
 
     # Cohort composition is diagnostic only, not the target result.
     cohort_counts = pd.crosstab(subject_info["shap_cluster"], subject_info["cohort"])
-    path = prefix.with_suffix("_diagnostic_cohort_distribution_counts.csv")
+    path = prefix.with_name(prefix.name + "_diagnostic_cohort_distribution_counts.csv")
     cohort_counts.to_csv(path)
     outputs.append(str(path))
 
@@ -875,7 +1041,7 @@ def analyze_one_kind(
         "output_dir": str(outdir),
         "outputs": ";".join(outputs),
     }])
-    path = prefix.with_suffix("_manifest.csv")
+    path = prefix.with_name(prefix.name + "_manifest.csv")
     manifest.to_csv(path, index=False)
     outputs.append(str(path))
     return outputs
@@ -888,7 +1054,7 @@ def main():
     args = parse_args()
     out_base = Path(args.out_base).expanduser().resolve()
     work = Path(args.work).expanduser().resolve()
-    metadata_root = Path(args.metadata_root).expanduser().resolve() if args.metadata_root else work / "ines/results/harmonized"
+    metadata_root = Path(args.metadata_root).expanduser().resolve() if args.metadata_root else work / "ines/data/harmonization/harmonized_metadata"
     cohorts = [x.strip() for x in args.cohorts.split(",") if x.strip()]
     models = [x.strip() for x in args.models.split(",") if x.strip()]
     kinds = [x.strip().lower() for x in args.kinds.split(",") if x.strip()]

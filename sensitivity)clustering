@@ -1,0 +1,14 @@
+BASE="/mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Figure6_SHAP/cross_cohort_aggregated/imaging_only/subject_shap_clusters_metadata"
+
+cd "$BASE"
+
+find . -maxdepth 1 -type f \( \
+  -name "*subject_clusters_k3*csv" -o \
+  -name "*subject_clusters_k4*csv" -o \
+  -name "*subject_clusters_k5*csv" -o \
+  -name "*subject_clusters_k6*csv" -o \
+  -name "*subject_clusters_k3*png" -o \
+  -name "*subject_clusters_k4*png" -o \
+  -name "*subject_clusters_k5*png" -o \
+  -name "*subject_clusters_k6*png" \
+\) -print0 | tar --null -czf shap_cluster_metadata_k3_k6_sensitivity.tar.gz --files-from -
