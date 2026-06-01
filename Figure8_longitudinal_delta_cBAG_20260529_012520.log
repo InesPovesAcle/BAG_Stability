@@ -1,0 +1,132 @@
+nohup: ignoring input
+/mnt/newStor/paros/paros_WORK/ines/code/BAG_Stability052627/Figure8_longitudinal_delta_cBAG.py:684: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  long_df[f"_num_{col}"] = clean_numeric(long_df[col])
+/mnt/newStor/paros/paros_WORK/ines/code/BAG_Stability052627/Figure8_longitudinal_delta_cBAG.py:684: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  long_df[f"_num_{col}"] = clean_numeric(long_df[col])
+/mnt/newStor/paros/paros_WORK/ines/code/BAG_Stability052627/Figure8_longitudinal_delta_cBAG.py:684: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  long_df[f"_num_{col}"] = clean_numeric(long_df[col])
+/mnt/newStor/paros/paros_WORK/ines/code/BAG_Stability052627/Figure8_longitudinal_delta_cBAG.py:684: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  long_df[f"_num_{col}"] = clean_numeric(long_df[col])
+/mnt/newStor/paros/paros_WORK/ines/code/BAG_Stability052627/Figure8_longitudinal_delta_cBAG.py:684: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  long_df[f"_num_{col}"] = clean_numeric(long_df[col])
+/mnt/newStor/paros/paros_WORK/ines/code/BAG_Stability052627/Figure8_longitudinal_delta_cBAG.py:684: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  long_df[f"_num_{col}"] = clean_numeric(long_df[col])
+/mnt/newStor/paros/paros_WORK/ines/code/BAG_Stability052627/Figure8_longitudinal_delta_cBAG.py:684: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  long_df[f"_num_{col}"] = clean_numeric(long_df[col])
+/mnt/newStor/paros/paros_WORK/ines/code/BAG_Stability052627/Figure8_longitudinal_delta_cBAG.py:684: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  long_df[f"_num_{col}"] = clean_numeric(long_df[col])
+/mnt/newStor/paros/paros_WORK/ines/code/BAG_Stability052627/Figure8_longitudinal_delta_cBAG.py:684: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  long_df[f"_num_{col}"] = clean_numeric(long_df[col])
+/mnt/newStor/paros/paros_WORK/ines/code/BAG_Stability052627/Figure8_longitudinal_delta_cBAG.py:684: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  long_df[f"_num_{col}"] = clean_numeric(long_df[col])
+/mnt/newStor/paros/paros_WORK/ines/code/BAG_Stability052627/Figure8_longitudinal_delta_cBAG.py:684: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  long_df[f"_num_{col}"] = clean_numeric(long_df[col])
+/mnt/newStor/paros/paros_WORK/ines/code/BAG_Stability052627/Figure8_longitudinal_delta_cBAG.py:684: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  long_df[f"_num_{col}"] = clean_numeric(long_df[col])
+/mnt/newStor/paros/paros_WORK/ines/code/BAG_Stability052627/Figure8_longitudinal_delta_cBAG.py:684: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  long_df[f"_num_{col}"] = clean_numeric(long_df[col])
+/mnt/newStor/paros/paros_WORK/ines/code/BAG_Stability052627/Figure8_longitudinal_delta_cBAG.py:684: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  long_df[f"_num_{col}"] = clean_numeric(long_df[col])
+/mnt/newStor/paros/paros_WORK/ines/code/BAG_Stability052627/Figure8_longitudinal_delta_cBAG.py:684: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  long_df[f"_num_{col}"] = clean_numeric(long_df[col])
+/mnt/newStor/paros/paros_WORK/ines/code/BAG_Stability052627/Figure8_longitudinal_delta_cBAG.py:684: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  long_df[f"_num_{col}"] = clean_numeric(long_df[col])
+/mnt/newStor/paros/paros_WORK/ines/code/BAG_Stability052627/Figure8_longitudinal_delta_cBAG.py:874: MatplotlibDeprecationWarning: The 'labels' parameter of boxplot() has been renamed 'tick_labels' since Matplotlib 3.9; support for the old name will be dropped in 3.11.
+  ax.boxplot(data, labels=labels, showfliers=False)
+/mnt/newStor/paros/paros_WORK/ines/code/BAG_Stability052627/Figure8_longitudinal_delta_cBAG.py:997: MatplotlibDeprecationWarning: The 'labels' parameter of boxplot() has been renamed 'tick_labels' since Matplotlib 3.9; support for the old name will be dropped in 3.11.
+  ax.boxplot(data, labels=labels, showfliers=False, vert=False)
+Figure 8 longitudinal delta-cBAG
+RESULTS_ROOT: /mnt/newStor/paros/paros_WORK/ines/results
+BASE_DIR:     /mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation
+OUTDIR:       /mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Figure8_longitudinal_delta_cBAG
+COHORTS:      ADNI, HABS
+FEATURE_SET:  imaging_only
+MIN_N:        12
+CORR_METHOD:  pearson
+
+Dataset summary:
+cohort  feature_set                                                                                                                                                                                                  path  exists  rows  unique_subjects  subjects_with_ge2_visits  longitudinal_rows     id_col                  cbag_col status
+  ADNI imaging_only /mnt/newStor/paros/paros_WORK/ines/results/BrainAgePredictionADNI_stratified_groupcv_targetnorm_bagbiascorr_oofglobal/ablation_imaging_only/validation_figures_oof/subject_level_validation_input.csv    True   188              104                        84                168 Subject_ID cBAG_oof_global_raw_clean     ok
+  HABS imaging_only /mnt/newStor/paros/paros_WORK/ines/results/BrainAgePredictionHABS_stratified_groupcv_targetnorm_bagbiascorr_oofglobal/ablation_imaging_only/validation_figures_oof/subject_level_validation_input.csv    True   710              288                       286                708 Subject_ID cBAG_oof_global_raw_clean     ok
+
+Endpoint column selection:
+          endpoint       domain                              selected_column selection_status  visit_level_n
+  Global cognition     Clinical                cognition_composite_raw_clean            exact            188
+Hippocampal volume Neuroimaging                             genetic_APVOLUME fallback_keyword            181
+    Hippocampal FA Neuroimaging                               gfap_raw_clean fallback_keyword            787
+    Hippocampal RD Neuroimaging vrf_bmi_PHC_Age_CardiovascularRisk_raw_clean fallback_keyword             86
+    Hippocampal AD Neuroimaging                         ADAS_total_raw_clean fallback_keyword            141
+   Hippocampal ADC Neuroimaging                         amyloid_40_raw_clean fallback_keyword            898
+Whole-brain volume Neuroimaging                             genetic_APVOLUME fallback_keyword            181
+         Global FA Neuroimaging                               PC10_raw_clean fallback_keyword            898
+  Graph clustering      Network                   Clustering_Coeff_raw_clean            exact            898
+ Graph path length      Network                        Path_Length_raw_clean            exact            898
+ Global efficiency      Network                  Global_Efficiency_raw_clean            exact            898
+  Local efficiency      Network                   Local_Efficiency_raw_clean            exact            898
+      Amyloid / Aβ    Biomarker                         amyloid_42_raw_clean            exact            898
+              pTau    Biomarker                            ptau217_raw_clean            exact            898
+              GFAP    Biomarker                               GFAP_raw_clean            exact            131
+               NfL    Biomarker                                NFL_raw_clean            exact             84
+
+Selected main endpoints:
+['Global cognition', 'Graph clustering', 'Global efficiency', 'Hippocampal AD', 'Graph path length', 'Local efficiency']
+
+Association stats:
+          endpoint       domain cohort                                       column              delta_column   n         r        p    ci_low   ci_high                     status    abs_r
+ Global efficiency      Network   ADNI                  Global_Efficiency_raw_clean  delta__Global efficiency  84 -0.251891 0.020809 -0.442398 -0.039632                         ok 0.251891
+    Hippocampal AD Neuroimaging   ADNI                         ADAS_total_raw_clean     delta__Hippocampal AD  39 -0.094376 0.567674 -0.398046  0.227934                         ok 0.094376
+  Global cognition     Clinical   ADNI                cognition_composite_raw_clean   delta__Global cognition  84  0.062387 0.572910 -0.154073  0.273133                         ok 0.062387
+ Graph path length      Network   ADNI                        Path_Length_raw_clean  delta__Graph path length  84  0.060259 0.586095 -0.156157  0.271155                         ok 0.060259
+  Local efficiency      Network   ADNI                   Local_Efficiency_raw_clean   delta__Local efficiency  84  0.054462 0.622689 -0.161826  0.265758                         ok 0.054462
+  Graph clustering      Network   ADNI                   Clustering_Coeff_raw_clean   delta__Graph clustering  84  0.047136 0.670271 -0.168970  0.258919                         ok 0.047136
+Hippocampal volume Neuroimaging   ADNI                             genetic_APVOLUME delta__Hippocampal volume  81       NaN      NaN       NaN       NaN insufficient_n_or_variance      NaN
+    Hippocampal FA Neuroimaging   ADNI                               gfap_raw_clean     delta__Hippocampal FA  84       NaN      NaN       NaN       NaN insufficient_n_or_variance      NaN
+    Hippocampal RD Neuroimaging   ADNI vrf_bmi_PHC_Age_CardiovascularRisk_raw_clean     delta__Hippocampal RD  39       NaN      NaN       NaN       NaN insufficient_n_or_variance      NaN
+   Hippocampal ADC Neuroimaging   ADNI                         amyloid_40_raw_clean    delta__Hippocampal ADC  84       NaN      NaN       NaN       NaN insufficient_n_or_variance      NaN
+Whole-brain volume Neuroimaging   ADNI                             genetic_APVOLUME delta__Whole-brain volume  81       NaN      NaN       NaN       NaN insufficient_n_or_variance      NaN
+         Global FA Neuroimaging   ADNI                               PC10_raw_clean          delta__Global FA  84       NaN      NaN       NaN       NaN insufficient_n_or_variance      NaN
+      Amyloid / Aβ    Biomarker   ADNI                         amyloid_42_raw_clean       delta__Amyloid / Aβ  84       NaN      NaN       NaN       NaN insufficient_n_or_variance      NaN
+              pTau    Biomarker   ADNI                            ptau217_raw_clean               delta__pTau  84       NaN      NaN       NaN       NaN insufficient_n_or_variance      NaN
+              GFAP    Biomarker   ADNI                               GFAP_raw_clean               delta__GFAP   0       NaN      NaN       NaN       NaN insufficient_n_or_variance      NaN
+               NfL    Biomarker   ADNI                                NFL_raw_clean                delta__NfL   0       NaN      NaN       NaN       NaN insufficient_n_or_variance      NaN
+  Global cognition     Clinical   HABS                cognition_composite_raw_clean   delta__Global cognition   0       NaN      NaN       NaN       NaN insufficient_n_or_variance      NaN
+Hippocampal volume Neuroimaging   HABS                             genetic_APVOLUME delta__Hippocampal volume   0       NaN      NaN       NaN       NaN insufficient_n_or_variance      NaN
+    Hippocampal FA Neuroimaging   HABS                               gfap_raw_clean     delta__Hippocampal FA 286       NaN      NaN       NaN       NaN insufficient_n_or_variance      NaN
+    Hippocampal RD Neuroimaging   HABS vrf_bmi_PHC_Age_CardiovascularRisk_raw_clean     delta__Hippocampal RD   0       NaN      NaN       NaN       NaN insufficient_n_or_variance      NaN
+    Hippocampal AD Neuroimaging   HABS                         ADAS_total_raw_clean     delta__Hippocampal AD   0       NaN      NaN       NaN       NaN insufficient_n_or_variance      NaN
+   Hippocampal ADC Neuroimaging   HABS                         amyloid_40_raw_clean    delta__Hippocampal ADC 286       NaN      NaN       NaN       NaN insufficient_n_or_variance      NaN
+Whole-brain volume Neuroimaging   HABS                             genetic_APVOLUME delta__Whole-brain volume   0       NaN      NaN       NaN       NaN insufficient_n_or_variance      NaN
+         Global FA Neuroimaging   HABS                               PC10_raw_clean          delta__Global FA 286       NaN      NaN       NaN       NaN insufficient_n_or_variance      NaN
+  Graph clustering      Network   HABS                   Clustering_Coeff_raw_clean   delta__Graph clustering 286       NaN      NaN       NaN       NaN insufficient_n_or_variance      NaN
+ Graph path length      Network   HABS                        Path_Length_raw_clean  delta__Graph path length 286       NaN      NaN       NaN       NaN insufficient_n_or_variance      NaN
+ Global efficiency      Network   HABS                  Global_Efficiency_raw_clean  delta__Global efficiency 286       NaN      NaN       NaN       NaN insufficient_n_or_variance      NaN
+  Local efficiency      Network   HABS                   Local_Efficiency_raw_clean   delta__Local efficiency 286       NaN      NaN       NaN       NaN insufficient_n_or_variance      NaN
+      Amyloid / Aβ    Biomarker   HABS                         amyloid_42_raw_clean       delta__Amyloid / Aβ 286       NaN      NaN       NaN       NaN insufficient_n_or_variance      NaN
+              pTau    Biomarker   HABS                            ptau217_raw_clean               delta__pTau 286       NaN      NaN       NaN       NaN insufficient_n_or_variance      NaN
+              GFAP    Biomarker   HABS                               GFAP_raw_clean               delta__GFAP  60       NaN      NaN       NaN       NaN insufficient_n_or_variance      NaN
+               NfL    Biomarker   HABS                                NFL_raw_clean                delta__NfL  38       NaN      NaN       NaN       NaN insufficient_n_or_variance      NaN
+ Global efficiency      Network Pooled                  Global_Efficiency_raw_clean  delta__Global efficiency 370 -0.219091 0.000021 -0.314032 -0.119812                         ok 0.219091
+    Hippocampal AD Neuroimaging Pooled                         ADAS_total_raw_clean     delta__Hippocampal AD  39 -0.094376 0.567674 -0.398046  0.227934                         ok 0.094376
+ Graph path length      Network Pooled                        Path_Length_raw_clean  delta__Graph path length 370  0.078588 0.131329 -0.023557  0.179108                         ok 0.078588
+  Local efficiency      Network Pooled                   Local_Efficiency_raw_clean   delta__Local efficiency 370  0.071486 0.170012 -0.030693  0.172187                         ok 0.071486
+  Global cognition     Clinical Pooled                cognition_composite_raw_clean   delta__Global cognition  84  0.062387 0.572910 -0.154073  0.273133                         ok 0.062387
+  Graph clustering      Network Pooled                   Clustering_Coeff_raw_clean   delta__Graph clustering 370  0.001069 0.983648 -0.100898  0.103014                         ok 0.001069
+Hippocampal volume Neuroimaging Pooled                             genetic_APVOLUME delta__Hippocampal volume  81       NaN      NaN       NaN       NaN insufficient_n_or_variance      NaN
+    Hippocampal FA Neuroimaging Pooled                               gfap_raw_clean     delta__Hippocampal FA 370       NaN      NaN       NaN       NaN insufficient_n_or_variance      NaN
+    Hippocampal RD Neuroimaging Pooled vrf_bmi_PHC_Age_CardiovascularRisk_raw_clean     delta__Hippocampal RD  39       NaN      NaN       NaN       NaN insufficient_n_or_variance      NaN
+   Hippocampal ADC Neuroimaging Pooled                         amyloid_40_raw_clean    delta__Hippocampal ADC 370       NaN      NaN       NaN       NaN insufficient_n_or_variance      NaN
+Whole-brain volume Neuroimaging Pooled                             genetic_APVOLUME delta__Whole-brain volume  81       NaN      NaN       NaN       NaN insufficient_n_or_variance      NaN
+         Global FA Neuroimaging Pooled                               PC10_raw_clean          delta__Global FA 370       NaN      NaN       NaN       NaN insufficient_n_or_variance      NaN
+      Amyloid / Aβ    Biomarker Pooled                         amyloid_42_raw_clean       delta__Amyloid / Aβ 370       NaN      NaN       NaN       NaN insufficient_n_or_variance      NaN
+              pTau    Biomarker Pooled                            ptau217_raw_clean               delta__pTau 370       NaN      NaN       NaN       NaN insufficient_n_or_variance      NaN
+              GFAP    Biomarker Pooled                               GFAP_raw_clean               delta__GFAP  60       NaN      NaN       NaN       NaN insufficient_n_or_variance      NaN
+               NfL    Biomarker Pooled                                NFL_raw_clean                delta__NfL  38       NaN      NaN       NaN       NaN insufficient_n_or_variance      NaN
+
+Saved outputs:
+/mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Figure8_longitudinal_delta_cBAG/Figure8_longitudinal_delta_cBAG.png
+/mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Figure8_longitudinal_delta_cBAG/Figure8_longitudinal_delta_cBAG.pdf
+/mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Figure8_longitudinal_delta_cBAG/Supplementary_Figure8_longitudinal_delta_cBAG.png
+/mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Figure8_longitudinal_delta_cBAG/Supplementary_Figure8_longitudinal_delta_cBAG.pdf
+
+Saved tables to: /mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Figure8_longitudinal_delta_cBAG
+DONE

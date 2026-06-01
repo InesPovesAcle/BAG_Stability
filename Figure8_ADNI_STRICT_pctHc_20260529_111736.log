@@ -1,0 +1,83 @@
+====================================================================================================
+Figure 8 ADNI-only STRICT longitudinal delta-cBAG
+====================================================================================================
+RESULTS_ROOT: /mnt/newStor/paros/paros_WORK/ines/results
+BASE_DIR: /mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation
+OUTDIR: /mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Figure8_ADNI_longitudinal_delta_cBAG_STRICT_pctHc
+FEATURE_SET: imaging_only
+MIN_N: 12
+CORR_METHOD: pearson
+
+Input files:
+OOF: /mnt/newStor/paros/paros_WORK/ines/results/BrainAgePredictionADNI_stratified_groupcv_targetnorm_bagbiascorr_oofglobal/ablation_imaging_only/validation_figures_oof/subject_level_validation_input.csv
+ENRICHED: /mnt/newStor/paros/paros_WORK/ines/results/BrainAgePredictionADNI_stratified_groupcv_targetnorm_bagbiascorr_oofglobal/ablation_imaging_only/validation_figures_full_cohort/subject_level_validation_input_enriched_for_Figure4.csv
+
+OOF scan rows: 188
+Endpoint scan rows: 188
+
+Delta table:
+subjects: 84
+subject_base  baseline_visit  followup_visit  delta_cbag_oof
+       R1195               0               4        1.709545
+       R4028               0               4        1.491392
+       R4043               0               4        0.030234
+       R4076               0               4        0.025434
+       R4084               0               4       -0.821822
+
+Endpoint availability:
+                    endpoint             domain                  source_column  source_column_present  n_delta     sd_delta  n_unique_delta  usable                          reason
+         Cognition composite           Clinical  cognition_composite_raw_clean                   True       84     0.805638              84    True                              ok
+                        MMSE           Clinical           MMSE_total_raw_clean                   True       83     2.020174               9    True                              ok
+                        MoCA           Clinical MOCA_total_corrected_raw_clean                   True       40     4.796099               9    True                              ok
+                        ADAS           Clinical           ADAS_total_raw_clean                   True       39     3.725771              27    True                              ok
+    Hippocampal volume (mm³)     Structural MRI                  Hc_volume_mm3                   True       84  1059.176220              81    True                              ok
+Hippocampal volume (% brain)     Structural MRI            Hc_volume_pct_brain                   True       84     0.062000              84    True                              ok
+              Hippocampal FA      Diffusion MRI                          Hc_FA                   True       84     0.016286              84    True                              ok
+              Hippocampal RD      Diffusion MRI                          Hc_RD                   True       84     0.000090              84    True                              ok
+              Hippocampal AD      Diffusion MRI                          Hc_AD                   True       84     0.000104              84    True                              ok
+             Hippocampal ADC      Diffusion MRI                         Hc_ADC                   True       84     0.000094              84    True                              ok
+          Total brain volume     Structural MRI             Total_Brain_volume                   True       84 56065.486209              84    True                              ok
+              Total brain FA      Diffusion MRI                 Total_Brain_FA                   True       84     0.017107              84    True                              ok
+            Graph clustering            Network     Clustering_Coeff_raw_clean                   True       84     0.859087              84    True                              ok
+           Graph path length            Network          Path_Length_raw_clean                   True       84     0.667965              84    True                              ok
+           Global efficiency            Network    Global_Efficiency_raw_clean                   True       84     0.948230              84    True                              ok
+            Local efficiency            Network     Local_Efficiency_raw_clean                   True       84     1.013320              84    True                              ok
+                         BMI Vascular/metabolic                  BMI_raw_clean                   True        0          NaN               0   False insufficient_n_or_zero_variance
+              BMI calculated Vascular/metabolic       BMI_calculated_raw_clean                   True        0          NaN               0   False insufficient_n_or_zero_variance
+                     PHC BMI Vascular/metabolic                        PHC_BMI                   True        0          NaN               0   False insufficient_n_or_zero_variance
+
+Associations:
+                    endpoint             domain                  source_column                        delta_column  n         r        p    ci_low   ci_high                          status    abs_r
+                         BMI Vascular/metabolic                  BMI_raw_clean                          delta__BMI  0       NaN      NaN       NaN       NaN insufficient_n_or_zero_variance      NaN
+              BMI calculated Vascular/metabolic       BMI_calculated_raw_clean               delta__BMI calculated  0       NaN      NaN       NaN       NaN insufficient_n_or_zero_variance      NaN
+                     PHC BMI Vascular/metabolic                        PHC_BMI                      delta__PHC BMI  0       NaN      NaN       NaN       NaN insufficient_n_or_zero_variance      NaN
+          Total brain volume     Structural MRI             Total_Brain_volume           delta__Total brain volume 84  0.331703 0.002054  0.126285  0.509844                              ok 0.331703
+Hippocampal volume (% brain)     Structural MRI            Hc_volume_pct_brain delta__Hippocampal volume (% brain) 84 -0.327871 0.002330 -0.506655 -0.122052                              ok 0.327871
+           Global efficiency            Network    Global_Efficiency_raw_clean            delta__Global efficiency 84 -0.251891 0.020809 -0.442398 -0.039632                              ok 0.251891
+    Hippocampal volume (mm³)     Structural MRI                  Hc_volume_mm3     delta__Hippocampal volume (mm³) 84 -0.139739 0.204881 -0.343836  0.076966                              ok 0.139739
+                        MMSE           Clinical           MMSE_total_raw_clean                         delta__MMSE 83  0.098147 0.377381 -0.120089  0.307334                              ok 0.098147
+                        ADAS           Clinical           ADAS_total_raw_clean                         delta__ADAS 39 -0.094376 0.567674 -0.398046  0.227934                              ok 0.094376
+                        MoCA           Clinical MOCA_total_corrected_raw_clean                         delta__MoCA 40  0.093335 0.566757 -0.224714  0.393411                              ok 0.093335
+         Cognition composite           Clinical  cognition_composite_raw_clean          delta__Cognition composite 84  0.062387 0.572910 -0.154073  0.273133                              ok 0.062387
+           Graph path length            Network          Path_Length_raw_clean            delta__Graph path length 84  0.060259 0.586095 -0.156157  0.271155                              ok 0.060259
+            Local efficiency            Network     Local_Efficiency_raw_clean             delta__Local efficiency 84  0.054462 0.622689 -0.161826  0.265758                              ok 0.054462
+            Graph clustering            Network     Clustering_Coeff_raw_clean             delta__Graph clustering 84  0.047136 0.670271 -0.168970  0.258919                              ok 0.047136
+              Hippocampal AD      Diffusion MRI                          Hc_AD               delta__Hippocampal AD 84 -0.044821 0.685595 -0.256753  0.171223                              ok 0.044821
+             Hippocampal ADC      Diffusion MRI                         Hc_ADC              delta__Hippocampal ADC 84 -0.036515 0.741583 -0.248965  0.179288                              ok 0.036515
+              Hippocampal RD      Diffusion MRI                          Hc_RD               delta__Hippocampal RD 84 -0.031070 0.779046 -0.243845  0.184558                              ok 0.031070
+              Total brain FA      Diffusion MRI                 Total_Brain_FA               delta__Total brain FA 84 -0.012347 0.911240 -0.226148  0.202588                              ok 0.012347
+              Hippocampal FA      Diffusion MRI                          Hc_FA               delta__Hippocampal FA 84  0.009742 0.929915 -0.205085  0.223674                              ok 0.009742
+
+Saved outputs:
+/mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Figure8_ADNI_longitudinal_delta_cBAG_STRICT_pctHc/Figure8_ADNI_longitudinal_delta_cBAG_STRICT.png
+/mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Figure8_ADNI_longitudinal_delta_cBAG_STRICT_pctHc/Figure8_ADNI_longitudinal_delta_cBAG_STRICT.pdf
+/mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Figure8_ADNI_longitudinal_delta_cBAG_STRICT_pctHc/Supplementary_Figure8_ADNI_longitudinal_delta_cBAG_STRICT.png
+/mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Figure8_ADNI_longitudinal_delta_cBAG_STRICT_pctHc/Supplementary_Figure8_ADNI_longitudinal_delta_cBAG_STRICT.pdf
+
+Saved tables:
+/mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Figure8_ADNI_longitudinal_delta_cBAG_STRICT_pctHc/adni_longitudinal_delta_subject_table.csv
+/mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Figure8_ADNI_longitudinal_delta_cBAG_STRICT_pctHc/adni_longitudinal_delta_association_stats.csv
+/mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Figure8_ADNI_longitudinal_delta_cBAG_STRICT_pctHc/adni_longitudinal_endpoint_availability.csv
+/mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Figure8_ADNI_longitudinal_delta_cBAG_STRICT_pctHc/figure8_adni_manifest.csv
+
+DONE

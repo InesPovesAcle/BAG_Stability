@@ -1,0 +1,35 @@
+python - <<'PY'
+from pathlib import Path
+import pandas as pd
+
+base = Path("/mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation")
+dirs = sorted(base.glob("Figure7_cross_cohort_replication_*"))
+
+tables = [
+    "figure7_dataset_summary.csv",
+    "figure7_model_metric_summary.csv",
+    "figure7_endpoint_correlation_stats.csv",
+    "figure7_replication_summary.csv",
+    "figure7_manifest.csv",
+]
+
+outdir = base / "Figure7_cross_cohort_replication_ALL_METRICS"
+outdir.mkdir(parents=True, exist_ok=True)
+
+for table in tables:
+    frames = []
+    for d in dirs:
+        metric = d.name.replace("Figure7_cross_cohort_replication_", "")
+        path = d / table
+        if path.exists():
+            df = pd.read_csv(path)
+            df.insert(0, "figure7_metric_run", metric)
+            df.insert(1, "source_dir", str(d))
+            frames.append(df)
+    if frames:
+        out = pd.concat(frames, ignore_index=True, sort=False)
+        out.to_csv(outdir / table.replace(".csv", "_all_metrics.csv"), index=False)
+        print("wrote", outdir / table.replace(".csv", "_all_metrics.csv"), out.shape)
+
+print("DONE:", outdir)
+PY

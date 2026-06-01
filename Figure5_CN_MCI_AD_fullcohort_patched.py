@@ -30,7 +30,6 @@ import os
 import re
 from pathlib import Path
 from typing import Optional, Sequence
-from datetime import datetime
 
 import matplotlib
 matplotlib.use("Agg")
@@ -49,9 +48,7 @@ BASE_DIR = WORK / "ines"
 RESULTS_ROOT = BASE_DIR / "results"
 HARMONIZED_DIR = BASE_DIR / "data" / "harmonization" / "harmonized_metadata"
 
-DATE_TAG = os.environ.get("FIGURE5_DATE_TAG", datetime.now().strftime("%Y%m%d"))
-BIOVALIDATION_ROOT = RESULTS_ROOT / "BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation"
-OUTDIR = BIOVALIDATION_ROOT / f"Figure5_{DATE_TAG}"
+OUTDIR = RESULTS_ROOT / "Figure5_Final_FromHarmonizedMetadata_full_cohort"
 MERGED_OUTDIR = OUTDIR / "merged_tables"
 FIGURE_OUTDIR = OUTDIR / "figures"
 QA_OUTDIR = OUTDIR / "qa"
@@ -163,23 +160,6 @@ MAIN_COLUMNS = {
     "Clinical / vascular": ["cardiovascular", "depression_anxiety"],
 }
 
-# Broad testing domains used for domain-wise FDR.
-# These are intentionally aligned with the Figure 5 conceptual columns.
-FDR_DOMAIN_BY_FAMILY = {
-    fam: domain
-    for domain, families in MAIN_COLUMNS.items()
-    for fam in families
-}
-UNCORRECTED_ALPHA = 0.05
-
-# Remove height and weight from association screening, but keep BMI/body mass index.
-HEIGHT_WEIGHT_EXCLUDE_PATTERNS = [
-    r"(^|_)height($|_)", r"(^|_)heigh($|_)", r"(^|_)ht($|_)", r"stature",
-    r"(^|_)weight($|_)", r"(^|_)weigh($|_)", r"(^|_)wt($|_)",
-    r"body_weight", r"bodyweight", r"kilogram", r"kg$",
-]
-BMI_KEEP_PATTERNS = [r"(^|_)bmi($|_)", r"body_mass_index"]
-
 CURATED_RULES = [
     ("global_efficiency", r"global[_\s]*efficiency"),
     ("local_efficiency", r"local[_\s]*efficiency"),
@@ -199,7 +179,7 @@ CURATED_RULES = [
     ("language", r"language|fluency|fas|animals|animal|naming|wat|word[_\s]*accent|verbal[_\s]*flu"),
     ("visuospatial", r"visuospatial|benson|figure|copy|construction"),
     ("global_cognition_screening", r"moca|mocatots|mmse|cdr|cdrsb|cdglobal|adas|cognition|cognitive|global[_\s]*cog"),
-    ("cardiovascular", r"blood[_\s]*pressure|\bsbp\b|\bdbp\b|pulse|chol|hdl|ldl|triglycer|glucose|hba1c|diabetes|hypertension|\bbmi\b|body[_\s]*mass[_\s]*index|insulin|homa|egfr|creatinine|vascular|vitals"),
+    ("cardiovascular", r"blood[_\s]*pressure|\bsbp\b|\bdbp\b|pulse|chol|hdl|ldl|triglycer|glucose|hba1c|diabetes|hypertension|bmi|body[_\s]*mass|insulin|homa|egfr|creatinine|vascular|vitals"),
     ("depression_anxiety", r"depress|anxiety|\bgds\b|pswq|worry"),
 ]
 
@@ -527,34 +507,13 @@ def fdr_bh(pvals: Sequence[float]) -> np.ndarray:
     return q
 
 
-def is_bmi_col(col: str) -> bool:
-    low = normalize_name(col)
-    return any(re.search(pat, low, flags=re.I) for pat in BMI_KEEP_PATTERNS)
-
-
-def is_height_weight_col(col: str) -> bool:
-    """Exclude height/weight variables from screening while explicitly preserving BMI."""
-    low = normalize_name(col)
-    if is_bmi_col(low):
-        return False
-    return any(re.search(pat, low, flags=re.I) for pat in HEIGHT_WEIGHT_EXCLUDE_PATTERNS)
-
-
 def is_excluded_col(col: str) -> bool:
     low = normalize_name(col)
     if any(tok in low for tok in EXCLUDE_TOKENS):
         return True
-    if is_height_weight_col(col):
-        return True
     if not INCLUDE_DEMOGRAPHICS_IN_SCREEN and any(tok in low for tok in DEMOGRAPHIC_TOKENS):
         return True
     return False
-
-
-def testing_domain_from_family(fam: Optional[str]) -> str:
-    if fam in FDR_DOMAIN_BY_FAMILY:
-        return FDR_DOMAIN_BY_FAMILY[fam]
-    return "Uncurated / other"
 
 
 def curated_family(var: str) -> Optional[str]:
@@ -591,9 +550,6 @@ def scan_numeric_vars(df: pd.DataFrame, cohort: str, feature_set: str) -> pd.Dat
             "variable_norm": normalize_name(col),
             "curated_family": fam,
             "curated_family_label": CURATED_LABELS.get(fam, "") if fam else "",
-            "testing_domain": testing_domain_from_family(fam),
-            "is_bmi_like": bool(is_bmi_col(col)),
-            "is_height_weight_like": bool(is_height_weight_col(col)),
             "n": int(len(tmp)),
             "n_unique": int(tmp["x"].nunique()),
             "pearson_r": float(r),
@@ -609,121 +565,15 @@ def scan_numeric_vars(df: pd.DataFrame, cohort: str, feature_set: str) -> pd.Dat
         })
     out = pd.DataFrame(rows)
     if not out.empty:
-        out["p_uncorrected_lt_0_05"] = pd.to_numeric(out["pearson_p"], errors="coerce") < UNCORRECTED_ALPHA
         out["fdr_q_within_cohort"] = fdr_bh(out["pearson_p"].values)
     return out
-
-
-def add_fdr_columns(assoc_all: pd.DataFrame) -> pd.DataFrame:
-    """Add overall, within-cohort, within-domain, and within-family FDR columns."""
-    if assoc_all.empty:
-        return assoc_all
-    df = assoc_all.copy()
-    df["pearson_p"] = pd.to_numeric(df["pearson_p"], errors="coerce")
-    df["p_uncorrected_lt_0_05"] = df["pearson_p"] < UNCORRECTED_ALPHA
-
-    # FDR across every tested association in this feature set.
-    df["fdr_q_all_tests_feature_set"] = fdr_bh(df["pearson_p"].values)
-
-    # FDR within each cohort across all tested variables.
-    df["fdr_q_within_cohort"] = np.nan
-    for cohort, idx in df.groupby("cohort").groups.items():
-        df.loc[idx, "fdr_q_within_cohort"] = fdr_bh(df.loc[idx, "pearson_p"].values)
-
-    # FDR within broad biological/testing domain inside each cohort.
-    df["fdr_q_within_cohort_domain"] = np.nan
-    for (_, _), idx in df.groupby(["cohort", "testing_domain"], dropna=False).groups.items():
-        df.loc[idx, "fdr_q_within_cohort_domain"] = fdr_bh(df.loc[idx, "pearson_p"].values)
-
-    # Optional narrower FDR inside curated family within each cohort.
-    df["fdr_q_within_cohort_family"] = np.nan
-    fam_df = df[df["curated_family"].notna()].copy()
-    for (_, _), idx in fam_df.groupby(["cohort", "curated_family"], dropna=False).groups.items():
-        df.loc[idx, "fdr_q_within_cohort_family"] = fdr_bh(df.loc[idx, "pearson_p"].values)
-
-    df["sig_fdr_all_tests_feature_set"] = pd.to_numeric(df["fdr_q_all_tests_feature_set"], errors="coerce") < FDR_THRESHOLD
-    df["sig_fdr_within_cohort"] = pd.to_numeric(df["fdr_q_within_cohort"], errors="coerce") < FDR_THRESHOLD
-    df["sig_fdr_within_cohort_domain"] = pd.to_numeric(df["fdr_q_within_cohort_domain"], errors="coerce") < FDR_THRESHOLD
-    df["sig_fdr_within_cohort_family"] = pd.to_numeric(df["fdr_q_within_cohort_family"], errors="coerce") < FDR_THRESHOLD
-    return df
-
-
-def summarize_test_counts(assoc_all: pd.DataFrame, feature_set: str) -> tuple[pd.DataFrame, pd.DataFrame]:
-    """Count tested columns and significant associations by cohort and by cohort/domain."""
-    base_cols = [
-        "feature_set", "cohort", "testing_domain", "n_tested",
-        "n_uncorrected_p_lt_0_05",
-        "n_fdr_all_tests_feature_set_lt_0_05",
-        "n_fdr_within_cohort_lt_0_05",
-        "n_fdr_within_cohort_domain_lt_0_05",
-        "n_fdr_within_cohort_family_lt_0_05",
-    ]
-    if assoc_all.empty:
-        empty_domain = pd.DataFrame(columns=base_cols)
-        empty_cohort = pd.DataFrame(columns=[c for c in base_cols if c != "testing_domain"])
-        return empty_domain, empty_cohort
-
-    df = assoc_all.copy()
-    for c in [
-        "p_uncorrected_lt_0_05",
-        "sig_fdr_all_tests_feature_set",
-        "sig_fdr_within_cohort",
-        "sig_fdr_within_cohort_domain",
-        "sig_fdr_within_cohort_family",
-    ]:
-        if c not in df.columns:
-            df[c] = False
-        df[c] = df[c].fillna(False).astype(bool)
-
-    def agg(g):
-        return pd.Series({
-            "n_tested": int(len(g)),
-            "n_uncorrected_p_lt_0_05": int(g["p_uncorrected_lt_0_05"].sum()),
-            "n_fdr_all_tests_feature_set_lt_0_05": int(g["sig_fdr_all_tests_feature_set"].sum()),
-            "n_fdr_within_cohort_lt_0_05": int(g["sig_fdr_within_cohort"].sum()),
-            "n_fdr_within_cohort_domain_lt_0_05": int(g["sig_fdr_within_cohort_domain"].sum()),
-            "n_fdr_within_cohort_family_lt_0_05": int(g["sig_fdr_within_cohort_family"].sum()),
-        })
-
-    by_domain = df.groupby(["feature_set", "cohort", "testing_domain"], dropna=False).apply(agg).reset_index()
-    by_cohort = df.groupby(["feature_set", "cohort"], dropna=False).apply(agg).reset_index()
-    return by_domain, by_cohort
-
-
-def save_candidate_variable_inventory(merged: pd.DataFrame, cohort: str, feature_set: str) -> pd.DataFrame:
-    """Save a column-level audit showing what was excluded and what was testable."""
-    rows = []
-    y = clean_numeric(merged["_cbag"]) if "_cbag" in merged.columns else pd.Series(np.nan, index=merged.index)
-    for col in merged.columns:
-        if col.startswith("_"):
-            continue
-        fam = curated_family(col)
-        excluded = is_excluded_col(col)
-        x = clean_numeric(merged[col])
-        complete = pd.DataFrame({"x": x, "y": y}).dropna()
-        rows.append({
-            "feature_set": feature_set,
-            "cohort": cohort,
-            "variable": col,
-            "variable_norm": normalize_name(col),
-            "curated_family": fam,
-            "testing_domain": testing_domain_from_family(fam),
-            "excluded_from_screen": bool(excluded),
-            "is_bmi_like": bool(is_bmi_col(col)),
-            "is_height_weight_like": bool(is_height_weight_col(col)),
-            "is_tested": bool((not excluded) and len(complete) >= MIN_N and complete["x"].nunique() >= MIN_UNIQUE and complete["y"].nunique() >= 2),
-            "n_complete_with_cbag": int(len(complete)),
-            "n_unique": int(complete["x"].nunique()) if not complete.empty else 0,
-        })
-    return pd.DataFrame(rows)
 
 
 def best_fdr_by_cohort_family(assoc: pd.DataFrame) -> pd.DataFrame:
     if assoc.empty:
         return assoc
     df = assoc[assoc["curated_family"].notna()].copy()
-    q_col = "fdr_q_within_cohort_domain" if "fdr_q_within_cohort_domain" in df.columns else "fdr_q_within_cohort"
-    df = df[pd.to_numeric(df[q_col], errors="coerce") < FDR_THRESHOLD]
+    df = df[pd.to_numeric(df["fdr_q_within_cohort"], errors="coerce") < FDR_THRESHOLD]
     if df.empty:
         return df
     best = (
@@ -738,8 +588,7 @@ def best_fdr_by_cohort_family(assoc: pd.DataFrame) -> pd.DataFrame:
 
 def select_main_associations(assoc: pd.DataFrame) -> pd.DataFrame:
     selected = []
-    q_col = "fdr_q_within_cohort_domain" if "fdr_q_within_cohort_domain" in assoc.columns else "fdr_q_within_cohort"
-    fdr = assoc[assoc["curated_family"].notna() & (pd.to_numeric(assoc[q_col], errors="coerce") < FDR_THRESHOLD)].copy()
+    fdr = assoc[assoc["curated_family"].notna() & (pd.to_numeric(assoc["fdr_q_within_cohort"], errors="coerce") < FDR_THRESHOLD)].copy()
     for cohort in COHORTS:
         for category, families in MAIN_COLUMNS.items():
             sub = fdr[(fdr["cohort"].eq(cohort)) & (fdr["curated_family"].isin(families))].copy()
@@ -761,28 +610,14 @@ def run_screening_for_feature_set(feature_set: str) -> tuple[pd.DataFrame, pd.Da
     assoc_frames = []
     qa_rows = []
     unmatched_frames = []
-    inventory_frames = []
-    input_path_rows = []
 
     for cohort in COHORTS:
         print(f"\n[INFO] {feature_set} | {cohort}")
         merged, qa = load_and_merge(cohort, feature_set)
         qa_rows.append(qa)
-        input_path_rows.append({
-            "feature_set": feature_set,
-            "cohort": cohort,
-            "validation_path": qa.get("validation_path", ""),
-            "metadata_path": qa.get("metadata_path", ""),
-            "validation_key_col": qa.get("validation_key_col", ""),
-            "metadata_key_col": qa.get("metadata_key_col", ""),
-            "cbag_col": qa.get("cbag_col", ""),
-        })
 
         merged_path = MERGED_OUTDIR / f"merged_metadata_screening_{feature_set}_{cohort}.csv"
         merged.to_csv(merged_path, index=False)
-
-        inv = save_candidate_variable_inventory(merged, cohort, feature_set)
-        inventory_frames.append(inv)
 
         unmatched = merged[merged.filter(like="meta__").notna().any(axis=1).eq(False)].copy()
         if not unmatched.empty:
@@ -800,39 +635,15 @@ def run_screening_for_feature_set(feature_set: str) -> tuple[pd.DataFrame, pd.Da
 
     assoc_all = pd.concat(assoc_frames, ignore_index=True, sort=False) if assoc_frames else pd.DataFrame()
     if not assoc_all.empty:
-        assoc_all = add_fdr_columns(assoc_all)
-        assoc_all = assoc_all.sort_values(["cohort", "testing_domain", "abs_pearson_r", "pearson_p"], ascending=[True, True, False, True])
+        assoc_all["fdr_q_all_tests_feature_set"] = fdr_bh(assoc_all["pearson_p"].values)
+        assoc_all = assoc_all.sort_values(["cohort", "abs_pearson_r", "pearson_p"], ascending=[True, False, True])
 
     qa_df = pd.DataFrame(qa_rows)
     assoc_all.to_csv(OUTDIR / f"metadata_variable_associations_{feature_set}.csv", index=False)
     qa_df.to_csv(QA_OUTDIR / f"Figure5_merge_QA_{feature_set}.csv", index=False)
-
-    if inventory_frames:
-        pd.concat(inventory_frames, ignore_index=True, sort=False).to_csv(
-            QA_OUTDIR / f"Figure5_candidate_variable_inventory_{feature_set}.csv", index=False
-        )
-    pd.DataFrame(input_path_rows).to_csv(
-        QA_OUTDIR / f"Figure5_input_paths_validation_and_metadata_{feature_set}.csv", index=False
-    )
-
-    by_domain, by_cohort = summarize_test_counts(assoc_all, feature_set)
-    by_domain.to_csv(QA_OUTDIR / f"Figure5_association_test_counts_by_domain_{feature_set}.csv", index=False)
-    by_cohort.to_csv(QA_OUTDIR / f"Figure5_association_test_counts_by_cohort_{feature_set}.csv", index=False)
-
     if unmatched_frames:
-        pd.concat(unmatched_frames, ignore_index=True, sort=False).to_csv(
-            QA_OUTDIR / f"Figure5_unmatched_validation_rows_{feature_set}.csv", index=False
-        )
-
-    pd.DataFrame(best_fdr_by_cohort_family(assoc_all)).to_csv(
-        OUTDIR / f"curated_family_fdr_significant_{feature_set}.csv", index=False
-    )
-
-    print(f"\n[COUNT SUMMARY] {feature_set} by cohort")
-    if not by_cohort.empty:
-        print(by_cohort.to_string(index=False))
-    print(f"[INFO] Saved counts: {QA_OUTDIR / f'Figure5_association_test_counts_by_cohort_{feature_set}.csv'}")
-    print(f"[INFO] Saved domain counts: {QA_OUTDIR / f'Figure5_association_test_counts_by_domain_{feature_set}.csv'}")
+        pd.concat(unmatched_frames, ignore_index=True, sort=False).to_csv(QA_OUTDIR / f"Figure5_unmatched_validation_rows_{feature_set}.csv", index=False)
+    pd.DataFrame(best_fdr_by_cohort_family(assoc_all)).to_csv(OUTDIR / f"curated_family_fdr_significant_{feature_set}.csv", index=False)
     return assoc_all, qa_df
 
 
@@ -920,7 +731,7 @@ def plot_association_panel(ax: plt.Axes, merged: pd.DataFrame, row: pd.Series, t
     ax.axhline(0, color="0.65", linestyle="--", linewidth=0.7)
     ax.grid(True, alpha=0.20)
 
-    q = pd.to_numeric(row.get("fdr_q_within_cohort_domain", row.get("fdr_q_within_cohort", np.nan)), errors="coerce")
+    q = pd.to_numeric(row.get("fdr_q_within_cohort", np.nan), errors="coerce")
     ax.set_title(
         f"{title_prefix}\n{CURATED_LABELS.get(row.get('curated_family'), row.get('curated_family', ''))} — {shorten(var, 22)}\n"
         f"n={len(tmp)}, r={r:.2f}, R²={r*r:.2f}, {p_text(p)}, {q_text(q)}",
@@ -979,7 +790,7 @@ def matrix_from_best(best: pd.DataFrame, families: Sequence[str]) -> tuple[pd.Da
         if fam not in mat.index or cohort not in mat.columns:
             continue
         r = float(row["pearson_r"])
-        q = pd.to_numeric(row.get("fdr_q_within_cohort_domain", row.get("fdr_q_within_cohort", np.nan)), errors="coerce")
+        q = pd.to_numeric(row.get("fdr_q_within_cohort", np.nan), errors="coerce")
         n = int(row.get("n", 0))
         star = "***" if pd.notna(q) and q < 0.001 else "**" if pd.notna(q) and q < 0.01 else "*" if pd.notna(q) and q < 0.05 else ""
         mat.loc[fam, cohort] = r
@@ -1519,7 +1330,6 @@ def main() -> None:
     print("Harmonized metadata:", HARMONIZED_DIR)
     print("Validation root:", RESULTS_ROOT)
     print("Validation directory name:", VALIDATION_DIR_NAME)
-    print("Biological validation root:", BIOVALIDATION_ROOT)
     print("Output:", OUTDIR)
     print("Merge policy: validation rows left-joined to final harmonized metadata by connectome/session key; no row-order fallback.")
 
@@ -1528,26 +1338,10 @@ def main() -> None:
     all_qa = []
     manifest_rows = []
     all_auc = []
-    all_count_domain_frames = []
-    all_count_cohort_frames = []
-    all_inventory_frames = []
-    all_input_path_frames = []
 
     for fs in FEATURE_SETS:
         assoc, qa = run_screening_for_feature_set(fs)
         all_qa.append(qa)
-        count_domain_path = QA_OUTDIR / f"Figure5_association_test_counts_by_domain_{fs}.csv"
-        count_cohort_path = QA_OUTDIR / f"Figure5_association_test_counts_by_cohort_{fs}.csv"
-        inventory_path = QA_OUTDIR / f"Figure5_candidate_variable_inventory_{fs}.csv"
-        input_paths_path = QA_OUTDIR / f"Figure5_input_paths_validation_and_metadata_{fs}.csv"
-        if count_domain_path.exists():
-            all_count_domain_frames.append(pd.read_csv(count_domain_path))
-        if count_cohort_path.exists():
-            all_count_cohort_frames.append(pd.read_csv(count_cohort_path))
-        if inventory_path.exists():
-            all_inventory_frames.append(pd.read_csv(inventory_path))
-        if input_paths_path.exists():
-            all_input_path_frames.append(pd.read_csv(input_paths_path))
         selected = select_main_associations(assoc)
         selected.to_csv(FIGURE_OUTDIR / f"Figure5_SelectedAssociations_{fs}.csv", index=False)
         make_heatmap_figure(fs, assoc)
@@ -1568,22 +1362,6 @@ def main() -> None:
 
     all_qa_df = pd.concat(all_qa, ignore_index=True, sort=False) if all_qa else pd.DataFrame()
     all_qa_df.to_csv(QA_OUTDIR / "Figure5_merge_QA_all_models.csv", index=False)
-    if all_count_domain_frames:
-        pd.concat(all_count_domain_frames, ignore_index=True, sort=False).to_csv(
-            QA_OUTDIR / "Figure5_association_test_counts_by_domain_all_models.csv", index=False
-        )
-    if all_count_cohort_frames:
-        pd.concat(all_count_cohort_frames, ignore_index=True, sort=False).to_csv(
-            QA_OUTDIR / "Figure5_association_test_counts_by_cohort_all_models.csv", index=False
-        )
-    if all_inventory_frames:
-        pd.concat(all_inventory_frames, ignore_index=True, sort=False).to_csv(
-            QA_OUTDIR / "Figure5_candidate_variable_inventory_all_models_all_cohorts.csv", index=False
-        )
-    if all_input_path_frames:
-        pd.concat(all_input_path_frames, ignore_index=True, sort=False).to_csv(
-            QA_OUTDIR / "Figure5_input_paths_validation_and_metadata.csv", index=False
-        )
     if all_auc:
         pd.concat(all_auc, ignore_index=True, sort=False).to_csv(AUC_OUTDIR / "Figure5_AUC_summary_all_models.csv", index=False)
     pd.DataFrame(manifest_rows).to_csv(FIGURE_OUTDIR / "Figure5_manifest.csv", index=False)
@@ -1593,14 +1371,6 @@ def main() -> None:
     print(FIGURE_OUTDIR)
     print("QA:")
     print(QA_OUTDIR / "Figure5_merge_QA_all_models.csv")
-    print("Association test counts by cohort:")
-    print(QA_OUTDIR / "Figure5_association_test_counts_by_cohort_all_models.csv")
-    print("Association test counts by domain:")
-    print(QA_OUTDIR / "Figure5_association_test_counts_by_domain_all_models.csv")
-    print("Candidate variable inventory:")
-    print(QA_OUTDIR / "Figure5_candidate_variable_inventory_all_models_all_cohorts.csv")
-    print("Input paths used:")
-    print(QA_OUTDIR / "Figure5_input_paths_validation_and_metadata.csv")
     print("AUC summary:")
     print(AUC_OUTDIR / "Figure5_AUC_summary_all_models.csv")
     print("\nInspect status recovery with:")

@@ -1,0 +1,86 @@
+[Parallel(n_jobs=2)]: Using backend LokyBackend with 2 concurrent workers.
+
+====================================================================================================
+FIGURE 6 SHAP BUILDER
+====================================================================================================
+RESULTS_ROOT: /mnt/newStor/paros/paros_WORK/ines/results
+VALIDATION_BASE: /mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation
+OUT_BASE: /mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Figure6_SHAP
+OOF model folders:
+  ADNI: /mnt/newStor/paros/paros_WORK/ines/results/BrainAgePredictionADNI_stratified_groupcv_targetnorm_bagbiascorr_oofglobal
+Cohorts: ['ADNI']
+Feature sets: ['imaging_only']
+Main figure feature set: imaging_only
+Skip computation: False
+====================================================================================================
+
+====================================================================================================
+SHAP | cohort=ADNI | feature_set=imaging_only
+====================================================================================================
+Graph: /mnt/newStor/paros/paros_WORK/ines/results/harmonized/ADNI/graphs/imaging_only/graph_data_list_adni_all.pt
+Model: /mnt/newStor/paros/paros_WORK/ines/results/BrainAgePredictionADNI_stratified_groupcv_targetnorm_bagbiascorr_oofglobal/ablation_imaging_only/brainage_adni_imaging_only_prediction_model.pt
+Encoding: /mnt/newStor/paros/paros_WORK/ines/results/harmonized/ADNI/graphs/imaging_only/adni_feature_encoding_info.json
+Output: /mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Figure6_SHAP/adni/imaging_only
+Loaded graphs: 10
+Dims: {'node': 3, 'global': 4, 'edge': 1}
+Global feature names: ['Clustering_Coeff', 'Path_Length', 'Global_Efficiency', 'Local_Efficiency']
+[Parallel(n_jobs=2)]: Done   1 tasks      | elapsed:    6.6s
+[Parallel(n_jobs=2)]: Done   4 tasks      | elapsed:    9.2s
+[Parallel(n_jobs=2)]: Done  10 out of  10 | elapsed:   14.2s finished
+Saved subject-level SHAP run summary: /mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Figure6_SHAP/adni/imaging_only/input_shap_summary_all_subjects.csv
+Saved hierarchical clustermap: /mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Figure6_SHAP/adni/imaging_only/hierarchical_clustering/adni_imaging_only_global_feature_shap_hierarchical_heatmap.png
+Saved hierarchical clustermap: /mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Figure6_SHAP/adni/imaging_only/hierarchical_clustering/adni_imaging_only_global_shap_graph_hierarchical_heatmap.png
+Saved hierarchical clustermap: /mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Figure6_SHAP/adni/imaging_only/hierarchical_clustering/adni_imaging_only_node_feature_shap_hierarchical_heatmap.png
+Saved hierarchical clustermap: /mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Figure6_SHAP/adni/imaging_only/hierarchical_clustering/adni_imaging_only_gnn_embedding_hierarchical_heatmap.png
+
+Building Figure 6 main and Supplementary Figure 6...
+
+====================================================================================================
+FIGURE 6 SHAP FINISHED
+Combined summary: /mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Figure6_SHAP/combined_shap_run_summary.csv
+Figure manifest: /mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Figure6_SHAP/Figure6_SHAP_figure_manifest.csv
+Saved Figure 6: ['/mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Figure6_SHAP/Figure6_main_SHAP_interpretability.png']
+Saved Supplementary Figure 6: ['/mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Figure6_SHAP/Supplementary_Figure6_SHAP_ablation_summary.png']
+Output base: /mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Figure6_SHAP
+====================================================================================================
+
+====================================================================================================
+FIGURE 6 MASTER v3: COMPLETE CROSS-COHORT SHAP BUILD
+====================================================================================================
+OUT_BASE: /mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Figure6_SHAP
+Cohorts:  ADNI
+Models:   imaging_only
+====================================================================================================
+
+--- Processing model: imaging_only ---
+
+Finished Figure 6 MASTER v3.
+Master manifest: /mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Figure6_SHAP/cross_cohort_aggregated/Figure6_MASTER_v3_workflow_manifest.csv
+
+Key final outputs:
+  /mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Figure6_SHAP/cross_cohort_aggregated/final_figures/per_model_panels/Figure6_combined_imaging_only_model_WITH_EDGES.png
+  /mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Figure6_SHAP/cross_cohort_aggregated/final_figures/Figure6_combined_imaging_only_model_WITH_EDGES.png
+  /mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Figure6_SHAP/cross_cohort_aggregated/final_figures/Supplementary_Figure6_model_comparison_global_edges_regions_nodes.png
+  /mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Figure6_SHAP/cross_cohort_aggregated/final_figures/Figure6_final_assembly_source_manifest.csv
+  /mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Figure6_SHAP/cross_cohort_aggregated/final_figures/Supplementary_Figure6B_global_feature_SHAP_beeswarm_imaging_only_model.png
+  /mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Figure6_SHAP/cross_cohort_aggregated/final_figures/Supplementary_Figure6C_node_feature_SHAP_beeswarm_imaging_only_model.png
+  /mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Figure6_SHAP/cross_cohort_aggregated/final_figures/Figure6_final_outputs_manifest.csv
+Figure 6 OOF SHAP pipeline
+mode: compute-and-aggregate
+out_base: /mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Figure6_SHAP
+cohorts: ADNI
+feature_sets: imaging_only
+main_model: imaging_only
+thread caps: {'OMP_NUM_THREADS': '1', 'MKL_NUM_THREADS': '1', 'OPENBLAS_NUM_THREADS': '1', 'NUMEXPR_NUM_THREADS': '1', 'VECLIB_MAXIMUM_THREADS': '1', 'BLIS_NUM_THREADS': '1'}
+
+====================================================================================================
+RUN: /home/apps/ubuntu-22.04/anaconda3/bin/python /mnt/newStor/paros/paros_WORK/ines/code/BAG_Stability052627/Figure6_build.py --cohorts ADNI --feature-sets imaging_only --main-feature-set imaging_only --out-base /mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Figure6_SHAP --skip-computation 0 --formats png --dpi 150 --n-jobs 2 --run-global-shap 1 --run-node-shap 1 --run-edge-shap 1 --max-subjects 10
+====================================================================================================
+
+====================================================================================================
+RUN: /home/apps/ubuntu-22.04/anaconda3/bin/python /mnt/newStor/paros/paros_WORK/ines/code/BAG_Stability052627/FIgure6_aggregateC.py --out-base /mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Figure6_SHAP --cohorts ADNI --models imaging_only --main-model imaging_only --dpi 150
+====================================================================================================
+
+[DONE] Figure 6 OOF SHAP pipeline finished.
+Check outputs under:
+/mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Figure6_SHAP/cross_cohort_aggregated

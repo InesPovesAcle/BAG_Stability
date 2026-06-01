@@ -173,12 +173,43 @@ FDR_DOMAIN_BY_FAMILY = {
 UNCORRECTED_ALPHA = 0.05
 
 # Remove height and weight from association screening, but keep BMI/body mass index.
+# IMPORTANT:
+# normalize_name() converts names such as "vitals_VSHEIGHT" or "VSWeight"
+# to lowercase underscore-style strings. The patterns below intentionally catch
+# embedded height/weight strings, including cohort-specific vital-sign fields,
+# while explicitly preserving BMI/body_mass_index.
 HEIGHT_WEIGHT_EXCLUDE_PATTERNS = [
-    r"(^|_)height($|_)", r"(^|_)heigh($|_)", r"(^|_)ht($|_)", r"stature",
-    r"(^|_)weight($|_)", r"(^|_)weigh($|_)", r"(^|_)wt($|_)",
-    r"body_weight", r"bodyweight", r"kilogram", r"kg$",
+    # Any embedded height-like variable:
+    # height, heigh, VSHEIGHT, VSHEIGH, VSHEI, vitals_VSHEIGHT, stature, standingheight, etc.
+    r"height",
+    r"heigh",
+    r"vshei",
+    r"stature",
+
+    # Any embedded weight-like variable:
+    # weight, weigh, VSWEIGHT, VSWEIG, VSWT, body_weight, bodyweight, etc.
+    r"weight",
+    r"weigh",
+    r"vswei",
+    r"vswt",
+    r"body_weight",
+    r"bodyweight",
+
+    # Common abbreviated anthropometric weight fields.
+    # Keep this conservative so we do not accidentally exclude unrelated columns.
+    r"(^|_)wt($|_)",
+    r"(^|_)kg($|_)",
+    r"kilogram",
 ]
-BMI_KEEP_PATTERNS = [r"(^|_)bmi($|_)", r"body_mass_index"]
+BMI_KEEP_PATTERNS = [
+    # Keep any column containing BMI anywhere after normalize_name().
+    # Examples kept: BMI, meta__BMI, vitals_BMI, subject_bmi_value.
+    r"bmi",
+
+    # Also keep explicit body-mass-index spellings.
+    r"body_mass_index",
+    r"bodymassindex",
+]
 
 CURATED_RULES = [
     ("global_efficiency", r"global[_\s]*efficiency"),
@@ -749,7 +780,11 @@ def select_main_associations(assoc: pd.DataFrame) -> pd.DataFrame:
                 source = "non-FDR fallback"
             if sub.empty:
                 continue
-            row = sub.sort_values(["abs_pearson_r", "pearson_p"], ascending=[False, True]).iloc[0].copy()
+            row = sub.assign(_q=pd.to_numeric(sub[q_col], errors="coerce")).sort_values(
+                ["_q", "pearson_p", "abs_pearson_r"],
+                ascending=[True, True, False]
+            ).iloc[0].copy()
+            row = row.drop(labels=["_q"], errors="ignore")
             row["main_category"] = category
             row["selected_from"] = source
             row["r2"] = row["pearson_r"] ** 2
@@ -1020,6 +1055,242 @@ def make_heatmap_figure(feature_set: str, assoc: pd.DataFrame) -> None:
     for fmt in FIGURE_FORMATS:
         fig.savefig(stem.with_suffix(f".{fmt}"), dpi=DPI, bbox_inches="tight")
     plt.close(fig)
+
+
+
+# =============================================================================
+# COMPLETE / NO-EMPTY-CELL SUPPLEMENTARY FIGURES
+# =============================================================================
+
+def q_sort_column(df: pd.DataFrame) -> str:
+    """Primary q-value used to rank associations for figure selection."""
+    for c in ["fdr_q_within_cohort_domain", "fdr_q_within_cohort", "fdr_q_all_tests_feature_set"]:
+        if c in df.columns:
+            return c
+    return "pearson_p"
+
+
+def select_domain_associations_complete(assoc: pd.DataFrame) -> pd.DataFrame:
+    """
+    Select one association for every cohort x main biological domain, regardless of significance.
+
+    Selection rule:
+      1) restrict to variables in that domain / families
+      2) sort by q-value ascending
+      3) tie-break by p-value ascending
+      4) tie-break by absolute Pearson r descending
+
+    This creates the complete supplementary figure/heatmap with no intentionally empty cells
+    as long as at least one variable was tested in that domain.
+    """
+    if assoc.empty:
+        return pd.DataFrame()
+
+    q_col = q_sort_column(assoc)
+    selected = []
+
+    for cohort in COHORTS:
+        for category, families in MAIN_COLUMNS.items():
+            sub = assoc[
+                (assoc["cohort"].eq(cohort)) &
+                (
+                    assoc["curated_family"].isin(families) |
+                    assoc["testing_domain"].eq(category)
+                )
+            ].copy()
+
+            if sub.empty:
+                # Leave a record so the supplementary table documents why a cell could not be filled.
+                selected.append({
+                    "feature_set": assoc["feature_set"].iloc[0] if "feature_set" in assoc.columns and len(assoc) else "",
+                    "cohort": cohort,
+                    "main_category": category,
+                    "selection_status": "no_tested_variable_in_domain",
+                    "selection_q_column": q_col,
+                })
+                continue
+
+            sub["_q_for_sort"] = pd.to_numeric(sub[q_col], errors="coerce")
+            sub["_p_for_sort"] = pd.to_numeric(sub["pearson_p"], errors="coerce")
+            sub["_abs_r_for_sort"] = pd.to_numeric(sub["abs_pearson_r"], errors="coerce")
+
+            row = sub.sort_values(
+                ["_q_for_sort", "_p_for_sort", "_abs_r_for_sort"],
+                ascending=[True, True, False]
+            ).iloc[0].copy()
+
+            row = row.drop(labels=["_q_for_sort", "_p_for_sort", "_abs_r_for_sort"], errors="ignore")
+            row["main_category"] = category
+            row["selection_status"] = (
+                "FDR_significant_domain"
+                if pd.to_numeric(row.get("fdr_q_within_cohort_domain", np.nan), errors="coerce") < FDR_THRESHOLD
+                else "not_FDR_significant_domain"
+            )
+            row["selection_q_column"] = q_col
+            row["r2"] = pd.to_numeric(row.get("pearson_r", np.nan), errors="coerce") ** 2
+            selected.append(row)
+
+    out = pd.DataFrame(selected)
+    return out
+
+
+def make_complete_main_figure(feature_set: str, selected_complete: pd.DataFrame) -> None:
+    """
+    Supplementary scatter-panel version with the same 4 columns as main Figure 5,
+    but filled with the best q-ranked association even when it is not FDR-significant.
+    """
+    categories = list(MAIN_COLUMNS)
+    fig, axes = plt.subplots(len(COHORTS), len(categories), figsize=(17, 10.5), squeeze=False)
+
+    for i, cohort in enumerate(COHORTS):
+        for j, category in enumerate(categories):
+            ax = axes[i, j]
+            if i == 0:
+                ax.set_title(category, fontsize=10, fontweight="bold", pad=22)
+            if j == 0:
+                ax.text(
+                    -0.35, 0.5, COHORT_LABELS[cohort],
+                    transform=ax.transAxes, rotation=90,
+                    ha="center", va="center", fontsize=11, fontweight="bold"
+                )
+
+            sub = selected_complete[
+                selected_complete["cohort"].eq(cohort) &
+                selected_complete["main_category"].eq(category)
+            ].copy()
+
+            if sub.empty or sub.iloc[0].get("selection_status") == "no_tested_variable_in_domain":
+                ax.text(0.5, 0.5, "No tested variable\nin this domain", ha="center", va="center", fontsize=8)
+                ax.axis("off")
+                continue
+
+            merged = pd.read_csv(MERGED_OUTDIR / f"merged_metadata_screening_{feature_set}_{cohort}.csv", low_memory=False)
+            if "_cognitive_status" not in merged.columns:
+                merged["_cognitive_status"] = derive_cognitive_status(merged)
+
+            row = sub.iloc[0]
+            plot_association_panel(ax, merged, row, f"{cohort}: {category}")
+
+            # Add a small status tag so non-significant panels are not overinterpreted.
+            status = str(row.get("selection_status", ""))
+            q = pd.to_numeric(row.get("fdr_q_within_cohort_domain", np.nan), errors="coerce")
+            tag = "domain FDR" if status == "FDR_significant_domain" else "not domain-FDR significant"
+            ax.text(
+                0.02, 0.02,
+                tag if not np.isfinite(q) else f"{tag}\nq_domain={q:.3g}",
+                transform=ax.transAxes,
+                ha="left", va="bottom",
+                fontsize=6,
+                bbox=dict(facecolor="white", edgecolor="0.7", alpha=0.80, boxstyle="round,pad=0.2")
+            )
+
+    fig.suptitle(
+        f"Supplementary Figure S5{MODEL_LETTERS.get(feature_set, '')}-complete. "
+        f"Top q-ranked cBAG association per domain ({MODEL_LABELS[feature_set]})",
+        fontsize=14,
+        y=0.99,
+    )
+    fig.text(
+        0.5,
+        0.012,
+        "Each panel shows the association with the smallest domain-level FDR q-value within that cohort and biological domain. "
+        "Panels are shown regardless of whether q<0.05; significance status is marked inside each panel.",
+        ha="center",
+        va="bottom",
+        fontsize=8,
+    )
+    fig.tight_layout(rect=[0.03, 0.04, 1, 0.95])
+
+    stem = FIGURE_OUTDIR / f"SupplementaryFigureS5{MODEL_LETTERS.get(feature_set, '')}_CompleteDomainPanels_{feature_set}"
+    for fmt in FIGURE_FORMATS:
+        fig.savefig(stem.with_suffix(f".{fmt}"), dpi=DPI, bbox_inches="tight")
+    plt.close(fig)
+
+
+def make_complete_domain_heatmap(feature_set: str, selected_complete: pd.DataFrame) -> None:
+    """
+    Supplementary heatmap with one filled cell per cohort x main biological domain when possible.
+    Color is signed Pearson r. Cells are selected by smallest domain-level FDR q-value.
+    """
+    categories = list(MAIN_COLUMNS)
+    mat = pd.DataFrame(index=categories, columns=COHORTS, dtype=float)
+    ann = pd.DataFrame("", index=categories, columns=COHORTS)
+
+    if not selected_complete.empty:
+        for _, row in selected_complete.iterrows():
+            cohort = row.get("cohort")
+            category = row.get("main_category")
+            if cohort not in COHORTS or category not in categories:
+                continue
+            if row.get("selection_status") == "no_tested_variable_in_domain":
+                ann.loc[category, cohort] = "No tested\nvariable"
+                continue
+
+            r = pd.to_numeric(row.get("pearson_r", np.nan), errors="coerce")
+            p = pd.to_numeric(row.get("pearson_p", np.nan), errors="coerce")
+            q = pd.to_numeric(row.get("fdr_q_within_cohort_domain", np.nan), errors="coerce")
+            n = int(row.get("n", 0)) if pd.notna(row.get("n", np.nan)) else 0
+            var = shorten(row.get("variable", ""), 18)
+
+            mat.loc[category, cohort] = r
+
+            if np.isfinite(q):
+                star = "***" if q < 0.001 else "**" if q < 0.01 else "*" if q < 0.05 else "ns"
+                qtxt = "q<1e-4" if q < 1e-4 else f"q={q:.3g}"
+            else:
+                star = "ns"
+                qtxt = "q=NA"
+
+            ptxt = "p<1e-4" if np.isfinite(p) and p < 1e-4 else f"p={p:.3g}" if np.isfinite(p) else "p=NA"
+            ann.loc[category, cohort] = f"{r:.2f} {star}\nn={n}\n{qtxt}\n{var}"
+
+    data = mat.to_numpy(dtype=float)
+    fig, ax = plt.subplots(figsize=(9.6, 4.8))
+    vmax = max(0.05, np.nanmax(np.abs(data)) if np.isfinite(data).any() else 1.0)
+    im = ax.imshow(data, aspect="auto", vmin=-vmax, vmax=vmax, cmap="coolwarm")
+
+    ax.set_title(
+        f"Supplementary Figure S5{MODEL_LETTERS.get(feature_set, '')}-complete heatmap. "
+        f"Top q-ranked association per domain\n{MODEL_LABELS[feature_set]}",
+        fontsize=12,
+        pad=12,
+    )
+    ax.set_xticks(np.arange(len(COHORTS)))
+    ax.set_xticklabels([COHORT_LABELS[c] for c in COHORTS], fontsize=9)
+    ax.set_yticks(np.arange(len(categories)))
+    ax.set_yticklabels(categories, fontsize=9)
+
+    for i, category in enumerate(categories):
+        for j, cohort in enumerate(COHORTS):
+            txt = ann.loc[category, cohort]
+            if txt:
+                ax.text(j, i, txt, ha="center", va="center", fontsize=6)
+
+    ax.set_xticks(np.arange(-0.5, len(COHORTS), 1), minor=True)
+    ax.set_yticks(np.arange(-0.5, len(categories), 1), minor=True)
+    ax.grid(which="minor", color="white", linestyle="-", linewidth=1.0)
+    ax.tick_params(which="minor", bottom=False, left=False)
+
+    cbar = fig.colorbar(im, ax=ax, fraction=0.04, pad=0.03)
+    cbar.set_label("Signed Pearson r", fontsize=9)
+
+    fig.text(
+        0.5,
+        0.01,
+        "Each cell shows the tested variable with the smallest domain-level FDR q-value in that cohort/domain. "
+        "Stars indicate q_domain: *<0.05, **<0.01, ***<0.001; ns = not significant.",
+        ha="center",
+        va="bottom",
+        fontsize=8,
+    )
+
+    fig.tight_layout(rect=[0, 0.04, 1, 1])
+    stem = FIGURE_OUTDIR / f"SupplementaryFigureS5{MODEL_LETTERS.get(feature_set, '')}_CompleteDomainHeatmap_{feature_set}"
+    for fmt in FIGURE_FORMATS:
+        fig.savefig(stem.with_suffix(f".{fmt}"), dpi=DPI, bbox_inches="tight")
+    plt.close(fig)
+
+
 
 
 
@@ -1521,6 +1792,7 @@ def main() -> None:
     print("Validation directory name:", VALIDATION_DIR_NAME)
     print("Biological validation root:", BIOVALIDATION_ROOT)
     print("Output:", OUTDIR)
+    print("Height/weight exclusion: ON — excludes columns containing height/heigh/VSHEI/weight/weigh/VSWEI/VSWT; keeps any column containing BMI and body_mass_index.")
     print("Merge policy: validation rows left-joined to final harmonized metadata by connectome/session key; no row-order fallback.")
 
     preflight_df = run_preflight_diagnosis_qa()
@@ -1551,6 +1823,16 @@ def main() -> None:
         selected = select_main_associations(assoc)
         selected.to_csv(FIGURE_OUTDIR / f"Figure5_SelectedAssociations_{fs}.csv", index=False)
         make_heatmap_figure(fs, assoc)
+
+        # Complete supplementary outputs: one q-ranked association per cohort x domain, regardless of significance.
+        selected_complete = select_domain_associations_complete(assoc)
+        selected_complete.to_csv(
+            FIGURE_OUTDIR / f"SupplementaryFigureS5{MODEL_LETTERS.get(fs, '')}_CompleteDomainSelectedAssociations_{fs}.csv",
+            index=False
+        )
+        make_complete_main_figure(fs, selected_complete)
+        make_complete_domain_heatmap(fs, selected_complete)
+
         auc_df = make_auc_figure(fs)
         if not auc_df.empty:
             all_auc.append(auc_df)
@@ -1565,6 +1847,9 @@ def main() -> None:
             manifest_rows.append({"figure": f"SupplementaryFigureS5{MODEL_LETTERS.get(fs, '')}_main_style", "feature_set": fs, "path_stem": str(FIGURE_OUTDIR / f"Figure5_Main_BiologicalValidation_{fs}")})
 
         manifest_rows.append({"figure": f"SupplementaryFigureS5{MODEL_LETTERS.get(fs, '')}_heatmap", "feature_set": fs, "path_stem": str(FIGURE_OUTDIR / f"SupplementaryFigureS5{MODEL_LETTERS.get(fs, '')}_CuratedMetadataHeatmap_{fs}")})
+        manifest_rows.append({"figure": f"SupplementaryFigureS5{MODEL_LETTERS.get(fs, '')}_complete_domain_panels", "feature_set": fs, "path_stem": str(FIGURE_OUTDIR / f"SupplementaryFigureS5{MODEL_LETTERS.get(fs, '')}_CompleteDomainPanels_{fs}")})
+        manifest_rows.append({"figure": f"SupplementaryFigureS5{MODEL_LETTERS.get(fs, '')}_complete_domain_heatmap", "feature_set": fs, "path_stem": str(FIGURE_OUTDIR / f"SupplementaryFigureS5{MODEL_LETTERS.get(fs, '')}_CompleteDomainHeatmap_{fs}")})
+        manifest_rows.append({"figure": f"SupplementaryFigureS5{MODEL_LETTERS.get(fs, '')}_complete_domain_selected_table", "feature_set": fs, "path_stem": str(FIGURE_OUTDIR / f"SupplementaryFigureS5{MODEL_LETTERS.get(fs, '')}_CompleteDomainSelectedAssociations_{fs}.csv")})
 
     all_qa_df = pd.concat(all_qa, ignore_index=True, sort=False) if all_qa else pd.DataFrame()
     all_qa_df.to_csv(QA_OUTDIR / "Figure5_merge_QA_all_models.csv", index=False)

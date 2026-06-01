@@ -1,0 +1,187 @@
+nohup: ignoring input
+[Parallel(n_jobs=4)]: Using backend LokyBackend with 4 concurrent workers.
+
+====================================================================================================
+FIGURE 6 SHAP BUILDER
+====================================================================================================
+RESULTS_ROOT: /mnt/newStor/paros/paros_WORK/ines/results
+VALIDATION_BASE: /mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation
+OUT_BASE: /mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Figure6_SHAP
+OOF model folders:
+  ADNI: /mnt/newStor/paros/paros_WORK/ines/results/BrainAgePredictionADNI_stratified_groupcv_targetnorm_bagbiascorr_oofglobal
+  ADRC: /mnt/newStor/paros/paros_WORK/ines/results/BrainAgePredictionADRC_stratified_groupcv_targetnorm_bagbiascorr_oofglobal
+  HABS: /mnt/newStor/paros/paros_WORK/ines/results/BrainAgePredictionHABS_stratified_groupcv_targetnorm_bagbiascorr_oofglobal
+  AD_DECODE: /mnt/newStor/paros/paros_WORK/ines/results/BrainAgePredictionADDECODE_stratified_groupcv_targetnorm_bagbiascorr_oofglobal
+Cohorts: ['ADNI', 'ADRC', 'HABS', 'AD_DECODE']
+Feature sets: ['imaging_only', 'imaging_demographics', 'imaging_biomarkers', 'full', 'full_no_cardiovascular']
+Main figure feature set: imaging_only
+Skip computation: False
+====================================================================================================
+
+====================================================================================================
+SHAP | cohort=ADNI | feature_set=imaging_only
+====================================================================================================
+Graph: /mnt/newStor/paros/paros_WORK/ines/results/harmonized/ADNI/graphs/imaging_only/graph_data_list_adni_all.pt
+Model: /mnt/newStor/paros/paros_WORK/ines/results/BrainAgePredictionADNI_stratified_groupcv_targetnorm_bagbiascorr_oofglobal/ablation_imaging_only/brainage_adni_imaging_only_prediction_model.pt
+Encoding: /mnt/newStor/paros/paros_WORK/ines/results/harmonized/ADNI/graphs/imaging_only/adni_feature_encoding_info.json
+Output: /mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Figure6_SHAP/adni/imaging_only
+Loaded graphs: 188
+Dims: {'node': 3, 'global': 4, 'edge': 1}
+Global feature names: ['Clustering_Coeff', 'Path_Length', 'Global_Efficiency', 'Local_Efficiency']
+[Parallel(n_jobs=4)]: Done   5 tasks      | elapsed:    9.6s
+[Parallel(n_jobs=4)]: Done  10 tasks      | elapsed:    9.8s
+[Parallel(n_jobs=4)]: Done  17 tasks      | elapsed:   10.0s
+[Parallel(n_jobs=4)]: Done  24 tasks      | elapsed:   10.2s
+[Parallel(n_jobs=4)]: Done  33 tasks      | elapsed:   10.6s
+[Parallel(n_jobs=4)]: Done  42 tasks      | elapsed:   10.9s
+[Parallel(n_jobs=4)]: Done  53 tasks      | elapsed:   11.4s
+[Parallel(n_jobs=4)]: Done  64 tasks      | elapsed:   11.7s
+[Parallel(n_jobs=4)]: Done  77 tasks      | elapsed:   12.3s
+[Parallel(n_jobs=4)]: Done  90 tasks      | elapsed:   12.6s
+[Parallel(n_jobs=4)]: Done 105 tasks      | elapsed:   13.3s
+[Parallel(n_jobs=4)]: Done 120 tasks      | elapsed:   13.8s
+[Parallel(n_jobs=4)]: Done 137 tasks      | elapsed:   14.5s
+[Parallel(n_jobs=4)]: Done 154 tasks      | elapsed:   15.2s
+[Parallel(n_jobs=4)]: Done 173 tasks      | elapsed:   15.9s
+[Parallel(n_jobs=4)]: Done 188 out of 188 | elapsed:   16.5s finished
+[Parallel(n_jobs=4)]: Using backend LokyBackend with 4 concurrent workers.
+[Parallel(n_jobs=4)]: Batch computation too fast (0.08755803108215332s.) Setting batch_size=2.
+[Parallel(n_jobs=4)]: Done   5 tasks      | elapsed:    0.3s
+[Parallel(n_jobs=4)]: Done  12 tasks      | elapsed:    0.5s
+[Parallel(n_jobs=4)]: Done  26 tasks      | elapsed:    0.8s
+[Parallel(n_jobs=4)]: Done  40 tasks      | elapsed:    1.0s
+[Parallel(n_jobs=4)]: Done  58 tasks      | elapsed:    1.3s
+[Parallel(n_jobs=4)]: Done  76 tasks      | elapsed:    1.6s
+[Parallel(n_jobs=4)]: Done  98 tasks      | elapsed:    1.9s
+[Parallel(n_jobs=4)]: Done 120 tasks      | elapsed:    2.4s
+[Parallel(n_jobs=4)]: Done 146 tasks      | elapsed:    2.7s
+[Parallel(n_jobs=4)]: Done 172 tasks      | elapsed:    3.2s
+[Parallel(n_jobs=4)]: Done 188 out of 188 | elapsed:    3.7s finished
+[Parallel(n_jobs=4)]: Using backend LokyBackend with 4 concurrent workers.
+[Parallel(n_jobs=4)]: Batch computation too fast (0.06756854057312012s.) Setting batch_size=2.
+[Parallel(n_jobs=4)]: Done   5 tasks      | elapsed:    0.2s
+[Parallel(n_jobs=4)]: Done  12 tasks      | elapsed:    0.4s
+[Parallel(n_jobs=4)]: Done  26 tasks      | elapsed:    0.8s
+[Parallel(n_jobs=4)]: Done  40 tasks      | elapsed:    1.1s
+[Parallel(n_jobs=4)]: Done  58 tasks      | elapsed:    1.4s
+[Parallel(n_jobs=4)]: Done  76 tasks      | elapsed:    1.7s
+[Parallel(n_jobs=4)]: Done  98 tasks      | elapsed:    2.1s
+[Parallel(n_jobs=4)]: Done 120 tasks      | elapsed:    2.6s
+[Parallel(n_jobs=4)]: Done 146 tasks      | elapsed:    3.2s
+[Parallel(n_jobs=4)]: Done 172 tasks      | elapsed:    3.8s
+[Parallel(n_jobs=4)]: Done 188 out of 188 | elapsed:    4.2s finished
+[Parallel(n_jobs=4)]: Using backend LokyBackend with 4 concurrent workers.
+[Parallel(n_jobs=4)]: Batch computation too fast (0.04447507858276367s.) Setting batch_size=2.
+[Parallel(n_jobs=4)]: Done   5 tasks      | elapsed:    0.1s
+[Parallel(n_jobs=4)]: Batch computation too fast (0.19044256210327148s.) Setting batch_size=4.
+[Parallel(n_jobs=4)]: Done  12 tasks      | elapsed:    0.3s
+[Parallel(n_jobs=4)]: Done  28 tasks      | elapsed:    0.5s
+[Parallel(n_jobs=4)]: Done  56 tasks      | elapsed:    0.8s
+[Parallel(n_jobs=4)]: Done  92 tasks      | elapsed:    1.1s
+[Parallel(n_jobs=4)]: Done 128 tasks      | elapsed:    1.4s
+[Parallel(n_jobs=4)]: Done 172 tasks      | elapsed:    1.8s
+[Parallel(n_jobs=4)]: Done 181 out of 188 | elapsed:    1.9s remaining:    0.1s
+[Parallel(n_jobs=4)]: Done 188 out of 188 | elapsed:    1.9s finished
+[Parallel(n_jobs=4)]: Using backend LokyBackend with 4 concurrent workers.
+[Parallel(n_jobs=4)]: Batch computation too fast (0.04392814636230469s.) Setting batch_size=2.
+[Parallel(n_jobs=4)]: Done   5 tasks      | elapsed:    0.1s
+[Parallel(n_jobs=4)]: Batch computation too fast (0.165816068649292s.) Setting batch_size=4.
+[Parallel(n_jobs=4)]: Done  12 tasks      | elapsed:    0.2s
+[Parallel(n_jobs=4)]: Done  28 tasks      | elapsed:    0.4s
+[Parallel(n_jobs=4)]: Batch computation too fast (0.1893937587738037s.) Setting batch_size=8.
+[Parallel(n_jobs=4)]: Done  56 tasks      | elapsed:    0.6s
+[Parallel(n_jobs=4)]: Batch computation too fast (0.19682765007019043s.) Setting batch_size=16.
+[Parallel(n_jobs=4)]: Done 136 tasks      | elapsed:    0.9s
+[Parallel(n_jobs=4)]: Done 188 out of 188 | elapsed:    1.0s finished
+[Parallel(n_jobs=4)]: Using backend LokyBackend with 4 concurrent workers.
+[Parallel(n_jobs=4)]: Batch computation too fast (0.038421630859375s.) Setting batch_size=2.
+[Parallel(n_jobs=4)]: Done   5 tasks      | elapsed:    0.1s
+[Parallel(n_jobs=4)]: Batch computation too fast (0.17027854919433594s.) Setting batch_size=4.
+[Parallel(n_jobs=4)]: Done  12 tasks      | elapsed:    0.2s
+[Parallel(n_jobs=4)]: Done  28 tasks      | elapsed:    0.4s
+[Parallel(n_jobs=4)]: Done  56 tasks      | elapsed:    0.6s
+[Parallel(n_jobs=4)]: Batch computation too fast (0.19934389198486338s.) Setting batch_size=8.
+[Parallel(n_jobs=4)]: Done  96 tasks      | elapsed:    0.8s
+[Parallel(n_jobs=4)]: Done 168 tasks      | elapsed:    1.0s
+[Parallel(n_jobs=4)]: Done 193 tasks      | elapsed:    1.2s
+[Parallel(n_jobs=4)]: Done 204 out of 204 | elapsed:    1.5s finished
+[Parallel(n_jobs=4)]: Using backend LokyBackend with 4 concurrent workers.
+[Parallel(n_jobs=4)]: Batch computation too fast (0.03992319107055664s.) Setting batch_size=2.
+[Parallel(n_jobs=4)]: Done   5 tasks      | elapsed:    0.1s
+[Parallel(n_jobs=4)]: Batch computation too fast (0.16613483428955078s.) Setting batch_size=4.
+[Parallel(n_jobs=4)]: Done  12 tasks      | elapsed:    0.2s
+[Parallel(n_jobs=4)]: Done  28 tasks      | elapsed:    0.4s
+[Parallel(n_jobs=4)]: Batch computation too fast (0.18236160278320312s.) Setting batch_size=8.
+[Parallel(n_jobs=4)]: Done  56 tasks      | elapsed:    0.5s
+[Parallel(n_jobs=4)]: Done 128 tasks      | elapsed:    0.8s
+[Parallel(n_jobs=4)]: Done 186 tasks      | elapsed:    1.0s
+[Parallel(n_jobs=4)]: Done 197 tasks      | elapsed:    1.2s
+[Parallel(n_jobs=4)]: Done 204 out of 204 | elapsed:    1.3s finished
+[Parallel(n_jobs=4)]: Using backend LokyBackend with 4 concurrent workers.
+[Parallel(n_jobs=4)]: Batch computation too fast (0.04085230827331543s.) Setting batch_size=2.
+[Parallel(n_jobs=4)]: Done   5 tasks      | elapsed:    0.1s
+[Parallel(n_jobs=4)]: Batch computation too fast (0.16082119941711426s.) Setting batch_size=4.
+[Parallel(n_jobs=4)]: Done  12 tasks      | elapsed:    0.2s
+[Parallel(n_jobs=4)]: Done  28 tasks      | elapsed:    0.4s
+[Parallel(n_jobs=4)]: Batch computation too fast (0.19852924346923828s.) Setting batch_size=8.
+[Parallel(n_jobs=4)]: Done  56 tasks      | elapsed:    0.5s
+[Parallel(n_jobs=4)]: Done 128 tasks      | elapsed:    0.8s
+[Parallel(n_jobs=4)]: Batch computation too fast (0.19993879435502934s.) Setting batch_size=16.
+[Parallel(n_jobs=4)]: Done 186 tasks      | elapsed:    1.0s
+[Parallel(n_jobs=4)]: Done 197 tasks      | elapsed:    1.2s
+[Parallel(n_jobs=4)]: Done 204 out of 204 | elapsed:    1.3s finished
+[Parallel(n_jobs=4)]: Using backend LokyBackend with 4 concurrent workers.
+[Parallel(n_jobs=4)]: Batch computation too fast (0.038089752197265625s.) Setting batch_size=2.
+[Parallel(n_jobs=4)]: Done   5 tasks      | elapsed:    0.1s
+[Parallel(n_jobs=4)]: Batch computation too fast (0.16276311874389648s.) Setting batch_size=4.
+[Parallel(n_jobs=4)]: Done  12 tasks      | elapsed:    0.2s
+[Parallel(n_jobs=4)]: Done  28 tasks      | elapsed:    0.4s
+[Parallel(n_jobs=4)]: Batch computation too fast (0.18408489227294922s.) Setting batch_size=8.
+[Parallel(n_jobs=4)]: Done  56 tasks      | elapsed:    0.5s
+[Parallel(n_jobs=4)]: Batch computation too fast (0.19659090042114258s.) Setting batch_size=16.
+[Parallel(n_jobs=4)]: Done 136 tasks      | elapsed:    0.9s
+[Parallel(n_jobs=4)]: Done 190 tasks      | elapsed:    1.0s
+[Parallel(n_jobs=4)]: Done 204 out of 204 | elapsed:    1.3s finished
+[Parallel(n_jobs=4)]: Using backend LokyBackend with 4 concurrent workers.
+[Parallel(n_jobs=4)]: Batch computation too fast (0.03937101364135742s.) Setting batch_size=2.
+[Parallel(n_jobs=4)]: Done   5 tasks      | elapsed:    0.1s
+[Parallel(n_jobs=4)]: Batch computation too fast (0.16701722145080566s.) Setting batch_size=4.
+[Parallel(n_jobs=4)]: Done  12 tasks      | elapsed:    0.2s
+[Parallel(n_jobs=4)]: Done  28 tasks      | elapsed:    0.4s
+[Parallel(n_jobs=4)]: Batch computation too fast (0.17783451080322266s.) Setting batch_size=8.
+[Parallel(n_jobs=4)]: Done  56 tasks      | elapsed:    0.6s
+[Parallel(n_jobs=4)]: Done 128 tasks      | elapsed:    0.8s
+[Parallel(n_jobs=4)]: Done 186 tasks      | elapsed:    1.0s
+[Parallel(n_jobs=4)]: Done 197 tasks      | elapsed:    1.2s
+[Parallel(n_jobs=4)]: Done 204 out of 204 | elapsed:    1.4s finished
+[Parallel(n_jobs=4)]: Using backend LokyBackend with 4 concurrent workers.
+[Parallel(n_jobs=4)]: Batch computation too fast (0.04341626167297363s.) Setting batch_size=2.
+[Parallel(n_jobs=4)]: Done   5 tasks      | elapsed:    0.1s
+[Parallel(n_jobs=4)]: Batch computation too fast (0.16812801361083984s.) Setting batch_size=4.
+[Parallel(n_jobs=4)]: Done  12 tasks      | elapsed:    0.3s
+[Parallel(n_jobs=4)]: Batch computation too slow (3.015765905380249s.) Setting batch_size=1.
+[Parallel(n_jobs=4)]: Done  30 tasks      | elapsed:    3.2s
+[Parallel(n_jobs=4)]: Batch computation too fast (0.13989639282226562s.) Setting batch_size=2.
+[Parallel(n_jobs=4)]: Done  52 tasks      | elapsed:    3.4s
+[Parallel(n_jobs=4)]: Batch computation too slow (3.3549368381500244s.) Setting batch_size=1.
+[Parallel(n_jobs=4)]: Batch computation too fast (0.1307976245880127s.) Setting batch_size=2.
+[Parallel(n_jobs=4)]: Batch computation too fast (0.13727617263793945s.) Setting batch_size=4.
+[Parallel(n_jobs=4)]: Done  64 tasks      | elapsed:    3.6s
+[Parallel(n_jobs=4)]: Batch computation too slow (2.776486396789551s.) Setting batch_size=1.
+[Parallel(n_jobs=4)]: Done  89 tasks      | elapsed:    6.5s
+[Parallel(n_jobs=4)]: Batch computation too fast (0.13910627365112305s.) Setting batch_size=2.
+[Parallel(n_jobs=4)]: Batch computation too slow (3.10425066947937s.) Setting batch_size=1.
+[Parallel(n_jobs=4)]: Done 105 tasks      | elapsed:    9.8s
+[Parallel(n_jobs=4)]: Done 116 tasks      | elapsed:   10.8s
+[Parallel(n_jobs=4)]: Batch computation too fast (0.19923245492392405s.) Setting batch_size=2.
+[Parallel(n_jobs=4)]: Done 129 tasks      | elapsed:   11.1s
+[Parallel(n_jobs=4)]: Batch computation too fast (0.11172699928283691s.) Setting batch_size=4.
+[Parallel(n_jobs=4)]: Batch computation too fast (0.11295676231384277s.) Setting batch_size=8.
+[Parallel(n_jobs=4)]: Done 165 tasks      | elapsed:   11.4s
+[Parallel(n_jobs=4)]: Batch computation too fast (0.1663353443145752s.) Setting batch_size=16.
+[Parallel(n_jobs=4)]: Done 290 tasks      | elapsed:   12.1s
+[Parallel(n_jobs=4)]: Done 318 out of 318 | elapsed:   13.3s finished
+/home/apps/ubuntu-22.04/anaconda3/envs/columns_analyses/lib/python3.9/site-packages/joblib/externals/loky/backend/resource_tracker.py:314: UserWarning: resource_tracker: There appear to be 10 leaked semlock objects to clean up at shutdown
+  warnings.warn(
+/home/apps/ubuntu-22.04/anaconda3/envs/columns_analyses/lib/python3.9/site-packages/joblib/externals/loky/backend/resource_tracker.py:314: UserWarning: resource_tracker: There appear to be 11 leaked folder objects to clean up at shutdown
+  warnings.warn(

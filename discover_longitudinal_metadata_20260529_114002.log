@@ -1,0 +1,439 @@
+nohup: ignoring input
+/mnt/newStor/paros/paros_WORK/ines/code/BAG_Stability052627/discover_and_plot_longitudinal_metadata.py:388: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  .first()
+/mnt/newStor/paros/paros_WORK/ines/code/BAG_Stability052627/discover_and_plot_longitudinal_metadata.py:388: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  .first()
+/mnt/newStor/paros/paros_WORK/ines/code/BAG_Stability052627/discover_and_plot_longitudinal_metadata.py:388: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  .first()
+/mnt/newStor/paros/paros_WORK/ines/code/BAG_Stability052627/discover_and_plot_longitudinal_metadata.py:388: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  .first()
+/mnt/newStor/paros/paros_WORK/ines/code/BAG_Stability052627/discover_and_plot_longitudinal_metadata.py:388: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  .first()
+/mnt/newStor/paros/paros_WORK/ines/code/BAG_Stability052627/discover_and_plot_longitudinal_metadata.py:388: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  .first()
+/mnt/newStor/paros/paros_WORK/ines/code/BAG_Stability052627/discover_and_plot_longitudinal_metadata.py:388: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  .first()
+/mnt/newStor/paros/paros_WORK/ines/code/BAG_Stability052627/discover_and_plot_longitudinal_metadata.py:388: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  .first()
+/mnt/newStor/paros/paros_WORK/ines/code/BAG_Stability052627/discover_and_plot_longitudinal_metadata.py:388: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  .first()
+====================================================================================================
+Longitudinal metadata discovery and plotting
+====================================================================================================
+DATA_ROOT: /mnt/newStor/paros/paros_WORK/ines/data
+RESULTS_ROOT: /mnt/newStor/paros/paros_WORK/ines/results
+OUTDIR: /mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Longitudinal_metadata_discovery
+COHORTS: ['ADNI', 'HABS']
+MIN_PAIRS: 20
+
+====================================================================================================
+COHORT ADNI
+====================================================================================================
+candidate files: 200
+
+ADNI subject_level_validation_input_enriched_for_Figure4
+  /mnt/newStor/paros/paros_WORK/ines/results/BrainAgePredictionADNI_stratified_groupcv_targetnorm_bagbiascorr_oofglobal/ablation_imaging_only/validation_figures_full_cohort/subject_level_validation_input_enriched_for_Figure4.csv
+  {'id_col': 'Subject_ID', 'visit_col': '', 'method': 'scan_id_contains_visit', 'parsed_rows': 188, 'unique_scan_rows': 188, 'subjects_ge2_visits': 84}
+
+ADNI adni_imaging_only_full_cohort_predictions
+  /mnt/newStor/paros/paros_WORK/ines/results/BrainAgePredictionADNI_stratified_groupcv_targetnorm_bagbiascorr_oofglobal/ablation_imaging_only/adni_imaging_only_full_cohort_predictions.csv
+  {'id_col': 'graph_id', 'visit_col': '', 'method': 'scan_id_contains_visit', 'parsed_rows': 188, 'unique_scan_rows': 188, 'subjects_ge2_visits': 84}
+
+ADNI adni_imaging_only_metadata_all_with_predictions
+  /mnt/newStor/paros/paros_WORK/ines/results/BrainAgePredictionADNI_stratified_groupcv_targetnorm_bagbiascorr_oofglobal/ablation_imaging_only/adni_imaging_only_metadata_all_with_predictions.csv
+  {'id_col': 'connectome_key', 'visit_col': '', 'method': 'scan_id_contains_visit', 'parsed_rows': 188, 'unique_scan_rows': 188, 'subjects_ge2_visits': 84}
+
+ADNI adni_imaging_only_metadata_with_cv_predictions
+  /mnt/newStor/paros/paros_WORK/ines/results/BrainAgePredictionADNI_stratified_groupcv_targetnorm_bagbiascorr_oofglobal/ablation_imaging_only/adni_imaging_only_metadata_with_cv_predictions.csv
+  {'id_col': 'connectome_key', 'visit_col': '', 'method': 'scan_id_contains_visit', 'parsed_rows': 188, 'unique_scan_rows': 188, 'subjects_ge2_visits': 84}
+
+ADNI subject_level_validation_input
+  /mnt/newStor/paros/paros_WORK/ines/results/BrainAgePredictionADNI_stratified_groupcv_targetnorm_bagbiascorr_oofglobal/ablation_imaging_only/validation_figures_full_cohort/subject_level_validation_input.csv
+  {'id_col': 'Subject_ID', 'visit_col': '', 'method': 'scan_id_contains_visit', 'parsed_rows': 188, 'unique_scan_rows': 188, 'subjects_ge2_visits': 84}
+
+ADNI subject_level_validation_input_full_cohort
+  /mnt/newStor/paros/paros_WORK/ines/results/BrainAgePredictionADNI_stratified_groupcv_targetnorm_bagbiascorr_oofglobal/ablation_imaging_only/validation_figures_full_cohort/subject_level_validation_input_full_cohort.csv
+  {'id_col': 'Subject_ID', 'visit_col': '', 'method': 'scan_id_contains_visit', 'parsed_rows': 188, 'unique_scan_rows': 188, 'subjects_ge2_visits': 84}
+
+ADNI ADNI_studywide_stats_BrainNorm_maskQC
+  /mnt/newStor/paros/paros_WORK/ines/data/Regional_stats/ADNI/ADNI_studywide_stats_BrainNorm_maskQC.csv
+  {'id_col': 'subject', 'visit_col': '', 'method': 'scan_id_contains_visit', 'parsed_rows': 316, 'unique_scan_rows': 316, 'subjects_ge2_visits': 136}
+
+ADNI ADNI_studywide_stats_maskQC
+  /mnt/newStor/paros/paros_WORK/ines/data/Regional_stats/ADNI/ADNI_studywide_stats_maskQC.csv
+  {'id_col': 'subject', 'visit_col': '', 'method': 'scan_id_contains_visit', 'parsed_rows': 316, 'unique_scan_rows': 316, 'subjects_ge2_visits': 136}
+
+ADNI All_Subjects_MMSE_26Mar2026
+  /mnt/newStor/paros/paros_WORK/ines/data/harmonization/ADNI/metadata/ADNI_Metadata/MetaData/All_Subjects_MMSE_26Mar2026.csv
+  {'id_col': 'ID', 'visit_col': 'MMYEAR', 'method': 'separate_subject_and_visit', 'parsed_rows': 11319, 'unique_scan_rows': 7927, 'subjects_ge2_visits': 756}
+
+ADNI All_Subjects_MOCA_26Mar2026
+  /mnt/newStor/paros/paros_WORK/ines/data/harmonization/ADNI/metadata/ADNI_Metadata/MetaData/All_Subjects_MOCA_26Mar2026.csv
+  {'id_col': 'ID', 'visit_col': 'YEAR', 'method': 'separate_subject_and_visit', 'parsed_rows': 6238, 'unique_scan_rows': 6147, 'subjects_ge2_visits': 15}
+
+ADNI MMSE_25Mar2026
+  /mnt/newStor/paros/paros_WORK/ines/data/harmonization/ADNI/metadata/ADNI_Metadata/MetaData/MMSE_25Mar2026.csv
+  {'id_col': 'ID', 'visit_col': 'MMYEAR', 'method': 'separate_subject_and_visit', 'parsed_rows': 11319, 'unique_scan_rows': 7927, 'subjects_ge2_visits': 756}
+
+ADNI MOCA_25Mar2026
+  /mnt/newStor/paros/paros_WORK/ines/data/harmonization/ADNI/metadata/ADNI_Metadata/MetaData/MOCA_25Mar2026.csv
+  {'id_col': 'ID', 'visit_col': 'YEAR', 'method': 'separate_subject_and_visit', 'parsed_rows': 6238, 'unique_scan_rows': 6147, 'subjects_ge2_visits': 15}
+
+ADNI ADNI_covars
+  /mnt/newStor/paros/paros_WORK/ines/data/harmonization/ADNI/metadata/ADNI_covars.csv
+  {'id_col': 'subject_id', 'visit_col': '', 'method': 'scan_id_contains_visit', 'parsed_rows': 322, 'unique_scan_rows': 322, 'subjects_ge2_visits': 141}
+
+ADNI ADNI_covars_no_underscores
+  /mnt/newStor/paros/paros_WORK/ines/data/harmonization/ADNI/metadata/ADNI_covars_no_underscores.csv
+  {'id_col': 'subject_id', 'visit_col': '', 'method': 'scan_id_contains_visit', 'parsed_rows': 268, 'unique_scan_rows': 268, 'subjects_ge2_visits': 87}
+
+ADNI ADNI_metadata032526
+  /mnt/newStor/paros/paros_WORK/ines/data/harmonization/ADNI/metadata/ADNI_metadata032526.csv
+  {'id_col': 'connectome_key', 'visit_col': '', 'method': 'scan_id_contains_visit', 'parsed_rows': 144, 'unique_scan_rows': 144, 'subjects_ge2_visits': 40}
+
+ADNI ADNI_metadata_with_DWI
+  /mnt/newStor/paros/paros_WORK/ines/data/harmonization/ADNI/metadata/ADNI_metadata_with_DWI.csv
+  {'id_col': 'DWI_subject_key', 'visit_col': 'DWI_visit_year', 'method': 'separate_subject_and_visit', 'parsed_rows': 7930, 'unique_scan_rows': 6362, 'subjects_ge2_visits': 1510}
+
+ADNI ADNI_metadata_with_DWI_key_copy
+  /mnt/newStor/paros/paros_WORK/ines/data/harmonization/ADNI/metadata/ADNI_metadata_with_DWI_key copy.csv
+  {'id_col': 'DWI_subject_key', 'visit_col': 'DWI_visit_year', 'method': 'separate_subject_and_visit', 'parsed_rows': 7930, 'unique_scan_rows': 6362, 'subjects_ge2_visits': 1510}
+
+ADNI ADNI_metadata_with_DWI_key
+  /mnt/newStor/paros/paros_WORK/ines/data/harmonization/ADNI/metadata/ADNI_metadata_with_DWI_key.csv
+  {'id_col': 'DWI_subject_key', 'visit_col': 'DWI_visit_year', 'method': 'separate_subject_and_visit', 'parsed_rows': 7930, 'unique_scan_rows': 6362, 'subjects_ge2_visits': 1510}
+
+ADNI All_Subjects_MMSE_01May2025
+  /mnt/newStor/paros/paros_WORK/ines/data/harmonization/ADNI/metadata/All_Subjects_MMSE_01May2025.csv
+  {'id_col': 'ID', 'visit_col': 'MMYEAR', 'method': 'separate_subject_and_visit', 'parsed_rows': 11254, 'unique_scan_rows': 7865, 'subjects_ge2_visits': 755}
+
+ADNI metadata_merged032626
+  /mnt/newStor/paros/paros_WORK/ines/data/harmonization/ADNI/metadata/metadata_merged032626.csv
+  {'id_col': 'connectome_key', 'visit_col': '', 'method': 'scan_id_contains_visit', 'parsed_rows': 144, 'unique_scan_rows': 144, 'subjects_ge2_visits': 40}
+
+====================================================================================================
+COHORT HABS
+====================================================================================================
+candidate files: 200
+
+HABS HABS_metadata_AB_enriched_v2
+  /mnt/newStor/paros/paros_WORK/ines/data/harmonization/HABS/metadata/HABS_metadata_AB_enriched_v2.csv
+  {'id_col': 'Subject_ID', 'visit_col': 'Year', 'method': 'separate_subject_and_visit', 'parsed_rows': 488, 'unique_scan_rows': 488, 'subjects_ge2_visits': 169}
+
+HABS HABS_studywide_stats_maskQC
+  /mnt/newStor/paros/paros_WORK/ines/data/Regional_stats/HABS/HABS_studywide_stats_maskQC.csv
+  {'id_col': 'subject', 'visit_col': '', 'method': 'scan_id_contains_visit', 'parsed_rows': 491, 'unique_scan_rows': 491, 'subjects_ge2_visits': 172}
+
+HABS HABS_DWI_connectome_index_from_files
+  /mnt/newStor/paros/paros_WORK/ines/data/harmonization/HABS/metadata/HABS_DWI_connectome_index_from_files.csv
+  {'id_col': 'DWI_subject', 'visit_col': 'DWI_visit', 'method': 'separate_subject_and_visit', 'parsed_rows': 487, 'unique_scan_rows': 487, 'subjects_ge2_visits': 168}
+
+HABS HABS_covars
+  /mnt/newStor/paros/paros_WORK/ines/data/harmonization/HABS/metadata/HABS_covars.csv
+  {'id_col': 'subject_id', 'visit_col': '', 'method': 'scan_id_contains_visit', 'parsed_rows': 487, 'unique_scan_rows': 487, 'subjects_ge2_visits': 168}
+
+HABS HABS_genomics_by_subject
+  /mnt/newStor/paros/paros_WORK/ines/data/harmonization/HABS/metadata/HABS_genomics_by_subject.csv
+  {'id_col': 'subject', 'visit_col': '', 'method': 'scan_id_contains_visit', 'parsed_rows': 475, 'unique_scan_rows': 475, 'subjects_ge2_visits': 164}
+
+HABS HABS_healthy_metadata
+  /mnt/newStor/paros/paros_WORK/ines/data/harmonization/HABS/metadata/HABS_healthy_metadata.csv
+  {'id_col': 'runno', 'visit_col': '', 'method': 'scan_id_contains_visit', 'parsed_rows': 370, 'unique_scan_rows': 370, 'subjects_ge2_visits': 125}
+
+HABS HABS_maestro_metadata_20250918T152548Z_bak
+  /mnt/newStor/paros/paros_WORK/ines/data/harmonization/HABS/metadata/HABS_maestro_metadata.20250918T152548Z.bak.csv
+  {'id_col': 'runno', 'visit_col': '', 'method': 'scan_id_contains_visit', 'parsed_rows': 488, 'unique_scan_rows': 488, 'subjects_ge2_visits': 169}
+
+HABS HABS_maestro_metadata_20250918T153044Z_bak
+  /mnt/newStor/paros/paros_WORK/ines/data/harmonization/HABS/metadata/HABS_maestro_metadata.20250918T153044Z.bak.csv
+  {'id_col': 'runno', 'visit_col': '', 'method': 'scan_id_contains_visit', 'parsed_rows': 488, 'unique_scan_rows': 488, 'subjects_ge2_visits': 169}
+
+HABS HABS_maestro_metadata_20250918T153519Z_bak
+  /mnt/newStor/paros/paros_WORK/ines/data/harmonization/HABS/metadata/HABS_maestro_metadata.20250918T153519Z.bak.csv
+  {'id_col': 'runno', 'visit_col': '', 'method': 'scan_id_contains_visit', 'parsed_rows': 488, 'unique_scan_rows': 488, 'subjects_ge2_visits': 169}
+
+HABS HABS_maestro_metadata_20250918T153945Z_bak
+  /mnt/newStor/paros/paros_WORK/ines/data/harmonization/HABS/metadata/HABS_maestro_metadata.20250918T153945Z.bak.csv
+  {'id_col': 'runno', 'visit_col': '', 'method': 'scan_id_contains_visit', 'parsed_rows': 488, 'unique_scan_rows': 488, 'subjects_ge2_visits': 169}
+
+HABS HABS_maestro_metadata_AB_debug_premerge
+  /mnt/newStor/paros/paros_WORK/ines/data/harmonization/HABS/metadata/HABS_maestro_metadata.AB_debug_premerge.csv
+  {'id_col': 'Subject', 'visit_col': 'Year', 'method': 'separate_subject_and_visit', 'parsed_rows': 488, 'unique_scan_rows': 488, 'subjects_ge2_visits': 169}
+
+HABS HABS_maestro_metadata_AB_final_debug_20250918T152548Z
+  /mnt/newStor/paros/paros_WORK/ines/data/harmonization/HABS/metadata/HABS_maestro_metadata.AB_final_debug.20250918T152548Z.csv
+  {'id_col': 'Subject', 'visit_col': 'Year', 'method': 'separate_subject_and_visit', 'parsed_rows': 488, 'unique_scan_rows': 488, 'subjects_ge2_visits': 169}
+
+HABS HABS_maestro_metadata_AB_final_debug_20250918T153044Z
+  /mnt/newStor/paros/paros_WORK/ines/data/harmonization/HABS/metadata/HABS_maestro_metadata.AB_final_debug.20250918T153044Z.csv
+  {'id_col': 'Subject', 'visit_col': 'Year', 'method': 'separate_subject_and_visit', 'parsed_rows': 488, 'unique_scan_rows': 488, 'subjects_ge2_visits': 169}
+
+HABS HABS_maestro_metadata_AB_final_debug_20250918T153519Z
+  /mnt/newStor/paros/paros_WORK/ines/data/harmonization/HABS/metadata/HABS_maestro_metadata.AB_final_debug.20250918T153519Z.csv
+  {'id_col': 'Subject', 'visit_col': 'Year', 'method': 'separate_subject_and_visit', 'parsed_rows': 488, 'unique_scan_rows': 488, 'subjects_ge2_visits': 169}
+
+HABS HABS_maestro_metadata_AB_final_debug_20250918T153945Z
+  /mnt/newStor/paros/paros_WORK/ines/data/harmonization/HABS/metadata/HABS_maestro_metadata.AB_final_debug.20250918T153945Z.csv
+  {'id_col': 'Subject', 'visit_col': 'Year', 'method': 'separate_subject_and_visit', 'parsed_rows': 488, 'unique_scan_rows': 488, 'subjects_ge2_visits': 169}
+
+HABS HABS_maestro_metadata
+  /mnt/newStor/paros/paros_WORK/ines/data/harmonization/HABS/metadata/HABS_maestro_metadata.csv
+  {'id_col': 'runno', 'visit_col': '', 'method': 'scan_id_contains_visit', 'parsed_rows': 488, 'unique_scan_rows': 488, 'subjects_ge2_visits': 169}
+
+HABS HABS_maestro_metadata_genomics_missing
+  /mnt/newStor/paros/paros_WORK/ines/data/harmonization/HABS/metadata/HABS_maestro_metadata.genomics_missing.txt
+  {'id_col': 'runno,missing_genomics,missing_clinical,missing_biomarker', 'visit_col': '', 'method': 'scan_id_contains_visit', 'parsed_rows': 90, 'unique_scan_rows': 90, 'subjects_ge2_visits': 4}
+
+HABS HABS_maestro_metadata_genomics_missing_v1
+  /mnt/newStor/paros/paros_WORK/ines/data/harmonization/HABS/metadata/HABS_maestro_metadata.genomics_missing.v1.txt
+  {'id_col': 'runno,missing_genomics,missing_clinical,missing_biomarker', 'visit_col': '', 'method': 'scan_id_contains_visit', 'parsed_rows': 90, 'unique_scan_rows': 90, 'subjects_ge2_visits': 4}
+
+HABS HABS_maestro_metadata_v1
+  /mnt/newStor/paros/paros_WORK/ines/data/harmonization/HABS/metadata/HABS_maestro_metadata.v1.csv
+  {'id_col': 'Subject', 'visit_col': 'Year', 'method': 'separate_subject_and_visit', 'parsed_rows': 488, 'unique_scan_rows': 488, 'subjects_ge2_visits': 169}
+
+HABS HABS_maestro_metadata_with_BAG
+  /mnt/newStor/paros/paros_WORK/ines/data/harmonization/HABS/metadata/HABS_maestro_metadata_with_BAG.csv
+  {'id_col': 'runno', 'visit_col': '', 'method': 'scan_id_contains_visit', 'parsed_rows': 488, 'unique_scan_rows': 488, 'subjects_ge2_visits': 169}
+
+HABS bu_HABS_covars
+  /mnt/newStor/paros/paros_WORK/ines/data/harmonization/HABS/metadata/bu_HABS_covars.csv
+  {'id_col': 'subject_id', 'visit_col': '', 'method': 'scan_id_contains_visit', 'parsed_rows': 638, 'unique_scan_rows': 638, 'subjects_ge2_visits': 319}
+
+Saved:
+/mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Longitudinal_metadata_discovery/longitudinal_metadata_file_summary.csv
+/mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Longitudinal_metadata_discovery/longitudinal_metadata_column_summary.csv
+/mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Longitudinal_metadata_discovery/longitudinal_metadata_delta_subject_table_ALL.csv
+/mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Longitudinal_metadata_discovery/longitudinal_metadata_chosen_plot_columns.csv
+/mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Longitudinal_metadata_discovery/longitudinal_metadata_discovery_manifest.csv
+
+Plots:
+/mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Longitudinal_metadata_discovery/ADNI_subject_level_validation_input_enriched_for_Figure4_spaghetti.png
+/mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Longitudinal_metadata_discovery/ADNI_subject_level_validation_input_enriched_for_Figure4_spaghetti.pdf
+/mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Longitudinal_metadata_discovery/ADNI_subject_level_validation_input_enriched_for_Figure4_delta_histograms.png
+/mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Longitudinal_metadata_discovery/ADNI_subject_level_validation_input_enriched_for_Figure4_delta_histograms.pdf
+/mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Longitudinal_metadata_discovery/ADNI_adni_imaging_only_full_cohort_predictions_spaghetti.png
+/mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Longitudinal_metadata_discovery/ADNI_adni_imaging_only_full_cohort_predictions_spaghetti.pdf
+/mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Longitudinal_metadata_discovery/ADNI_adni_imaging_only_full_cohort_predictions_delta_histograms.png
+/mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Longitudinal_metadata_discovery/ADNI_adni_imaging_only_full_cohort_predictions_delta_histograms.pdf
+/mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Longitudinal_metadata_discovery/ADNI_adni_imaging_only_metadata_all_with_predictions_spaghetti.png
+/mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Longitudinal_metadata_discovery/ADNI_adni_imaging_only_metadata_all_with_predictions_spaghetti.pdf
+/mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Longitudinal_metadata_discovery/ADNI_adni_imaging_only_metadata_all_with_predictions_delta_histograms.png
+/mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Longitudinal_metadata_discovery/ADNI_adni_imaging_only_metadata_all_with_predictions_delta_histograms.pdf
+/mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Longitudinal_metadata_discovery/ADNI_adni_imaging_only_metadata_with_cv_predictions_spaghetti.png
+/mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Longitudinal_metadata_discovery/ADNI_adni_imaging_only_metadata_with_cv_predictions_spaghetti.pdf
+/mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Longitudinal_metadata_discovery/ADNI_adni_imaging_only_metadata_with_cv_predictions_delta_histograms.png
+/mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Longitudinal_metadata_discovery/ADNI_adni_imaging_only_metadata_with_cv_predictions_delta_histograms.pdf
+/mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Longitudinal_metadata_discovery/ADNI_subject_level_validation_input_spaghetti.png
+/mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Longitudinal_metadata_discovery/ADNI_subject_level_validation_input_spaghetti.pdf
+/mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Longitudinal_metadata_discovery/ADNI_subject_level_validation_input_delta_histograms.png
+/mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Longitudinal_metadata_discovery/ADNI_subject_level_validation_input_delta_histograms.pdf
+/mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Longitudinal_metadata_discovery/ADNI_subject_level_validation_input_full_cohort_spaghetti.png
+/mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Longitudinal_metadata_discovery/ADNI_subject_level_validation_input_full_cohort_spaghetti.pdf
+/mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Longitudinal_metadata_discovery/ADNI_subject_level_validation_input_full_cohort_delta_histograms.png
+/mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Longitudinal_metadata_discovery/ADNI_subject_level_validation_input_full_cohort_delta_histograms.pdf
+/mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Longitudinal_metadata_discovery/ADNI_ADNI_studywide_stats_BrainNorm_maskQC_spaghetti.png
+/mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Longitudinal_metadata_discovery/ADNI_ADNI_studywide_stats_BrainNorm_maskQC_spaghetti.pdf
+/mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Longitudinal_metadata_discovery/ADNI_ADNI_studywide_stats_BrainNorm_maskQC_delta_histograms.png
+/mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Longitudinal_metadata_discovery/ADNI_ADNI_studywide_stats_BrainNorm_maskQC_delta_histograms.pdf
+/mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Longitudinal_metadata_discovery/ADNI_ADNI_studywide_stats_maskQC_spaghetti.png
+/mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Longitudinal_metadata_discovery/ADNI_ADNI_studywide_stats_maskQC_spaghetti.pdf
+/mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Longitudinal_metadata_discovery/ADNI_ADNI_studywide_stats_maskQC_delta_histograms.png
+/mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Longitudinal_metadata_discovery/ADNI_ADNI_studywide_stats_maskQC_delta_histograms.pdf
+/mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Longitudinal_metadata_discovery/ADNI_All_Subjects_MMSE_26Mar2026_spaghetti.png
+/mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Longitudinal_metadata_discovery/ADNI_All_Subjects_MMSE_26Mar2026_spaghetti.pdf
+/mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Longitudinal_metadata_discovery/ADNI_All_Subjects_MMSE_26Mar2026_delta_histograms.png
+/mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Longitudinal_metadata_discovery/ADNI_All_Subjects_MMSE_26Mar2026_delta_histograms.pdf
+/mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Longitudinal_metadata_discovery/ADNI_MMSE_25Mar2026_spaghetti.png
+/mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Longitudinal_metadata_discovery/ADNI_MMSE_25Mar2026_spaghetti.pdf
+/mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Longitudinal_metadata_discovery/ADNI_MMSE_25Mar2026_delta_histograms.png
+/mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Longitudinal_metadata_discovery/ADNI_MMSE_25Mar2026_delta_histograms.pdf
+/mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Longitudinal_metadata_discovery/ADNI_ADNI_covars_spaghetti.png
+/mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Longitudinal_metadata_discovery/ADNI_ADNI_covars_spaghetti.pdf
+/mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Longitudinal_metadata_discovery/ADNI_ADNI_covars_delta_histograms.png
+/mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Longitudinal_metadata_discovery/ADNI_ADNI_covars_delta_histograms.pdf
+/mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Longitudinal_metadata_discovery/ADNI_ADNI_covars_no_underscores_spaghetti.png
+/mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Longitudinal_metadata_discovery/ADNI_ADNI_covars_no_underscores_spaghetti.pdf
+/mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Longitudinal_metadata_discovery/ADNI_ADNI_covars_no_underscores_delta_histograms.png
+/mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Longitudinal_metadata_discovery/ADNI_ADNI_covars_no_underscores_delta_histograms.pdf
+/mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Longitudinal_metadata_discovery/ADNI_ADNI_metadata032526_spaghetti.png
+/mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Longitudinal_metadata_discovery/ADNI_ADNI_metadata032526_spaghetti.pdf
+/mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Longitudinal_metadata_discovery/ADNI_ADNI_metadata032526_delta_histograms.png
+/mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Longitudinal_metadata_discovery/ADNI_ADNI_metadata032526_delta_histograms.pdf
+/mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Longitudinal_metadata_discovery/ADNI_ADNI_metadata_with_DWI_spaghetti.png
+/mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Longitudinal_metadata_discovery/ADNI_ADNI_metadata_with_DWI_spaghetti.pdf
+/mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Longitudinal_metadata_discovery/ADNI_ADNI_metadata_with_DWI_delta_histograms.png
+/mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Longitudinal_metadata_discovery/ADNI_ADNI_metadata_with_DWI_delta_histograms.pdf
+/mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Longitudinal_metadata_discovery/ADNI_ADNI_metadata_with_DWI_key_copy_spaghetti.png
+/mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Longitudinal_metadata_discovery/ADNI_ADNI_metadata_with_DWI_key_copy_spaghetti.pdf
+/mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Longitudinal_metadata_discovery/ADNI_ADNI_metadata_with_DWI_key_copy_delta_histograms.png
+/mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Longitudinal_metadata_discovery/ADNI_ADNI_metadata_with_DWI_key_copy_delta_histograms.pdf
+/mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Longitudinal_metadata_discovery/ADNI_ADNI_metadata_with_DWI_key_spaghetti.png
+/mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Longitudinal_metadata_discovery/ADNI_ADNI_metadata_with_DWI_key_spaghetti.pdf
+/mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Longitudinal_metadata_discovery/ADNI_ADNI_metadata_with_DWI_key_delta_histograms.png
+/mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Longitudinal_metadata_discovery/ADNI_ADNI_metadata_with_DWI_key_delta_histograms.pdf
+/mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Longitudinal_metadata_discovery/ADNI_All_Subjects_MMSE_01May2025_spaghetti.png
+/mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Longitudinal_metadata_discovery/ADNI_All_Subjects_MMSE_01May2025_spaghetti.pdf
+/mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Longitudinal_metadata_discovery/ADNI_All_Subjects_MMSE_01May2025_delta_histograms.png
+/mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Longitudinal_metadata_discovery/ADNI_All_Subjects_MMSE_01May2025_delta_histograms.pdf
+/mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Longitudinal_metadata_discovery/ADNI_metadata_merged032626_spaghetti.png
+/mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Longitudinal_metadata_discovery/ADNI_metadata_merged032626_spaghetti.pdf
+/mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Longitudinal_metadata_discovery/ADNI_metadata_merged032626_delta_histograms.png
+/mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Longitudinal_metadata_discovery/ADNI_metadata_merged032626_delta_histograms.pdf
+/mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Longitudinal_metadata_discovery/HABS_HABS_metadata_AB_enriched_v2_spaghetti.png
+/mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Longitudinal_metadata_discovery/HABS_HABS_metadata_AB_enriched_v2_spaghetti.pdf
+/mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Longitudinal_metadata_discovery/HABS_HABS_metadata_AB_enriched_v2_delta_histograms.png
+/mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Longitudinal_metadata_discovery/HABS_HABS_metadata_AB_enriched_v2_delta_histograms.pdf
+/mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Longitudinal_metadata_discovery/HABS_HABS_studywide_stats_maskQC_spaghetti.png
+/mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Longitudinal_metadata_discovery/HABS_HABS_studywide_stats_maskQC_spaghetti.pdf
+/mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Longitudinal_metadata_discovery/HABS_HABS_studywide_stats_maskQC_delta_histograms.png
+/mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Longitudinal_metadata_discovery/HABS_HABS_studywide_stats_maskQC_delta_histograms.pdf
+/mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Longitudinal_metadata_discovery/HABS_HABS_healthy_metadata_spaghetti.png
+/mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Longitudinal_metadata_discovery/HABS_HABS_healthy_metadata_spaghetti.pdf
+/mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Longitudinal_metadata_discovery/HABS_HABS_healthy_metadata_delta_histograms.png
+/mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Longitudinal_metadata_discovery/HABS_HABS_healthy_metadata_delta_histograms.pdf
+/mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Longitudinal_metadata_discovery/HABS_HABS_maestro_metadata_20250918T152548Z_bak_spaghetti.png
+/mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Longitudinal_metadata_discovery/HABS_HABS_maestro_metadata_20250918T152548Z_bak_spaghetti.pdf
+/mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Longitudinal_metadata_discovery/HABS_HABS_maestro_metadata_20250918T152548Z_bak_delta_histograms.png
+/mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Longitudinal_metadata_discovery/HABS_HABS_maestro_metadata_20250918T152548Z_bak_delta_histograms.pdf
+/mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Longitudinal_metadata_discovery/HABS_HABS_maestro_metadata_20250918T153044Z_bak_spaghetti.png
+/mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Longitudinal_metadata_discovery/HABS_HABS_maestro_metadata_20250918T153044Z_bak_spaghetti.pdf
+/mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Longitudinal_metadata_discovery/HABS_HABS_maestro_metadata_20250918T153044Z_bak_delta_histograms.png
+/mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Longitudinal_metadata_discovery/HABS_HABS_maestro_metadata_20250918T153044Z_bak_delta_histograms.pdf
+/mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Longitudinal_metadata_discovery/HABS_HABS_maestro_metadata_20250918T153519Z_bak_spaghetti.png
+/mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Longitudinal_metadata_discovery/HABS_HABS_maestro_metadata_20250918T153519Z_bak_spaghetti.pdf
+/mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Longitudinal_metadata_discovery/HABS_HABS_maestro_metadata_20250918T153519Z_bak_delta_histograms.png
+/mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Longitudinal_metadata_discovery/HABS_HABS_maestro_metadata_20250918T153519Z_bak_delta_histograms.pdf
+/mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Longitudinal_metadata_discovery/HABS_HABS_maestro_metadata_20250918T153945Z_bak_spaghetti.png
+/mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Longitudinal_metadata_discovery/HABS_HABS_maestro_metadata_20250918T153945Z_bak_spaghetti.pdf
+/mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Longitudinal_metadata_discovery/HABS_HABS_maestro_metadata_20250918T153945Z_bak_delta_histograms.png
+/mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Longitudinal_metadata_discovery/HABS_HABS_maestro_metadata_20250918T153945Z_bak_delta_histograms.pdf
+/mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Longitudinal_metadata_discovery/HABS_HABS_maestro_metadata_AB_debug_premerge_spaghetti.png
+/mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Longitudinal_metadata_discovery/HABS_HABS_maestro_metadata_AB_debug_premerge_spaghetti.pdf
+/mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Longitudinal_metadata_discovery/HABS_HABS_maestro_metadata_AB_debug_premerge_delta_histograms.png
+/mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Longitudinal_metadata_discovery/HABS_HABS_maestro_metadata_AB_debug_premerge_delta_histograms.pdf
+/mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Longitudinal_metadata_discovery/HABS_HABS_maestro_metadata_AB_final_debug_20250918T153945Z_spaghetti.png
+/mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Longitudinal_metadata_discovery/HABS_HABS_maestro_metadata_AB_final_debug_20250918T153945Z_spaghetti.pdf
+/mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Longitudinal_metadata_discovery/HABS_HABS_maestro_metadata_AB_final_debug_20250918T153945Z_delta_histograms.png
+/mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Longitudinal_metadata_discovery/HABS_HABS_maestro_metadata_AB_final_debug_20250918T153945Z_delta_histograms.pdf
+/mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Longitudinal_metadata_discovery/HABS_HABS_maestro_metadata_spaghetti.png
+/mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Longitudinal_metadata_discovery/HABS_HABS_maestro_metadata_spaghetti.pdf
+/mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Longitudinal_metadata_discovery/HABS_HABS_maestro_metadata_delta_histograms.png
+/mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Longitudinal_metadata_discovery/HABS_HABS_maestro_metadata_delta_histograms.pdf
+/mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Longitudinal_metadata_discovery/HABS_HABS_maestro_metadata_v1_spaghetti.png
+/mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Longitudinal_metadata_discovery/HABS_HABS_maestro_metadata_v1_spaghetti.pdf
+/mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Longitudinal_metadata_discovery/HABS_HABS_maestro_metadata_v1_delta_histograms.png
+/mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Longitudinal_metadata_discovery/HABS_HABS_maestro_metadata_v1_delta_histograms.pdf
+/mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Longitudinal_metadata_discovery/HABS_HABS_maestro_metadata_with_BAG_spaghetti.png
+/mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Longitudinal_metadata_discovery/HABS_HABS_maestro_metadata_with_BAG_spaghetti.pdf
+/mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Longitudinal_metadata_discovery/HABS_HABS_maestro_metadata_with_BAG_delta_histograms.png
+/mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Longitudinal_metadata_discovery/HABS_HABS_maestro_metadata_with_BAG_delta_histograms.pdf
+/mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Longitudinal_metadata_discovery/longitudinal_metadata_availability_heatmap.png
+/mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Longitudinal_metadata_discovery/longitudinal_metadata_availability_heatmap.pdf
+/mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Longitudinal_metadata_discovery/ADNI_HABS_shared_delta_boxplots.png
+/mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Longitudinal_metadata_discovery/ADNI_HABS_shared_delta_boxplots.pdf
+
+Top usable columns:
+cohort                        file_tag              column  n_pairs  sd_delta  n_unique_delta   min_delta  median_delta  max_delta  all_zero  usable_longitudinal                                                                                                    file
+  ADNI          ADNI_metadata_with_DWI cognition_composite     1501  1.111404            1417   -7.022741     -0.186801   6.437917     False                 True          /mnt/newStor/paros/paros_WORK/ines/data/harmonization/ADNI/metadata/ADNI_metadata_with_DWI.csv
+  ADNI ADNI_metadata_with_DWI_key_copy cognition_composite     1501  1.111404            1417   -7.022741     -0.186801   6.437917     False                 True /mnt/newStor/paros/paros_WORK/ines/data/harmonization/ADNI/metadata/ADNI_metadata_with_DWI_key copy.csv
+  ADNI      ADNI_metadata_with_DWI_key cognition_composite     1501  1.111404            1417   -7.022741     -0.186801   6.437917     False                 True      /mnt/newStor/paros/paros_WORK/ines/data/harmonization/ADNI/metadata/ADNI_metadata_with_DWI_key.csv
+  ADNI          ADNI_metadata_with_DWI        hypertension     1498  0.609336               3   -1.000000      0.000000   1.000000     False                 True          /mnt/newStor/paros/paros_WORK/ines/data/harmonization/ADNI/metadata/ADNI_metadata_with_DWI.csv
+  ADNI ADNI_metadata_with_DWI_key_copy        hypertension     1498  0.609336               3   -1.000000      0.000000   1.000000     False                 True /mnt/newStor/paros/paros_WORK/ines/data/harmonization/ADNI/metadata/ADNI_metadata_with_DWI_key copy.csv
+  ADNI      ADNI_metadata_with_DWI_key        hypertension     1498  0.609336               3   -1.000000      0.000000   1.000000     False                 True      /mnt/newStor/paros/paros_WORK/ines/data/harmonization/ADNI/metadata/ADNI_metadata_with_DWI_key.csv
+  ADNI          ADNI_metadata_with_DWI          high_pulse     1498  0.331913               3   -1.000000      0.000000   1.000000     False                 True          /mnt/newStor/paros/paros_WORK/ines/data/harmonization/ADNI/metadata/ADNI_metadata_with_DWI.csv
+  ADNI ADNI_metadata_with_DWI_key_copy          high_pulse     1498  0.331913               3   -1.000000      0.000000   1.000000     False                 True /mnt/newStor/paros/paros_WORK/ines/data/harmonization/ADNI/metadata/ADNI_metadata_with_DWI_key copy.csv
+  ADNI      ADNI_metadata_with_DWI_key          high_pulse     1498  0.331913               3   -1.000000      0.000000   1.000000     False                 True      /mnt/newStor/paros/paros_WORK/ines/data/harmonization/ADNI/metadata/ADNI_metadata_with_DWI_key.csv
+  ADNI          ADNI_metadata_with_DWI          MMSE_total     1469  4.002625              39  -29.000000     -1.000000  28.000000     False                 True          /mnt/newStor/paros/paros_WORK/ines/data/harmonization/ADNI/metadata/ADNI_metadata_with_DWI.csv
+  ADNI ADNI_metadata_with_DWI_key_copy          MMSE_total     1469  4.002625              39  -29.000000     -1.000000  28.000000     False                 True /mnt/newStor/paros/paros_WORK/ines/data/harmonization/ADNI/metadata/ADNI_metadata_with_DWI_key copy.csv
+  ADNI      ADNI_metadata_with_DWI_key          MMSE_total     1469  4.002625              39  -29.000000     -1.000000  28.000000     False                 True      /mnt/newStor/paros/paros_WORK/ines/data/harmonization/ADNI/metadata/ADNI_metadata_with_DWI_key.csv
+  ADNI          ADNI_metadata_with_DWI              MMSE_z     1469  1.021162             103   -7.398566     -0.255123   7.143443     False                 True          /mnt/newStor/paros/paros_WORK/ines/data/harmonization/ADNI/metadata/ADNI_metadata_with_DWI.csv
+  ADNI ADNI_metadata_with_DWI_key_copy              MMSE_z     1469  1.021162             103   -7.398566     -0.255123   7.143443     False                 True /mnt/newStor/paros/paros_WORK/ines/data/harmonization/ADNI/metadata/ADNI_metadata_with_DWI_key copy.csv
+  ADNI      ADNI_metadata_with_DWI_key              MMSE_z     1469  1.021162             103   -7.398566     -0.255123   7.143443     False                 True      /mnt/newStor/paros/paros_WORK/ines/data/harmonization/ADNI/metadata/ADNI_metadata_with_DWI_key.csv
+  ADNI          ADNI_metadata_with_DWI            CDGLOBAL     1460  0.485199              10   -2.000000      0.000000   2.500000     False                 True          /mnt/newStor/paros/paros_WORK/ines/data/harmonization/ADNI/metadata/ADNI_metadata_with_DWI.csv
+  ADNI ADNI_metadata_with_DWI_key_copy            CDGLOBAL     1460  0.485199              10   -2.000000      0.000000   2.500000     False                 True /mnt/newStor/paros/paros_WORK/ines/data/harmonization/ADNI/metadata/ADNI_metadata_with_DWI_key copy.csv
+  ADNI      ADNI_metadata_with_DWI_key            CDGLOBAL     1460  0.485199              10   -2.000000      0.000000   2.500000     False                 True      /mnt/newStor/paros/paros_WORK/ines/data/harmonization/ADNI/metadata/ADNI_metadata_with_DWI_key.csv
+  ADNI          ADNI_metadata_with_DWI             VSBPSYS     1451 22.613898             121 -161.000000      0.000000  80.000000     False                 True          /mnt/newStor/paros/paros_WORK/ines/data/harmonization/ADNI/metadata/ADNI_metadata_with_DWI.csv
+  ADNI ADNI_metadata_with_DWI_key_copy             VSBPSYS     1451 22.613898             121 -161.000000      0.000000  80.000000     False                 True /mnt/newStor/paros/paros_WORK/ines/data/harmonization/ADNI/metadata/ADNI_metadata_with_DWI_key copy.csv
+  ADNI      ADNI_metadata_with_DWI_key             VSBPSYS     1451 22.613898             121 -161.000000      0.000000  80.000000     False                 True      /mnt/newStor/paros/paros_WORK/ines/data/harmonization/ADNI/metadata/ADNI_metadata_with_DWI_key.csv
+  ADNI          ADNI_metadata_with_DWI      pulse_pressure     1451 17.050962             105  -86.000000      0.000000  88.000000     False                 True          /mnt/newStor/paros/paros_WORK/ines/data/harmonization/ADNI/metadata/ADNI_metadata_with_DWI.csv
+  ADNI ADNI_metadata_with_DWI_key_copy      pulse_pressure     1451 17.050962             105  -86.000000      0.000000  88.000000     False                 True /mnt/newStor/paros/paros_WORK/ines/data/harmonization/ADNI/metadata/ADNI_metadata_with_DWI_key copy.csv
+  ADNI      ADNI_metadata_with_DWI_key      pulse_pressure     1451 17.050962             105  -86.000000      0.000000  88.000000     False                 True      /mnt/newStor/paros/paros_WORK/ines/data/harmonization/ADNI/metadata/ADNI_metadata_with_DWI_key.csv
+  ADNI          ADNI_metadata_with_DWI                 MAP     1451 14.644739             487 -113.000000     -0.666667  44.000000     False                 True          /mnt/newStor/paros/paros_WORK/ines/data/harmonization/ADNI/metadata/ADNI_metadata_with_DWI.csv
+  ADNI ADNI_metadata_with_DWI_key_copy                 MAP     1451 14.644739             487 -113.000000     -0.666667  44.000000     False                 True /mnt/newStor/paros/paros_WORK/ines/data/harmonization/ADNI/metadata/ADNI_metadata_with_DWI_key copy.csv
+  ADNI      ADNI_metadata_with_DWI_key                 MAP     1451 14.644739             487 -113.000000     -0.666667  44.000000     False                 True      /mnt/newStor/paros/paros_WORK/ines/data/harmonization/ADNI/metadata/ADNI_metadata_with_DWI_key.csv
+  ADNI          ADNI_metadata_with_DWI             VSBPDIA     1451 12.764019              77  -92.000000      0.000000  62.000000     False                 True          /mnt/newStor/paros/paros_WORK/ines/data/harmonization/ADNI/metadata/ADNI_metadata_with_DWI.csv
+  ADNI ADNI_metadata_with_DWI_key_copy             VSBPDIA     1451 12.764019              77  -92.000000      0.000000  62.000000     False                 True /mnt/newStor/paros/paros_WORK/ines/data/harmonization/ADNI/metadata/ADNI_metadata_with_DWI_key copy.csv
+  ADNI      ADNI_metadata_with_DWI_key             VSBPDIA     1451 12.764019              77  -92.000000      0.000000  62.000000     False                 True      /mnt/newStor/paros/paros_WORK/ines/data/harmonization/ADNI/metadata/ADNI_metadata_with_DWI_key.csv
+  ADNI          ADNI_metadata_with_DWI               MAP_z     1451  1.318849             523  -10.176345     -0.060037   3.962471     False                 True          /mnt/newStor/paros/paros_WORK/ines/data/harmonization/ADNI/metadata/ADNI_metadata_with_DWI.csv
+  ADNI ADNI_metadata_with_DWI_key_copy               MAP_z     1451  1.318849             523  -10.176345     -0.060037   3.962471     False                 True /mnt/newStor/paros/paros_WORK/ines/data/harmonization/ADNI/metadata/ADNI_metadata_with_DWI_key copy.csv
+  ADNI      ADNI_metadata_with_DWI_key               MAP_z     1451  1.318849             523  -10.176345     -0.060037   3.962471     False                 True      /mnt/newStor/paros/paros_WORK/ines/data/harmonization/ADNI/metadata/ADNI_metadata_with_DWI_key.csv
+  ADNI          ADNI_metadata_with_DWI           VSBPDIA_z     1451  1.263129             238   -9.104329      0.000000   6.135526     False                 True          /mnt/newStor/paros/paros_WORK/ines/data/harmonization/ADNI/metadata/ADNI_metadata_with_DWI.csv
+  ADNI ADNI_metadata_with_DWI_key_copy           VSBPDIA_z     1451  1.263129             238   -9.104329      0.000000   6.135526     False                 True /mnt/newStor/paros/paros_WORK/ines/data/harmonization/ADNI/metadata/ADNI_metadata_with_DWI_key copy.csv
+  ADNI      ADNI_metadata_with_DWI_key           VSBPDIA_z     1451  1.263129             238   -9.104329      0.000000   6.135526     False                 True      /mnt/newStor/paros/paros_WORK/ines/data/harmonization/ADNI/metadata/ADNI_metadata_with_DWI_key.csv
+  ADNI          ADNI_metadata_with_DWI           VSBPSYS_z     1451  1.251318             370   -8.908779      0.000000   4.426723     False                 True          /mnt/newStor/paros/paros_WORK/ines/data/harmonization/ADNI/metadata/ADNI_metadata_with_DWI.csv
+  ADNI ADNI_metadata_with_DWI_key_copy           VSBPSYS_z     1451  1.251318             370   -8.908779      0.000000   4.426723     False                 True /mnt/newStor/paros/paros_WORK/ines/data/harmonization/ADNI/metadata/ADNI_metadata_with_DWI_key copy.csv
+  ADNI      ADNI_metadata_with_DWI_key           VSBPSYS_z     1451  1.251318             370   -8.908779      0.000000   4.426723     False                 True      /mnt/newStor/paros/paros_WORK/ines/data/harmonization/ADNI/metadata/ADNI_metadata_with_DWI_key.csv
+  ADNI          ADNI_metadata_with_DWI    pulse_pressure_z     1451  1.097440             338   -5.535164      0.000000   5.663889     False                 True          /mnt/newStor/paros/paros_WORK/ines/data/harmonization/ADNI/metadata/ADNI_metadata_with_DWI.csv
+  ADNI ADNI_metadata_with_DWI_key_copy    pulse_pressure_z     1451  1.097440             338   -5.535164      0.000000   5.663889     False                 True /mnt/newStor/paros/paros_WORK/ines/data/harmonization/ADNI/metadata/ADNI_metadata_with_DWI_key copy.csv
+  ADNI      ADNI_metadata_with_DWI_key    pulse_pressure_z     1451  1.097440             338   -5.535164      0.000000   5.663889     False                 True      /mnt/newStor/paros/paros_WORK/ines/data/harmonization/ADNI/metadata/ADNI_metadata_with_DWI_key.csv
+  ADNI          ADNI_metadata_with_DWI    cardio_composite     1451  0.931922            1443   -7.613755     -0.040160   2.390767     False                 True          /mnt/newStor/paros/paros_WORK/ines/data/harmonization/ADNI/metadata/ADNI_metadata_with_DWI.csv
+  ADNI ADNI_metadata_with_DWI_key_copy    cardio_composite     1451  0.931922            1443   -7.613755     -0.040160   2.390767     False                 True /mnt/newStor/paros/paros_WORK/ines/data/harmonization/ADNI/metadata/ADNI_metadata_with_DWI_key copy.csv
+  ADNI      ADNI_metadata_with_DWI_key    cardio_composite     1451  0.931922            1443   -7.613755     -0.040160   2.390767     False                 True      /mnt/newStor/paros/paros_WORK/ines/data/harmonization/ADNI/metadata/ADNI_metadata_with_DWI_key.csv
+  ADNI          ADNI_metadata_with_DWI             VSPULSE     1448 12.572963              84  -85.000000      1.000000  40.000000     False                 True          /mnt/newStor/paros/paros_WORK/ines/data/harmonization/ADNI/metadata/ADNI_metadata_with_DWI.csv
+  ADNI ADNI_metadata_with_DWI_key_copy             VSPULSE     1448 12.572963              84  -85.000000      1.000000  40.000000     False                 True /mnt/newStor/paros/paros_WORK/ines/data/harmonization/ADNI/metadata/ADNI_metadata_with_DWI_key copy.csv
+  ADNI      ADNI_metadata_with_DWI_key             VSPULSE     1448 12.572963              84  -85.000000      1.000000  40.000000     False                 True      /mnt/newStor/paros/paros_WORK/ines/data/harmonization/ADNI/metadata/ADNI_metadata_with_DWI_key.csv
+  ADNI          ADNI_metadata_with_DWI           VSPULSE_z     1448  1.121817             187   -7.584087      0.089225   3.568982     False                 True          /mnt/newStor/paros/paros_WORK/ines/data/harmonization/ADNI/metadata/ADNI_metadata_with_DWI.csv
+  ADNI ADNI_metadata_with_DWI_key_copy           VSPULSE_z     1448  1.121817             187   -7.584087      0.089225   3.568982     False                 True /mnt/newStor/paros/paros_WORK/ines/data/harmonization/ADNI/metadata/ADNI_metadata_with_DWI_key copy.csv
+  ADNI      ADNI_metadata_with_DWI_key           VSPULSE_z     1448  1.121817             187   -7.584087      0.089225   3.568982     False                 True      /mnt/newStor/paros/paros_WORK/ines/data/harmonization/ADNI/metadata/ADNI_metadata_with_DWI_key.csv
+  ADNI          ADNI_metadata_with_DWI            VSWEIGHT     1444 38.828675             613 -282.000000     -1.700000 199.000000     False                 True          /mnt/newStor/paros/paros_WORK/ines/data/harmonization/ADNI/metadata/ADNI_metadata_with_DWI.csv
+  ADNI ADNI_metadata_with_DWI_key_copy            VSWEIGHT     1444 38.828675             613 -282.000000     -1.700000 199.000000     False                 True /mnt/newStor/paros/paros_WORK/ines/data/harmonization/ADNI/metadata/ADNI_metadata_with_DWI_key copy.csv
+  ADNI      ADNI_metadata_with_DWI_key            VSWEIGHT     1444 38.828675             613 -282.000000     -1.700000 199.000000     False                 True      /mnt/newStor/paros/paros_WORK/ines/data/harmonization/ADNI/metadata/ADNI_metadata_with_DWI_key.csv
+  ADNI          ADNI_metadata_with_DWI            VSWTUNIT     1443  0.407100               6   -3.000000      0.000000   2.000000     False                 True          /mnt/newStor/paros/paros_WORK/ines/data/harmonization/ADNI/metadata/ADNI_metadata_with_DWI.csv
+  ADNI ADNI_metadata_with_DWI_key_copy            VSWTUNIT     1443  0.407100               6   -3.000000      0.000000   2.000000     False                 True /mnt/newStor/paros/paros_WORK/ines/data/harmonization/ADNI/metadata/ADNI_metadata_with_DWI_key copy.csv
+  ADNI      ADNI_metadata_with_DWI_key            VSWTUNIT     1443  0.407100               6   -3.000000      0.000000   2.000000     False                 True      /mnt/newStor/paros/paros_WORK/ines/data/harmonization/ADNI/metadata/ADNI_metadata_with_DWI_key.csv
+  ADNI          ADNI_metadata_with_DWI               CDRSB     1438  2.491926              42  -11.500000      0.000000  14.500000     False                 True          /mnt/newStor/paros/paros_WORK/ines/data/harmonization/ADNI/metadata/ADNI_metadata_with_DWI.csv
+  ADNI ADNI_metadata_with_DWI_key_copy               CDRSB     1438  2.491926              42  -11.500000      0.000000  14.500000     False                 True /mnt/newStor/paros/paros_WORK/ines/data/harmonization/ADNI/metadata/ADNI_metadata_with_DWI_key copy.csv
+  ADNI      ADNI_metadata_with_DWI_key               CDRSB     1438  2.491926              42  -11.500000      0.000000  14.500000     False                 True      /mnt/newStor/paros/paros_WORK/ines/data/harmonization/ADNI/metadata/ADNI_metadata_with_DWI_key.csv
+  ADNI          ADNI_metadata_with_DWI           weight_kg     1430  5.380635             820  -44.512000     -0.771000  28.500000     False                 True          /mnt/newStor/paros/paros_WORK/ines/data/harmonization/ADNI/metadata/ADNI_metadata_with_DWI.csv
+  ADNI ADNI_metadata_with_DWI_key_copy           weight_kg     1430  5.380635             820  -44.512000     -0.771000  28.500000     False                 True /mnt/newStor/paros/paros_WORK/ines/data/harmonization/ADNI/metadata/ADNI_metadata_with_DWI_key copy.csv
+  ADNI      ADNI_metadata_with_DWI_key           weight_kg     1430  5.380635             820  -44.512000     -0.771000  28.500000     False                 True      /mnt/newStor/paros/paros_WORK/ines/data/harmonization/ADNI/metadata/ADNI_metadata_with_DWI_key.csv
+  ADNI          ADNI_metadata_with_DWI      cdr_all_CDHOME     1249  0.558614              12   -3.000000      0.000000   3.000000     False                 True          /mnt/newStor/paros/paros_WORK/ines/data/harmonization/ADNI/metadata/ADNI_metadata_with_DWI.csv
+  ADNI          ADNI_metadata_with_DWI          cdr_CDHOME     1249  0.558614              12   -3.000000      0.000000   3.000000     False                 True          /mnt/newStor/paros/paros_WORK/ines/data/harmonization/ADNI/metadata/ADNI_metadata_with_DWI.csv
+  ADNI ADNI_metadata_with_DWI_key_copy      cdr_all_CDHOME     1249  0.558614              12   -3.000000      0.000000   3.000000     False                 True /mnt/newStor/paros/paros_WORK/ines/data/harmonization/ADNI/metadata/ADNI_metadata_with_DWI_key copy.csv
+  ADNI ADNI_metadata_with_DWI_key_copy          cdr_CDHOME     1249  0.558614              12   -3.000000      0.000000   3.000000     False                 True /mnt/newStor/paros/paros_WORK/ines/data/harmonization/ADNI/metadata/ADNI_metadata_with_DWI_key copy.csv
+  ADNI      ADNI_metadata_with_DWI_key      cdr_all_CDHOME     1249  0.558614              12   -3.000000      0.000000   3.000000     False                 True      /mnt/newStor/paros/paros_WORK/ines/data/harmonization/ADNI/metadata/ADNI_metadata_with_DWI_key.csv
+  ADNI      ADNI_metadata_with_DWI_key          cdr_CDHOME     1249  0.558614              12   -3.000000      0.000000   3.000000     False                 True      /mnt/newStor/paros/paros_WORK/ines/data/harmonization/ADNI/metadata/ADNI_metadata_with_DWI_key.csv
+  ADNI          ADNI_metadata_with_DWI      cdr_all_CDCARE     1249  0.535145               6   -2.000000      0.000000   3.000000     False                 True          /mnt/newStor/paros/paros_WORK/ines/data/harmonization/ADNI/metadata/ADNI_metadata_with_DWI.csv
+  ADNI          ADNI_metadata_with_DWI          cdr_CDCARE     1249  0.535145               6   -2.000000      0.000000   3.000000     False                 True          /mnt/newStor/paros/paros_WORK/ines/data/harmonization/ADNI/metadata/ADNI_metadata_with_DWI.csv
+  ADNI ADNI_metadata_with_DWI_key_copy      cdr_all_CDCARE     1249  0.535145               6   -2.000000      0.000000   3.000000     False                 True /mnt/newStor/paros/paros_WORK/ines/data/harmonization/ADNI/metadata/ADNI_metadata_with_DWI_key copy.csv
+  ADNI ADNI_metadata_with_DWI_key_copy          cdr_CDCARE     1249  0.535145               6   -2.000000      0.000000   3.000000     False                 True /mnt/newStor/paros/paros_WORK/ines/data/harmonization/ADNI/metadata/ADNI_metadata_with_DWI_key copy.csv
+  ADNI      ADNI_metadata_with_DWI_key      cdr_all_CDCARE     1249  0.535145               6   -2.000000      0.000000   3.000000     False                 True      /mnt/newStor/paros/paros_WORK/ines/data/harmonization/ADNI/metadata/ADNI_metadata_with_DWI_key.csv
+  ADNI      ADNI_metadata_with_DWI_key          cdr_CDCARE     1249  0.535145               6   -2.000000      0.000000   3.000000     False                 True      /mnt/newStor/paros/paros_WORK/ines/data/harmonization/ADNI/metadata/ADNI_metadata_with_DWI_key.csv
+  ADNI          ADNI_metadata_with_DWI    cdr_all_CDORIENT     1249  0.520058              11   -2.000000      0.000000   3.000000     False                 True          /mnt/newStor/paros/paros_WORK/ines/data/harmonization/ADNI/metadata/ADNI_metadata_with_DWI.csv
+  ADNI          ADNI_metadata_with_DWI        cdr_CDORIENT     1249  0.520058              11   -2.000000      0.000000   3.000000     False                 True          /mnt/newStor/paros/paros_WORK/ines/data/harmonization/ADNI/metadata/ADNI_metadata_with_DWI.csv
+  ADNI ADNI_metadata_with_DWI_key_copy    cdr_all_CDORIENT     1249  0.520058              11   -2.000000      0.000000   3.000000     False                 True /mnt/newStor/paros/paros_WORK/ines/data/harmonization/ADNI/metadata/ADNI_metadata_with_DWI_key copy.csv
+  ADNI ADNI_metadata_with_DWI_key_copy        cdr_CDORIENT     1249  0.520058              11   -2.000000      0.000000   3.000000     False                 True /mnt/newStor/paros/paros_WORK/ines/data/harmonization/ADNI/metadata/ADNI_metadata_with_DWI_key copy.csv
+  ADNI      ADNI_metadata_with_DWI_key    cdr_all_CDORIENT     1249  0.520058              11   -2.000000      0.000000   3.000000     False                 True      /mnt/newStor/paros/paros_WORK/ines/data/harmonization/ADNI/metadata/ADNI_metadata_with_DWI_key.csv
+  ADNI      ADNI_metadata_with_DWI_key        cdr_CDORIENT     1249  0.520058              11   -2.000000      0.000000   3.000000     False                 True      /mnt/newStor/paros/paros_WORK/ines/data/harmonization/ADNI/metadata/ADNI_metadata_with_DWI_key.csv
+  ADNI          ADNI_metadata_with_DWI    cdr_all_CDMEMORY     1249  0.518507              10   -2.000000      0.000000   2.500000     False                 True          /mnt/newStor/paros/paros_WORK/ines/data/harmonization/ADNI/metadata/ADNI_metadata_with_DWI.csv
+  ADNI          ADNI_metadata_with_DWI        cdr_CDMEMORY     1249  0.518507              10   -2.000000      0.000000   2.500000     False                 True          /mnt/newStor/paros/paros_WORK/ines/data/harmonization/ADNI/metadata/ADNI_metadata_with_DWI.csv
+  ADNI ADNI_metadata_with_DWI_key_copy    cdr_all_CDMEMORY     1249  0.518507              10   -2.000000      0.000000   2.500000     False                 True /mnt/newStor/paros/paros_WORK/ines/data/harmonization/ADNI/metadata/ADNI_metadata_with_DWI_key copy.csv
+  ADNI ADNI_metadata_with_DWI_key_copy        cdr_CDMEMORY     1249  0.518507              10   -2.000000      0.000000   2.500000     False                 True /mnt/newStor/paros/paros_WORK/ines/data/harmonization/ADNI/metadata/ADNI_metadata_with_DWI_key copy.csv
+  ADNI      ADNI_metadata_with_DWI_key    cdr_all_CDMEMORY     1249  0.518507              10   -2.000000      0.000000   2.500000     False                 True      /mnt/newStor/paros/paros_WORK/ines/data/harmonization/ADNI/metadata/ADNI_metadata_with_DWI_key.csv
+  ADNI      ADNI_metadata_with_DWI_key        cdr_CDMEMORY     1249  0.518507              10   -2.000000      0.000000   2.500000     False                 True      /mnt/newStor/paros/paros_WORK/ines/data/harmonization/ADNI/metadata/ADNI_metadata_with_DWI_key.csv
+  ADNI          ADNI_metadata_with_DWI    cdr_all_CDCOMMUN     1249  0.505180              10   -2.000000      0.000000   2.500000     False                 True          /mnt/newStor/paros/paros_WORK/ines/data/harmonization/ADNI/metadata/ADNI_metadata_with_DWI.csv
+  ADNI          ADNI_metadata_with_DWI        cdr_CDCOMMUN     1249  0.505180              10   -2.000000      0.000000   2.500000     False                 True          /mnt/newStor/paros/paros_WORK/ines/data/harmonization/ADNI/metadata/ADNI_metadata_with_DWI.csv
+  ADNI ADNI_metadata_with_DWI_key_copy    cdr_all_CDCOMMUN     1249  0.505180              10   -2.000000      0.000000   2.500000     False                 True /mnt/newStor/paros/paros_WORK/ines/data/harmonization/ADNI/metadata/ADNI_metadata_with_DWI_key copy.csv
+  ADNI ADNI_metadata_with_DWI_key_copy        cdr_CDCOMMUN     1249  0.505180              10   -2.000000      0.000000   2.500000     False                 True /mnt/newStor/paros/paros_WORK/ines/data/harmonization/ADNI/metadata/ADNI_metadata_with_DWI_key copy.csv
+  ADNI      ADNI_metadata_with_DWI_key    cdr_all_CDCOMMUN     1249  0.505180              10   -2.000000      0.000000   2.500000     False                 True      /mnt/newStor/paros/paros_WORK/ines/data/harmonization/ADNI/metadata/ADNI_metadata_with_DWI_key.csv
+  ADNI      ADNI_metadata_with_DWI_key        cdr_CDCOMMUN     1249  0.505180              10   -2.000000      0.000000   2.500000     False                 True      /mnt/newStor/paros/paros_WORK/ines/data/harmonization/ADNI/metadata/ADNI_metadata_with_DWI_key.csv
+  ADNI          ADNI_metadata_with_DWI     cdr_all_CDJUDGE     1249  0.497430              12   -3.000000      0.000000   3.000000     False                 True          /mnt/newStor/paros/paros_WORK/ines/data/harmonization/ADNI/metadata/ADNI_metadata_with_DWI.csv
+  ADNI          ADNI_metadata_with_DWI         cdr_CDJUDGE     1249  0.497430              12   -3.000000      0.000000   3.000000     False                 True          /mnt/newStor/paros/paros_WORK/ines/data/harmonization/ADNI/metadata/ADNI_metadata_with_DWI.csv
+  ADNI ADNI_metadata_with_DWI_key_copy     cdr_all_CDJUDGE     1249  0.497430              12   -3.000000      0.000000   3.000000     False                 True /mnt/newStor/paros/paros_WORK/ines/data/harmonization/ADNI/metadata/ADNI_metadata_with_DWI_key copy.csv
+  ADNI ADNI_metadata_with_DWI_key_copy         cdr_CDJUDGE     1249  0.497430              12   -3.000000      0.000000   3.000000     False                 True /mnt/newStor/paros/paros_WORK/ines/data/harmonization/ADNI/metadata/ADNI_metadata_with_DWI_key copy.csv
+  ADNI      ADNI_metadata_with_DWI_key     cdr_all_CDJUDGE     1249  0.497430              12   -3.000000      0.000000   3.000000     False                 True      /mnt/newStor/paros/paros_WORK/ines/data/harmonization/ADNI/metadata/ADNI_metadata_with_DWI_key.csv
+  ADNI      ADNI_metadata_with_DWI_key         cdr_CDJUDGE     1249  0.497430              12   -3.000000      0.000000   3.000000     False                 True      /mnt/newStor/paros/paros_WORK/ines/data/harmonization/ADNI/metadata/ADNI_metadata_with_DWI_key.csv
+  ADNI          ADNI_metadata_with_DWI     dxsum_DIAGNOSIS     1249  0.436104               4   -1.000000      0.000000   2.000000     False                 True          /mnt/newStor/paros/paros_WORK/ines/data/harmonization/ADNI/metadata/ADNI_metadata_with_DWI.csv
+
+DONE

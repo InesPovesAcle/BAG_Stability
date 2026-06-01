@@ -1,0 +1,16 @@
+cd /mnt/newStor/paros/paros_WORK/ines/code/BAG_Stability052627
+
+for METRIC in MAE RMSE R2 r; do
+  OUTDIR="/mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Figure7_cross_cohort_replication_${METRIC}"
+  LOG7="Figure7_cross_cohort_OOF_${METRIC}_$(date +%Y%m%d_%H%M%S).log"
+
+  python Figure7_cross_cohort_final_reads_oof.py \
+    --main-feature-set imaging_only \
+    --metric "$METRIC" \
+    --cv-evaluation OOF_BIAS_CORRECTED \
+    --formats png,pdf \
+    --outdir "$OUTDIR" \
+    > "$LOG7" 2>&1
+
+  echo "Finished $METRIC; log=$LOG7"
+done

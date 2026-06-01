@@ -1,0 +1,53 @@
+nohup: ignoring input
+Figure 7 all-metrics wrapper
+CODE_DIR:       /mnt/newStor/paros/paros_WORK/ines/code/BAG_Stability052627
+BASE_DIR:       /mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation
+FIGURE7_SCRIPT: /mnt/newStor/paros/paros_WORK/ines/code/BAG_Stability052627/Figure7_cross_cohort_final_reads_oof.py
+METRICS:        MAE, RMSE, R2, r
+AGGREGATE_ONLY: False
+
+====================================================================================================
+[RUN] Figure 7 metric=MAE
+[OUTDIR] /mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Figure7_cross_cohort_replication_MAE
+[LOG] /mnt/newStor/paros/paros_WORK/ines/code/BAG_Stability052627/Figure7_cross_cohort_OOF_MAE_20260529_011712.log
+====================================================================================================
+[DONE] metric=MAE status=ok returncode=0
+
+====================================================================================================
+[RUN] Figure 7 metric=RMSE
+[OUTDIR] /mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Figure7_cross_cohort_replication_RMSE
+[LOG] /mnt/newStor/paros/paros_WORK/ines/code/BAG_Stability052627/Figure7_cross_cohort_OOF_RMSE_20260529_011730.log
+====================================================================================================
+[DONE] metric=RMSE status=ok returncode=0
+
+====================================================================================================
+[RUN] Figure 7 metric=R2
+[OUTDIR] /mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Figure7_cross_cohort_replication_R2
+[LOG] /mnt/newStor/paros/paros_WORK/ines/code/BAG_Stability052627/Figure7_cross_cohort_OOF_R2_20260529_011748.log
+====================================================================================================
+[DONE] metric=R2 status=ok returncode=0
+
+====================================================================================================
+[RUN] Figure 7 metric=r
+[OUTDIR] /mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Figure7_cross_cohort_replication_r
+[LOG] /mnt/newStor/paros/paros_WORK/ines/code/BAG_Stability052627/Figure7_cross_cohort_OOF_r_20260529_011805.log
+====================================================================================================
+[DONE] metric=r status=ok returncode=0
+
+[RUN SUMMARY] /mnt/newStor/paros/paros_WORK/ines/code/BAG_Stability052627/Figure7_all_metrics_run_summary_20260529_011823.csv
+metric status  returncode                                                                                                                                                    outdir                                                                                                           log
+   MAE     ok           0  /mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Figure7_cross_cohort_replication_MAE  /mnt/newStor/paros/paros_WORK/ines/code/BAG_Stability052627/Figure7_cross_cohort_OOF_MAE_20260529_011712.log
+  RMSE     ok           0 /mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Figure7_cross_cohort_replication_RMSE /mnt/newStor/paros/paros_WORK/ines/code/BAG_Stability052627/Figure7_cross_cohort_OOF_RMSE_20260529_011730.log
+    R2     ok           0   /mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Figure7_cross_cohort_replication_R2   /mnt/newStor/paros/paros_WORK/ines/code/BAG_Stability052627/Figure7_cross_cohort_OOF_R2_20260529_011748.log
+     r     ok           0    /mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Figure7_cross_cohort_replication_r    /mnt/newStor/paros/paros_WORK/ines/code/BAG_Stability052627/Figure7_cross_cohort_OOF_r_20260529_011805.log
+[AGG] wrote /mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Figure7_cross_cohort_replication_ALL_METRICS/figure7_dataset_summary_all_metrics.csv shape=(80, 7)
+[AGG] wrote /mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Figure7_cross_cohort_replication_ALL_METRICS/figure7_model_metric_summary_all_metrics.csv shape=(80, 10)
+[AGG] wrote /mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Figure7_cross_cohort_replication_ALL_METRICS/figure7_endpoint_correlation_stats_all_metrics.csv shape=(176, 13)
+[AGG] wrote /mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Figure7_cross_cohort_replication_ALL_METRICS/figure7_replication_summary_all_metrics.csv shape=(44, 17)
+[AGG] wrote /mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Figure7_cross_cohort_replication_ALL_METRICS/figure7_manifest_all_metrics.csv shape=(8, 11)
+[AGG] wrote /mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Figure7_cross_cohort_replication_ALL_METRICS/figure7_all_metrics_output_inventory.csv shape=(4, 8)
+
+====================================================================================================
+[DONE] Figure 7 all-metrics run/aggregation complete.
+ALL_METRICS_DIR: /mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Figure7_cross_cohort_replication_ALL_METRICS
+====================================================================================================

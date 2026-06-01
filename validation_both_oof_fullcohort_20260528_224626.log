@@ -1,0 +1,301 @@
+Ignoring unknown runtime arguments: ['--workers', '4']
+
+==========================================================================================
+BRAIN-AGE VALIDATION: DIRECT PATH MODE
+WORK: /mnt/newStor/paros/paros_WORK
+RESULTS_ROOT: /mnt/newStor/paros/paros_WORK/ines/results
+COHORTS_TO_RUN: ['ADNI', 'ADRC', 'HABS', 'AD_DECODE']
+FEATURE_SETS_TO_RUN: ['imaging_only', 'imaging_demographics', 'imaging_biomarkers', 'full', 'full_no_cardiovascular']
+CLEAR_OLD_FIGURES: True
+==========================================================================================
+
+##########################################################################################
+VALIDATION OUTPUT MODE: oof
+##########################################################################################
+
+==========================================================================================
+VALIDATION: cohort=ADNI | feature_set=imaging_only | mode=oof
+==========================================================================================
+Ablation dir: /mnt/newStor/paros/paros_WORK/ines/results/BrainAgePredictionADNI_stratified_groupcv_targetnorm_bagbiascorr_oofglobal/ablation_imaging_only
+Using OOF predictions: /mnt/newStor/paros/paros_WORK/ines/results/BrainAgePredictionADNI_stratified_groupcv_targetnorm_bagbiascorr_oofglobal/ablation_imaging_only/adni_imaging_only_cv_oof_predictions.csv
+Saved validation outputs to: /mnt/newStor/paros/paros_WORK/ines/results/BrainAgePredictionADNI_stratified_groupcv_targetnorm_bagbiascorr_oofglobal/ablation_imaging_only/validation_figures_oof
+
+==========================================================================================
+VALIDATION: cohort=ADNI | feature_set=imaging_demographics | mode=oof
+==========================================================================================
+Ablation dir: /mnt/newStor/paros/paros_WORK/ines/results/BrainAgePredictionADNI_stratified_groupcv_targetnorm_bagbiascorr_oofglobal/ablation_imaging_demographics
+Using OOF predictions: /mnt/newStor/paros/paros_WORK/ines/results/BrainAgePredictionADNI_stratified_groupcv_targetnorm_bagbiascorr_oofglobal/ablation_imaging_demographics/adni_imaging_demographics_cv_oof_predictions.csv
+Saved validation outputs to: /mnt/newStor/paros/paros_WORK/ines/results/BrainAgePredictionADNI_stratified_groupcv_targetnorm_bagbiascorr_oofglobal/ablation_imaging_demographics/validation_figures_oof
+
+==========================================================================================
+VALIDATION: cohort=ADNI | feature_set=imaging_biomarkers | mode=oof
+==========================================================================================
+Ablation dir: /mnt/newStor/paros/paros_WORK/ines/results/BrainAgePredictionADNI_stratified_groupcv_targetnorm_bagbiascorr_oofglobal/ablation_imaging_biomarkers
+Using OOF predictions: /mnt/newStor/paros/paros_WORK/ines/results/BrainAgePredictionADNI_stratified_groupcv_targetnorm_bagbiascorr_oofglobal/ablation_imaging_biomarkers/adni_imaging_biomarkers_cv_oof_predictions.csv
+Saved validation outputs to: /mnt/newStor/paros/paros_WORK/ines/results/BrainAgePredictionADNI_stratified_groupcv_targetnorm_bagbiascorr_oofglobal/ablation_imaging_biomarkers/validation_figures_oof
+
+==========================================================================================
+VALIDATION: cohort=ADNI | feature_set=full | mode=oof
+==========================================================================================
+Ablation dir: /mnt/newStor/paros/paros_WORK/ines/results/BrainAgePredictionADNI_stratified_groupcv_targetnorm_bagbiascorr_oofglobal/ablation_full
+Using OOF predictions: /mnt/newStor/paros/paros_WORK/ines/results/BrainAgePredictionADNI_stratified_groupcv_targetnorm_bagbiascorr_oofglobal/ablation_full/adni_full_cv_oof_predictions.csv
+Saved validation outputs to: /mnt/newStor/paros/paros_WORK/ines/results/BrainAgePredictionADNI_stratified_groupcv_targetnorm_bagbiascorr_oofglobal/ablation_full/validation_figures_oof
+
+==========================================================================================
+VALIDATION: cohort=ADNI | feature_set=full_no_cardiovascular | mode=oof
+==========================================================================================
+Ablation dir: /mnt/newStor/paros/paros_WORK/ines/results/BrainAgePredictionADNI_stratified_groupcv_targetnorm_bagbiascorr_oofglobal/ablation_full_no_cardiovascular
+Using OOF predictions: /mnt/newStor/paros/paros_WORK/ines/results/BrainAgePredictionADNI_stratified_groupcv_targetnorm_bagbiascorr_oofglobal/ablation_full_no_cardiovascular/adni_full_no_cardiovascular_cv_oof_predictions.csv
+Saved validation outputs to: /mnt/newStor/paros/paros_WORK/ines/results/BrainAgePredictionADNI_stratified_groupcv_targetnorm_bagbiascorr_oofglobal/ablation_full_no_cardiovascular/validation_figures_oof
+
+==========================================================================================
+VALIDATION: cohort=ADRC | feature_set=imaging_only | mode=oof
+==========================================================================================
+Ablation dir: /mnt/newStor/paros/paros_WORK/ines/results/BrainAgePredictionADRC_stratified_groupcv_targetnorm_bagbiascorr_oofglobal/ablation_imaging_only
+Using OOF predictions: /mnt/newStor/paros/paros_WORK/ines/results/BrainAgePredictionADRC_stratified_groupcv_targetnorm_bagbiascorr_oofglobal/ablation_imaging_only/adrc_imaging_only_cv_oof_predictions.csv
+Saved validation outputs to: /mnt/newStor/paros/paros_WORK/ines/results/BrainAgePredictionADRC_stratified_groupcv_targetnorm_bagbiascorr_oofglobal/ablation_imaging_only/validation_figures_oof
+
+==========================================================================================
+VALIDATION: cohort=ADRC | feature_set=imaging_demographics | mode=oof
+==========================================================================================
+Ablation dir: /mnt/newStor/paros/paros_WORK/ines/results/BrainAgePredictionADRC_stratified_groupcv_targetnorm_bagbiascorr_oofglobal/ablation_imaging_demographics
+Using OOF predictions: /mnt/newStor/paros/paros_WORK/ines/results/BrainAgePredictionADRC_stratified_groupcv_targetnorm_bagbiascorr_oofglobal/ablation_imaging_demographics/adrc_imaging_demographics_cv_oof_predictions.csv
+Saved validation outputs to: /mnt/newStor/paros/paros_WORK/ines/results/BrainAgePredictionADRC_stratified_groupcv_targetnorm_bagbiascorr_oofglobal/ablation_imaging_demographics/validation_figures_oof
+
+==========================================================================================
+VALIDATION: cohort=ADRC | feature_set=imaging_biomarkers | mode=oof
+==========================================================================================
+Ablation dir: /mnt/newStor/paros/paros_WORK/ines/results/BrainAgePredictionADRC_stratified_groupcv_targetnorm_bagbiascorr_oofglobal/ablation_imaging_biomarkers
+Using OOF predictions: /mnt/newStor/paros/paros_WORK/ines/results/BrainAgePredictionADRC_stratified_groupcv_targetnorm_bagbiascorr_oofglobal/ablation_imaging_biomarkers/adrc_imaging_biomarkers_cv_oof_predictions.csv
+Saved validation outputs to: /mnt/newStor/paros/paros_WORK/ines/results/BrainAgePredictionADRC_stratified_groupcv_targetnorm_bagbiascorr_oofglobal/ablation_imaging_biomarkers/validation_figures_oof
+
+==========================================================================================
+VALIDATION: cohort=ADRC | feature_set=full | mode=oof
+==========================================================================================
+Ablation dir: /mnt/newStor/paros/paros_WORK/ines/results/BrainAgePredictionADRC_stratified_groupcv_targetnorm_bagbiascorr_oofglobal/ablation_full
+Using OOF predictions: /mnt/newStor/paros/paros_WORK/ines/results/BrainAgePredictionADRC_stratified_groupcv_targetnorm_bagbiascorr_oofglobal/ablation_full/adrc_full_cv_oof_predictions.csv
+Saved validation outputs to: /mnt/newStor/paros/paros_WORK/ines/results/BrainAgePredictionADRC_stratified_groupcv_targetnorm_bagbiascorr_oofglobal/ablation_full/validation_figures_oof
+
+==========================================================================================
+VALIDATION: cohort=ADRC | feature_set=full_no_cardiovascular | mode=oof
+==========================================================================================
+Ablation dir: /mnt/newStor/paros/paros_WORK/ines/results/BrainAgePredictionADRC_stratified_groupcv_targetnorm_bagbiascorr_oofglobal/ablation_full_no_cardiovascular
+Using OOF predictions: /mnt/newStor/paros/paros_WORK/ines/results/BrainAgePredictionADRC_stratified_groupcv_targetnorm_bagbiascorr_oofglobal/ablation_full_no_cardiovascular/adrc_full_no_cardiovascular_cv_oof_predictions.csv
+Saved validation outputs to: /mnt/newStor/paros/paros_WORK/ines/results/BrainAgePredictionADRC_stratified_groupcv_targetnorm_bagbiascorr_oofglobal/ablation_full_no_cardiovascular/validation_figures_oof
+
+==========================================================================================
+VALIDATION: cohort=HABS | feature_set=imaging_only | mode=oof
+==========================================================================================
+Ablation dir: /mnt/newStor/paros/paros_WORK/ines/results/BrainAgePredictionHABS_stratified_groupcv_targetnorm_bagbiascorr_oofglobal/ablation_imaging_only
+Using OOF predictions: /mnt/newStor/paros/paros_WORK/ines/results/BrainAgePredictionHABS_stratified_groupcv_targetnorm_bagbiascorr_oofglobal/ablation_imaging_only/habs_imaging_only_cv_oof_predictions.csv
+Saved validation outputs to: /mnt/newStor/paros/paros_WORK/ines/results/BrainAgePredictionHABS_stratified_groupcv_targetnorm_bagbiascorr_oofglobal/ablation_imaging_only/validation_figures_oof
+
+==========================================================================================
+VALIDATION: cohort=HABS | feature_set=imaging_demographics | mode=oof
+==========================================================================================
+Ablation dir: /mnt/newStor/paros/paros_WORK/ines/results/BrainAgePredictionHABS_stratified_groupcv_targetnorm_bagbiascorr_oofglobal/ablation_imaging_demographics
+Using OOF predictions: /mnt/newStor/paros/paros_WORK/ines/results/BrainAgePredictionHABS_stratified_groupcv_targetnorm_bagbiascorr_oofglobal/ablation_imaging_demographics/habs_imaging_demographics_cv_oof_predictions.csv
+Saved validation outputs to: /mnt/newStor/paros/paros_WORK/ines/results/BrainAgePredictionHABS_stratified_groupcv_targetnorm_bagbiascorr_oofglobal/ablation_imaging_demographics/validation_figures_oof
+
+==========================================================================================
+VALIDATION: cohort=HABS | feature_set=imaging_biomarkers | mode=oof
+==========================================================================================
+Ablation dir: /mnt/newStor/paros/paros_WORK/ines/results/BrainAgePredictionHABS_stratified_groupcv_targetnorm_bagbiascorr_oofglobal/ablation_imaging_biomarkers
+Using OOF predictions: /mnt/newStor/paros/paros_WORK/ines/results/BrainAgePredictionHABS_stratified_groupcv_targetnorm_bagbiascorr_oofglobal/ablation_imaging_biomarkers/habs_imaging_biomarkers_cv_oof_predictions.csv
+Saved validation outputs to: /mnt/newStor/paros/paros_WORK/ines/results/BrainAgePredictionHABS_stratified_groupcv_targetnorm_bagbiascorr_oofglobal/ablation_imaging_biomarkers/validation_figures_oof
+
+==========================================================================================
+VALIDATION: cohort=HABS | feature_set=full | mode=oof
+==========================================================================================
+Ablation dir: /mnt/newStor/paros/paros_WORK/ines/results/BrainAgePredictionHABS_stratified_groupcv_targetnorm_bagbiascorr_oofglobal/ablation_full
+Using OOF predictions: /mnt/newStor/paros/paros_WORK/ines/results/BrainAgePredictionHABS_stratified_groupcv_targetnorm_bagbiascorr_oofglobal/ablation_full/habs_full_cv_oof_predictions.csv
+Saved validation outputs to: /mnt/newStor/paros/paros_WORK/ines/results/BrainAgePredictionHABS_stratified_groupcv_targetnorm_bagbiascorr_oofglobal/ablation_full/validation_figures_oof
+
+==========================================================================================
+VALIDATION: cohort=HABS | feature_set=full_no_cardiovascular | mode=oof
+==========================================================================================
+Ablation dir: /mnt/newStor/paros/paros_WORK/ines/results/BrainAgePredictionHABS_stratified_groupcv_targetnorm_bagbiascorr_oofglobal/ablation_full_no_cardiovascular
+Using OOF predictions: /mnt/newStor/paros/paros_WORK/ines/results/BrainAgePredictionHABS_stratified_groupcv_targetnorm_bagbiascorr_oofglobal/ablation_full_no_cardiovascular/habs_full_no_cardiovascular_cv_oof_predictions.csv
+Saved validation outputs to: /mnt/newStor/paros/paros_WORK/ines/results/BrainAgePredictionHABS_stratified_groupcv_targetnorm_bagbiascorr_oofglobal/ablation_full_no_cardiovascular/validation_figures_oof
+
+==========================================================================================
+VALIDATION: cohort=AD_DECODE | feature_set=imaging_only | mode=oof
+==========================================================================================
+Ablation dir: /mnt/newStor/paros/paros_WORK/ines/results/BrainAgePredictionADDECODE_stratified_groupcv_targetnorm_bagbiascorr_oofglobal/ablation_imaging_only
+Using OOF predictions: /mnt/newStor/paros/paros_WORK/ines/results/BrainAgePredictionADDECODE_stratified_groupcv_targetnorm_bagbiascorr_oofglobal/ablation_imaging_only/addecode_imaging_only_cv_oof_predictions.csv
+Saved validation outputs to: /mnt/newStor/paros/paros_WORK/ines/results/BrainAgePredictionADDECODE_stratified_groupcv_targetnorm_bagbiascorr_oofglobal/ablation_imaging_only/validation_figures_oof
+
+==========================================================================================
+VALIDATION: cohort=AD_DECODE | feature_set=imaging_demographics | mode=oof
+==========================================================================================
+Ablation dir: /mnt/newStor/paros/paros_WORK/ines/results/BrainAgePredictionADDECODE_stratified_groupcv_targetnorm_bagbiascorr_oofglobal/ablation_imaging_demographics
+Using OOF predictions: /mnt/newStor/paros/paros_WORK/ines/results/BrainAgePredictionADDECODE_stratified_groupcv_targetnorm_bagbiascorr_oofglobal/ablation_imaging_demographics/addecode_imaging_demographics_cv_oof_predictions.csv
+Saved validation outputs to: /mnt/newStor/paros/paros_WORK/ines/results/BrainAgePredictionADDECODE_stratified_groupcv_targetnorm_bagbiascorr_oofglobal/ablation_imaging_demographics/validation_figures_oof
+
+==========================================================================================
+VALIDATION: cohort=AD_DECODE | feature_set=imaging_biomarkers | mode=oof
+==========================================================================================
+Ablation dir: /mnt/newStor/paros/paros_WORK/ines/results/BrainAgePredictionADDECODE_stratified_groupcv_targetnorm_bagbiascorr_oofglobal/ablation_imaging_biomarkers
+Using OOF predictions: /mnt/newStor/paros/paros_WORK/ines/results/BrainAgePredictionADDECODE_stratified_groupcv_targetnorm_bagbiascorr_oofglobal/ablation_imaging_biomarkers/addecode_imaging_biomarkers_cv_oof_predictions.csv
+Saved validation outputs to: /mnt/newStor/paros/paros_WORK/ines/results/BrainAgePredictionADDECODE_stratified_groupcv_targetnorm_bagbiascorr_oofglobal/ablation_imaging_biomarkers/validation_figures_oof
+
+==========================================================================================
+VALIDATION: cohort=AD_DECODE | feature_set=full | mode=oof
+==========================================================================================
+Ablation dir: /mnt/newStor/paros/paros_WORK/ines/results/BrainAgePredictionADDECODE_stratified_groupcv_targetnorm_bagbiascorr_oofglobal/ablation_full
+Using OOF predictions: /mnt/newStor/paros/paros_WORK/ines/results/BrainAgePredictionADDECODE_stratified_groupcv_targetnorm_bagbiascorr_oofglobal/ablation_full/addecode_full_cv_oof_predictions.csv
+Saved validation outputs to: /mnt/newStor/paros/paros_WORK/ines/results/BrainAgePredictionADDECODE_stratified_groupcv_targetnorm_bagbiascorr_oofglobal/ablation_full/validation_figures_oof
+
+==========================================================================================
+VALIDATION: cohort=AD_DECODE | feature_set=full_no_cardiovascular | mode=oof
+==========================================================================================
+Ablation dir: /mnt/newStor/paros/paros_WORK/ines/results/BrainAgePredictionADDECODE_stratified_groupcv_targetnorm_bagbiascorr_oofglobal/ablation_full_no_cardiovascular
+Using OOF predictions: /mnt/newStor/paros/paros_WORK/ines/results/BrainAgePredictionADDECODE_stratified_groupcv_targetnorm_bagbiascorr_oofglobal/ablation_full_no_cardiovascular/addecode_full_no_cardiovascular_cv_oof_predictions.csv
+Saved validation outputs to: /mnt/newStor/paros/paros_WORK/ines/results/BrainAgePredictionADDECODE_stratified_groupcv_targetnorm_bagbiascorr_oofglobal/ablation_full_no_cardiovascular/validation_figures_oof
+
+##########################################################################################
+VALIDATION OUTPUT MODE: full_cohort
+##########################################################################################
+
+==========================================================================================
+VALIDATION: cohort=ADNI | feature_set=imaging_only | mode=full_cohort
+==========================================================================================
+Ablation dir: /mnt/newStor/paros/paros_WORK/ines/results/BrainAgePredictionADNI_stratified_groupcv_targetnorm_bagbiascorr_oofglobal/ablation_imaging_only
+Using full-cohort predictions: /mnt/newStor/paros/paros_WORK/ines/results/BrainAgePredictionADNI_stratified_groupcv_targetnorm_bagbiascorr_oofglobal/ablation_imaging_only/adni_imaging_only_full_cohort_predictions.csv
+Saved validation outputs to: /mnt/newStor/paros/paros_WORK/ines/results/BrainAgePredictionADNI_stratified_groupcv_targetnorm_bagbiascorr_oofglobal/ablation_imaging_only/validation_figures_full_cohort
+
+==========================================================================================
+VALIDATION: cohort=ADNI | feature_set=imaging_demographics | mode=full_cohort
+==========================================================================================
+Ablation dir: /mnt/newStor/paros/paros_WORK/ines/results/BrainAgePredictionADNI_stratified_groupcv_targetnorm_bagbiascorr_oofglobal/ablation_imaging_demographics
+Using full-cohort predictions: /mnt/newStor/paros/paros_WORK/ines/results/BrainAgePredictionADNI_stratified_groupcv_targetnorm_bagbiascorr_oofglobal/ablation_imaging_demographics/adni_imaging_demographics_full_cohort_predictions.csv
+Saved validation outputs to: /mnt/newStor/paros/paros_WORK/ines/results/BrainAgePredictionADNI_stratified_groupcv_targetnorm_bagbiascorr_oofglobal/ablation_imaging_demographics/validation_figures_full_cohort
+
+==========================================================================================
+VALIDATION: cohort=ADNI | feature_set=imaging_biomarkers | mode=full_cohort
+==========================================================================================
+Ablation dir: /mnt/newStor/paros/paros_WORK/ines/results/BrainAgePredictionADNI_stratified_groupcv_targetnorm_bagbiascorr_oofglobal/ablation_imaging_biomarkers
+Using full-cohort predictions: /mnt/newStor/paros/paros_WORK/ines/results/BrainAgePredictionADNI_stratified_groupcv_targetnorm_bagbiascorr_oofglobal/ablation_imaging_biomarkers/adni_imaging_biomarkers_full_cohort_predictions.csv
+Saved validation outputs to: /mnt/newStor/paros/paros_WORK/ines/results/BrainAgePredictionADNI_stratified_groupcv_targetnorm_bagbiascorr_oofglobal/ablation_imaging_biomarkers/validation_figures_full_cohort
+
+==========================================================================================
+VALIDATION: cohort=ADNI | feature_set=full | mode=full_cohort
+==========================================================================================
+Ablation dir: /mnt/newStor/paros/paros_WORK/ines/results/BrainAgePredictionADNI_stratified_groupcv_targetnorm_bagbiascorr_oofglobal/ablation_full
+Using full-cohort predictions: /mnt/newStor/paros/paros_WORK/ines/results/BrainAgePredictionADNI_stratified_groupcv_targetnorm_bagbiascorr_oofglobal/ablation_full/adni_full_full_cohort_predictions.csv
+Saved validation outputs to: /mnt/newStor/paros/paros_WORK/ines/results/BrainAgePredictionADNI_stratified_groupcv_targetnorm_bagbiascorr_oofglobal/ablation_full/validation_figures_full_cohort
+
+==========================================================================================
+VALIDATION: cohort=ADNI | feature_set=full_no_cardiovascular | mode=full_cohort
+==========================================================================================
+Ablation dir: /mnt/newStor/paros/paros_WORK/ines/results/BrainAgePredictionADNI_stratified_groupcv_targetnorm_bagbiascorr_oofglobal/ablation_full_no_cardiovascular
+Using full-cohort predictions: /mnt/newStor/paros/paros_WORK/ines/results/BrainAgePredictionADNI_stratified_groupcv_targetnorm_bagbiascorr_oofglobal/ablation_full_no_cardiovascular/adni_full_no_cardiovascular_full_cohort_predictions.csv
+Saved validation outputs to: /mnt/newStor/paros/paros_WORK/ines/results/BrainAgePredictionADNI_stratified_groupcv_targetnorm_bagbiascorr_oofglobal/ablation_full_no_cardiovascular/validation_figures_full_cohort
+
+==========================================================================================
+VALIDATION: cohort=ADRC | feature_set=imaging_only | mode=full_cohort
+==========================================================================================
+Ablation dir: /mnt/newStor/paros/paros_WORK/ines/results/BrainAgePredictionADRC_stratified_groupcv_targetnorm_bagbiascorr_oofglobal/ablation_imaging_only
+Using full-cohort predictions: /mnt/newStor/paros/paros_WORK/ines/results/BrainAgePredictionADRC_stratified_groupcv_targetnorm_bagbiascorr_oofglobal/ablation_imaging_only/adrc_imaging_only_full_cohort_predictions.csv
+Saved validation outputs to: /mnt/newStor/paros/paros_WORK/ines/results/BrainAgePredictionADRC_stratified_groupcv_targetnorm_bagbiascorr_oofglobal/ablation_imaging_only/validation_figures_full_cohort
+
+==========================================================================================
+VALIDATION: cohort=ADRC | feature_set=imaging_demographics | mode=full_cohort
+==========================================================================================
+Ablation dir: /mnt/newStor/paros/paros_WORK/ines/results/BrainAgePredictionADRC_stratified_groupcv_targetnorm_bagbiascorr_oofglobal/ablation_imaging_demographics
+Using full-cohort predictions: /mnt/newStor/paros/paros_WORK/ines/results/BrainAgePredictionADRC_stratified_groupcv_targetnorm_bagbiascorr_oofglobal/ablation_imaging_demographics/adrc_imaging_demographics_full_cohort_predictions.csv
+Saved validation outputs to: /mnt/newStor/paros/paros_WORK/ines/results/BrainAgePredictionADRC_stratified_groupcv_targetnorm_bagbiascorr_oofglobal/ablation_imaging_demographics/validation_figures_full_cohort
+
+==========================================================================================
+VALIDATION: cohort=ADRC | feature_set=imaging_biomarkers | mode=full_cohort
+==========================================================================================
+Ablation dir: /mnt/newStor/paros/paros_WORK/ines/results/BrainAgePredictionADRC_stratified_groupcv_targetnorm_bagbiascorr_oofglobal/ablation_imaging_biomarkers
+Using full-cohort predictions: /mnt/newStor/paros/paros_WORK/ines/results/BrainAgePredictionADRC_stratified_groupcv_targetnorm_bagbiascorr_oofglobal/ablation_imaging_biomarkers/adrc_imaging_biomarkers_full_cohort_predictions.csv
+Saved validation outputs to: /mnt/newStor/paros/paros_WORK/ines/results/BrainAgePredictionADRC_stratified_groupcv_targetnorm_bagbiascorr_oofglobal/ablation_imaging_biomarkers/validation_figures_full_cohort
+
+==========================================================================================
+VALIDATION: cohort=ADRC | feature_set=full | mode=full_cohort
+==========================================================================================
+Ablation dir: /mnt/newStor/paros/paros_WORK/ines/results/BrainAgePredictionADRC_stratified_groupcv_targetnorm_bagbiascorr_oofglobal/ablation_full
+Using full-cohort predictions: /mnt/newStor/paros/paros_WORK/ines/results/BrainAgePredictionADRC_stratified_groupcv_targetnorm_bagbiascorr_oofglobal/ablation_full/adrc_full_full_cohort_predictions.csv
+Saved validation outputs to: /mnt/newStor/paros/paros_WORK/ines/results/BrainAgePredictionADRC_stratified_groupcv_targetnorm_bagbiascorr_oofglobal/ablation_full/validation_figures_full_cohort
+
+==========================================================================================
+VALIDATION: cohort=ADRC | feature_set=full_no_cardiovascular | mode=full_cohort
+==========================================================================================
+Ablation dir: /mnt/newStor/paros/paros_WORK/ines/results/BrainAgePredictionADRC_stratified_groupcv_targetnorm_bagbiascorr_oofglobal/ablation_full_no_cardiovascular
+Using full-cohort predictions: /mnt/newStor/paros/paros_WORK/ines/results/BrainAgePredictionADRC_stratified_groupcv_targetnorm_bagbiascorr_oofglobal/ablation_full_no_cardiovascular/adrc_full_no_cardiovascular_full_cohort_predictions.csv
+Saved validation outputs to: /mnt/newStor/paros/paros_WORK/ines/results/BrainAgePredictionADRC_stratified_groupcv_targetnorm_bagbiascorr_oofglobal/ablation_full_no_cardiovascular/validation_figures_full_cohort
+
+==========================================================================================
+VALIDATION: cohort=HABS | feature_set=imaging_only | mode=full_cohort
+==========================================================================================
+Ablation dir: /mnt/newStor/paros/paros_WORK/ines/results/BrainAgePredictionHABS_stratified_groupcv_targetnorm_bagbiascorr_oofglobal/ablation_imaging_only
+Using full-cohort predictions: /mnt/newStor/paros/paros_WORK/ines/results/BrainAgePredictionHABS_stratified_groupcv_targetnorm_bagbiascorr_oofglobal/ablation_imaging_only/habs_imaging_only_full_cohort_predictions.csv
+Saved validation outputs to: /mnt/newStor/paros/paros_WORK/ines/results/BrainAgePredictionHABS_stratified_groupcv_targetnorm_bagbiascorr_oofglobal/ablation_imaging_only/validation_figures_full_cohort
+
+==========================================================================================
+VALIDATION: cohort=HABS | feature_set=imaging_demographics | mode=full_cohort
+==========================================================================================
+Ablation dir: /mnt/newStor/paros/paros_WORK/ines/results/BrainAgePredictionHABS_stratified_groupcv_targetnorm_bagbiascorr_oofglobal/ablation_imaging_demographics
+Using full-cohort predictions: /mnt/newStor/paros/paros_WORK/ines/results/BrainAgePredictionHABS_stratified_groupcv_targetnorm_bagbiascorr_oofglobal/ablation_imaging_demographics/habs_imaging_demographics_full_cohort_predictions.csv
+Saved validation outputs to: /mnt/newStor/paros/paros_WORK/ines/results/BrainAgePredictionHABS_stratified_groupcv_targetnorm_bagbiascorr_oofglobal/ablation_imaging_demographics/validation_figures_full_cohort
+
+==========================================================================================
+VALIDATION: cohort=HABS | feature_set=imaging_biomarkers | mode=full_cohort
+==========================================================================================
+Ablation dir: /mnt/newStor/paros/paros_WORK/ines/results/BrainAgePredictionHABS_stratified_groupcv_targetnorm_bagbiascorr_oofglobal/ablation_imaging_biomarkers
+Using full-cohort predictions: /mnt/newStor/paros/paros_WORK/ines/results/BrainAgePredictionHABS_stratified_groupcv_targetnorm_bagbiascorr_oofglobal/ablation_imaging_biomarkers/habs_imaging_biomarkers_full_cohort_predictions.csv
+Saved validation outputs to: /mnt/newStor/paros/paros_WORK/ines/results/BrainAgePredictionHABS_stratified_groupcv_targetnorm_bagbiascorr_oofglobal/ablation_imaging_biomarkers/validation_figures_full_cohort
+
+==========================================================================================
+VALIDATION: cohort=HABS | feature_set=full | mode=full_cohort
+==========================================================================================
+Ablation dir: /mnt/newStor/paros/paros_WORK/ines/results/BrainAgePredictionHABS_stratified_groupcv_targetnorm_bagbiascorr_oofglobal/ablation_full
+Using full-cohort predictions: /mnt/newStor/paros/paros_WORK/ines/results/BrainAgePredictionHABS_stratified_groupcv_targetnorm_bagbiascorr_oofglobal/ablation_full/habs_full_full_cohort_predictions.csv
+Saved validation outputs to: /mnt/newStor/paros/paros_WORK/ines/results/BrainAgePredictionHABS_stratified_groupcv_targetnorm_bagbiascorr_oofglobal/ablation_full/validation_figures_full_cohort
+
+==========================================================================================
+VALIDATION: cohort=HABS | feature_set=full_no_cardiovascular | mode=full_cohort
+==========================================================================================
+Ablation dir: /mnt/newStor/paros/paros_WORK/ines/results/BrainAgePredictionHABS_stratified_groupcv_targetnorm_bagbiascorr_oofglobal/ablation_full_no_cardiovascular
+Using full-cohort predictions: /mnt/newStor/paros/paros_WORK/ines/results/BrainAgePredictionHABS_stratified_groupcv_targetnorm_bagbiascorr_oofglobal/ablation_full_no_cardiovascular/habs_full_no_cardiovascular_full_cohort_predictions.csv
+Saved validation outputs to: /mnt/newStor/paros/paros_WORK/ines/results/BrainAgePredictionHABS_stratified_groupcv_targetnorm_bagbiascorr_oofglobal/ablation_full_no_cardiovascular/validation_figures_full_cohort
+
+==========================================================================================
+VALIDATION: cohort=AD_DECODE | feature_set=imaging_only | mode=full_cohort
+==========================================================================================
+Ablation dir: /mnt/newStor/paros/paros_WORK/ines/results/BrainAgePredictionADDECODE_stratified_groupcv_targetnorm_bagbiascorr_oofglobal/ablation_imaging_only
+Using full-cohort predictions: /mnt/newStor/paros/paros_WORK/ines/results/BrainAgePredictionADDECODE_stratified_groupcv_targetnorm_bagbiascorr_oofglobal/ablation_imaging_only/addecode_imaging_only_full_cohort_predictions.csv
+Saved validation outputs to: /mnt/newStor/paros/paros_WORK/ines/results/BrainAgePredictionADDECODE_stratified_groupcv_targetnorm_bagbiascorr_oofglobal/ablation_imaging_only/validation_figures_full_cohort
+
+==========================================================================================
+VALIDATION: cohort=AD_DECODE | feature_set=imaging_demographics | mode=full_cohort
+==========================================================================================
+Ablation dir: /mnt/newStor/paros/paros_WORK/ines/results/BrainAgePredictionADDECODE_stratified_groupcv_targetnorm_bagbiascorr_oofglobal/ablation_imaging_demographics
+Using full-cohort predictions: /mnt/newStor/paros/paros_WORK/ines/results/BrainAgePredictionADDECODE_stratified_groupcv_targetnorm_bagbiascorr_oofglobal/ablation_imaging_demographics/addecode_imaging_demographics_full_cohort_predictions.csv
+Saved validation outputs to: /mnt/newStor/paros/paros_WORK/ines/results/BrainAgePredictionADDECODE_stratified_groupcv_targetnorm_bagbiascorr_oofglobal/ablation_imaging_demographics/validation_figures_full_cohort
+
+==========================================================================================
+VALIDATION: cohort=AD_DECODE | feature_set=imaging_biomarkers | mode=full_cohort
+==========================================================================================
+Ablation dir: /mnt/newStor/paros/paros_WORK/ines/results/BrainAgePredictionADDECODE_stratified_groupcv_targetnorm_bagbiascorr_oofglobal/ablation_imaging_biomarkers
+Using full-cohort predictions: /mnt/newStor/paros/paros_WORK/ines/results/BrainAgePredictionADDECODE_stratified_groupcv_targetnorm_bagbiascorr_oofglobal/ablation_imaging_biomarkers/addecode_imaging_biomarkers_full_cohort_predictions.csv
+Saved validation outputs to: /mnt/newStor/paros/paros_WORK/ines/results/BrainAgePredictionADDECODE_stratified_groupcv_targetnorm_bagbiascorr_oofglobal/ablation_imaging_biomarkers/validation_figures_full_cohort
+
+==========================================================================================
+VALIDATION: cohort=AD_DECODE | feature_set=full | mode=full_cohort
+==========================================================================================
+Ablation dir: /mnt/newStor/paros/paros_WORK/ines/results/BrainAgePredictionADDECODE_stratified_groupcv_targetnorm_bagbiascorr_oofglobal/ablation_full
+Using full-cohort predictions: /mnt/newStor/paros/paros_WORK/ines/results/BrainAgePredictionADDECODE_stratified_groupcv_targetnorm_bagbiascorr_oofglobal/ablation_full/addecode_full_full_cohort_predictions.csv
+Saved validation outputs to: /mnt/newStor/paros/paros_WORK/ines/results/BrainAgePredictionADDECODE_stratified_groupcv_targetnorm_bagbiascorr_oofglobal/ablation_full/validation_figures_full_cohort
+
+==========================================================================================
+VALIDATION: cohort=AD_DECODE | feature_set=full_no_cardiovascular | mode=full_cohort
+==========================================================================================
+Ablation dir: /mnt/newStor/paros/paros_WORK/ines/results/BrainAgePredictionADDECODE_stratified_groupcv_targetnorm_bagbiascorr_oofglobal/ablation_full_no_cardiovascular
+Using full-cohort predictions: /mnt/newStor/paros/paros_WORK/ines/results/BrainAgePredictionADDECODE_stratified_groupcv_targetnorm_bagbiascorr_oofglobal/ablation_full_no_cardiovascular/addecode_full_no_cardiovascular_full_cohort_predictions.csv
+Saved validation outputs to: /mnt/newStor/paros/paros_WORK/ines/results/BrainAgePredictionADDECODE_stratified_groupcv_targetnorm_bagbiascorr_oofglobal/ablation_full_no_cardiovascular/validation_figures_full_cohort
+
+Combined outputs saved to: /mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation
+Combined bootstrap CIs saved to: /mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/combined_bootstrap_metric_summary.csv

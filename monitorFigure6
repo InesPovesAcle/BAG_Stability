@@ -1,0 +1,37 @@
+watch -n 30 '
+LOG=$(ls -t /mnt/newStor/paros/paros_WORK/ines/code/BAG_Stability052627/Figure6_OOF_clean_compute_and_aggregate_*.log 2>/dev/null | head -1)
+
+echo "===== NODE LOAD ====="
+uptime
+top -bn1 | head -5
+
+echo
+echo "===== FIGURE 6 PROCESSES ====="
+ps -u ines -o pid,ppid,stat,etime,%cpu,%mem,rss,cmd --sort=-%cpu \
+  | grep -E "Figure6|LokyProcess|joblib|python" \
+  | head -25
+
+echo
+echo "===== FRESH SHAP COUNT ====="
+find /mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Figure6_SHAP \
+  -type f -name "*shap_subject_*.csv" | wc -l
+
+echo
+echo "===== NEWEST SHAP FILES ====="
+find /mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Figure6_SHAP \
+  -type f -name "*shap_subject_*.csv" \
+  -printf "%TH:%TM:%TS %s %p\n" | sort | tail -5
+
+echo
+echo "===== LATEST FIGURE 6 LOG ====="
+if [ -n "$LOG" ]; then
+  echo "$LOG"
+  tail -n 25 "$LOG"
+else
+  echo "No clean Figure6 log found"
+fi
+
+echo
+echo "===== TEMPS ====="
+sensors | grep -E "Tctl|Tccd" | head -20
+'

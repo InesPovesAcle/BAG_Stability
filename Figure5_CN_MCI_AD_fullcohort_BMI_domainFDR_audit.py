@@ -30,7 +30,6 @@ import os
 import re
 from pathlib import Path
 from typing import Optional, Sequence
-from datetime import datetime
 
 import matplotlib
 matplotlib.use("Agg")
@@ -49,9 +48,7 @@ BASE_DIR = WORK / "ines"
 RESULTS_ROOT = BASE_DIR / "results"
 HARMONIZED_DIR = BASE_DIR / "data" / "harmonization" / "harmonized_metadata"
 
-DATE_TAG = os.environ.get("FIGURE5_DATE_TAG", datetime.now().strftime("%Y%m%d"))
-BIOVALIDATION_ROOT = RESULTS_ROOT / "BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation"
-OUTDIR = BIOVALIDATION_ROOT / f"Figure5_{DATE_TAG}"
+OUTDIR = RESULTS_ROOT / "Figure5_Final_FromHarmonizedMetadata_full_cohort"
 MERGED_OUTDIR = OUTDIR / "merged_tables"
 FIGURE_OUTDIR = OUTDIR / "figures"
 QA_OUTDIR = OUTDIR / "qa"
@@ -1519,7 +1516,6 @@ def main() -> None:
     print("Harmonized metadata:", HARMONIZED_DIR)
     print("Validation root:", RESULTS_ROOT)
     print("Validation directory name:", VALIDATION_DIR_NAME)
-    print("Biological validation root:", BIOVALIDATION_ROOT)
     print("Output:", OUTDIR)
     print("Merge policy: validation rows left-joined to final harmonized metadata by connectome/session key; no row-order fallback.")
 

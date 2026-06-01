@@ -1,0 +1,186 @@
+====================================================================================================
+Figure 4 enrichment
+====================================================================================================
+WORK: /mnt/newStor/paros/paros_WORK
+DATA_ROOT: /mnt/newStor/paros/paros_WORK/ines/data
+RESULTS_ROOT: /mnt/newStor/paros/paros_WORK/ines/results
+Validation directory: validation_figures_full_cohort
+Atlas: /mnt/newStor/paros/paros_WORK/ines/data/atlas/IITmean_RPI_index.xlsx
+Output QC: /mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Figure4_enrichment_full_cohort_WITH_GLOBAL_GRAPH
+Threshold percentile: 95.0
+Minimum graph edge weight: 0.0
+Connectome worker processes: automatic, capped at 16
+
+Hippocampus mapping:
+Regional ROI labels: [17, 53]
+Connectome node positions, zero-based: [5, 13]
+ index  index2         Structure Hemisphere  index3  python_zero_based_position
+    17       6  Left-Hippocampus       Left       6                           5
+    53      14 Right-Hippocampus      Right       6                          13
+QA overlap file written (initialized): /mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Figure4_enrichment_full_cohort_WITH_GLOBAL_GRAPH/Figure4_enrichment_regional_connectome_overlap_QA.csv
+
+====================================================================================================
+COHORT: ADNI
+====================================================================================================
+Regional source status:
+  fa: ok | rows=85 | subject_cols=316 | roi_col=ROI | value_col= | /mnt/newStor/paros/paros_WORK/ines/data/Regional_stats/ADNI/ADNI_studywide_stats_for_fa.txt
+  rd: ok | rows=85 | subject_cols=316 | roi_col=ROI | value_col= | /mnt/newStor/paros/paros_WORK/ines/data/Regional_stats/ADNI/ADNI_studywide_stats_for_rd.txt
+  ad: ok | rows=85 | subject_cols=316 | roi_col=ROI | value_col= | /mnt/newStor/paros/paros_WORK/ines/data/Regional_stats/ADNI/ADNI_studywide_stats_for_ad.txt
+  adc: ok | rows=85 | subject_cols=316 | roi_col=ROI | value_col= | /mnt/newStor/paros/paros_WORK/ines/data/Regional_stats/ADNI/ADNI_studywide_stats_for_adc.txt
+  relative_volume: ok | rows=85 | subject_cols=316 | roi_col=ROI | value_col= | /mnt/newStor/paros/paros_WORK/ines/data/Regional_stats/ADNI/ADNI_studywide_stats_BrainPct.csv
+  absolute_volume: ok | rows=85 | subject_cols=316 | roi_col=ROI | value_col= | /mnt/newStor/paros/paros_WORK/ines/data/Regional_stats/ADNI/ADNI_studywide_stats_BrainAbs.csv
+Computing connectome metrics with 16 worker processes...
+QA overlap file written (after_ADNI): /mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Figure4_enrichment_full_cohort_WITH_GLOBAL_GRAPH/Figure4_enrichment_regional_connectome_overlap_QA.csv
+QA regional/connectome subject overlap: regional_keys=316 connectome_keys=316 matching=316 regional_only=0 connectome_only=0
+Regional features: (316, 13)
+Connectome features: (316, 13)
+Combined features: (316, 21)
+subject_source subject_match  Hc_volume_mm3  Hc_volume_pct_brain    Hc_FA    Hc_RD    Hc_AD   Hc_ADC  Hc_clustering_coeff  Hc_path_length  Total_graph_clustering_coeff  Total_graph_path_length  Global_Efficiency  Local_Efficiency  Total_Brain_volume  Total_Brain_FA
+      R0072_y0      r0072_y0           9980             0.635536 0.146126 0.001275 0.001573 0.001374             0.326540        0.253060                      0.283994                 0.292225           3.819065          3.946241             1570328        0.145024
+      R0072_y4      r0072_y4          10472             0.685520 0.132085 0.001433 0.001742 0.001536             0.311631        0.257007                      0.270240                 0.301379           3.747646          3.922501             1527600        0.130962
+      R0074_y4      r0074_y4          13016             0.778584 0.169345 0.001837 0.002382 0.002019             0.317299        0.261735                      0.280694                 0.296271           3.793590          3.874079             1671752        0.167903
+      R0178_y0      r0178_y0          11230             0.712094 0.162930 0.001607 0.002050 0.001755             0.333314        0.249747                      0.286502                 0.294394           3.839134          3.980035             1577038        0.171498
+      R0178_y4      r0178_y4          11799             0.756023 0.159772 0.001782 0.002249 0.001937             0.337061        0.247992                      0.287998                 0.294075           3.841962          3.963563             1560666        0.165223
+imaging_only | written | matched: 188 | output: /mnt/newStor/paros/paros_WORK/ines/results/BrainAgePredictionADNI_stratified_groupcv_targetnorm_bagbiascorr_oofglobal/ablation_imaging_only/validation_figures_full_cohort/subject_level_validation_input_enriched_for_Figure4.csv
+imaging_demographics | written | matched: 188 | output: /mnt/newStor/paros/paros_WORK/ines/results/BrainAgePredictionADNI_stratified_groupcv_targetnorm_bagbiascorr_oofglobal/ablation_imaging_demographics/validation_figures_full_cohort/subject_level_validation_input_enriched_for_Figure4.csv
+imaging_biomarkers | written | matched: 188 | output: /mnt/newStor/paros/paros_WORK/ines/results/BrainAgePredictionADNI_stratified_groupcv_targetnorm_bagbiascorr_oofglobal/ablation_imaging_biomarkers/validation_figures_full_cohort/subject_level_validation_input_enriched_for_Figure4.csv
+full | written | matched: 188 | output: /mnt/newStor/paros/paros_WORK/ines/results/BrainAgePredictionADNI_stratified_groupcv_targetnorm_bagbiascorr_oofglobal/ablation_full/validation_figures_full_cohort/subject_level_validation_input_enriched_for_Figure4.csv
+full_no_cardiovascular | written | matched: 188 | output: /mnt/newStor/paros/paros_WORK/ines/results/BrainAgePredictionADNI_stratified_groupcv_targetnorm_bagbiascorr_oofglobal/ablation_full_no_cardiovascular/validation_figures_full_cohort/subject_level_validation_input_enriched_for_Figure4.csv
+
+====================================================================================================
+COHORT: ADRC
+====================================================================================================
+Regional source status:
+  fa: ok | rows=85 | subject_cols=347 | roi_col=ROI | value_col= | /mnt/newStor/paros/paros_WORK/ines/data/Regional_stats/ADRC/ADRC_studywide_stats_for_fa.txt
+  rd: ok | rows=85 | subject_cols=347 | roi_col=ROI | value_col= | /mnt/newStor/paros/paros_WORK/ines/data/Regional_stats/ADRC/ADRC_studywide_stats_for_rd.txt
+  ad: ok | rows=85 | subject_cols=347 | roi_col=ROI | value_col= | /mnt/newStor/paros/paros_WORK/ines/data/Regional_stats/ADRC/ADRC_studywide_stats_for_ad.txt
+  adc: ok | rows=85 | subject_cols=347 | roi_col=ROI | value_col= | /mnt/newStor/paros/paros_WORK/ines/data/Regional_stats/ADRC/ADRC_studywide_stats_for_adc.txt
+  relative_volume: ok | rows=85 | subject_cols=347 | roi_col=ROI | value_col= | /mnt/newStor/paros/paros_WORK/ines/data/Regional_stats/ADRC/ADRC_studywide_stats_BrainPct.csv
+  absolute_volume: ok | rows=85 | subject_cols=347 | roi_col=ROI | value_col= | /mnt/newStor/paros/paros_WORK/ines/data/Regional_stats/ADRC/ADRC_studywide_stats_BrainAbs.csv
+
+ADRC connectome filename extraction check:
+ADRC0097_conn_plain.csv -> D0097 | /mnt/newStor/paros/paros_WORK/ines/data/harmonization/ADRC/connectomes_old/DWI/plain/ADRC0097_conn_plain.csv
+ADRC0019_conn_plain.csv -> D0019 | /mnt/newStor/paros/paros_WORK/ines/data/harmonization/ADRC/connectomes_old/DWI/plain/ADRC0019_conn_plain.csv
+ADRC0064_conn_plain.csv -> D0064 | /mnt/newStor/paros/paros_WORK/ines/data/harmonization/ADRC/connectomes_old/DWI/plain/ADRC0064_conn_plain.csv
+ADRC0086_conn_plain.csv -> D0086 | /mnt/newStor/paros/paros_WORK/ines/data/harmonization/ADRC/connectomes_old/DWI/plain/ADRC0086_conn_plain.csv
+ADRC0037_conn_plain.csv -> D0037 | /mnt/newStor/paros/paros_WORK/ines/data/harmonization/ADRC/connectomes_old/DWI/plain/ADRC0037_conn_plain.csv
+ADRC0085_conn_plain.csv -> D0085 | /mnt/newStor/paros/paros_WORK/ines/data/harmonization/ADRC/connectomes_old/DWI/plain/ADRC0085_conn_plain.csv
+ADRC0017_conn_plain.csv -> D0017 | /mnt/newStor/paros/paros_WORK/ines/data/harmonization/ADRC/connectomes_old/DWI/plain/ADRC0017_conn_plain.csv
+ADRC0089_conn_plain.csv -> D0089 | /mnt/newStor/paros/paros_WORK/ines/data/harmonization/ADRC/connectomes_old/DWI/plain/ADRC0089_conn_plain.csv
+ADRC0074_conn_plain.csv -> D0074 | /mnt/newStor/paros/paros_WORK/ines/data/harmonization/ADRC/connectomes_old/DWI/plain/ADRC0074_conn_plain.csv
+ADRC0038_conn_plain.csv -> D0038 | /mnt/newStor/paros/paros_WORK/ines/data/harmonization/ADRC/connectomes_old/DWI/plain/ADRC0038_conn_plain.csv
+Computing connectome metrics with 16 worker processes...
+Collapsed duplicate subject rows for ADRC connectomes: 434 rows -> 388 rows (46 duplicate rows collapsed).
+QA overlap file written (after_ADRC): /mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Figure4_enrichment_full_cohort_WITH_GLOBAL_GRAPH/Figure4_enrichment_regional_connectome_overlap_QA.csv
+QA regional/connectome subject overlap: regional_keys=347 connectome_keys=388 matching=347 regional_only=0 connectome_only=41
+Regional features: (347, 13)
+Connectome features: (388, 13)
+Combined features: (388, 21)
+subject_source subject_match  Hc_volume_mm3  Hc_volume_pct_brain  Hc_FA  Hc_RD  Hc_AD  Hc_ADC  Hc_clustering_coeff  Hc_path_length  Total_graph_clustering_coeff  Total_graph_path_length  Global_Efficiency  Local_Efficiency  Total_Brain_volume  Total_Brain_FA
+         D0001         d0001            NaN                  NaN    NaN    NaN    NaN     NaN             0.317174        0.236708                      0.276699                 0.279820           4.002827          4.218509                 NaN             NaN
+         D0002         d0002            NaN                  NaN    NaN    NaN    NaN     NaN             0.332387        0.241677                      0.294551                 0.275231           4.051107          4.189511                 NaN             NaN
+         D0003         d0003            NaN                  NaN    NaN    NaN    NaN     NaN             0.296433        0.233779                      0.273199                 0.290345           3.899341          4.203208                 NaN             NaN
+         D0004         d0004            NaN                  NaN    NaN    NaN    NaN     NaN             0.303561        0.245690                      0.285994                 0.282305           3.989104          4.198694                 NaN             NaN
+         D0005         d0005            NaN                  NaN    NaN    NaN    NaN     NaN             0.324401        0.249292                      0.295703                 0.286586           3.921139          4.101531                 NaN             NaN
+imaging_only | written | matched: 204 | output: /mnt/newStor/paros/paros_WORK/ines/results/BrainAgePredictionADRC_stratified_groupcv_targetnorm_bagbiascorr_oofglobal/ablation_imaging_only/validation_figures_full_cohort/subject_level_validation_input_enriched_for_Figure4.csv
+imaging_demographics | written | matched: 204 | output: /mnt/newStor/paros/paros_WORK/ines/results/BrainAgePredictionADRC_stratified_groupcv_targetnorm_bagbiascorr_oofglobal/ablation_imaging_demographics/validation_figures_full_cohort/subject_level_validation_input_enriched_for_Figure4.csv
+imaging_biomarkers | written | matched: 204 | output: /mnt/newStor/paros/paros_WORK/ines/results/BrainAgePredictionADRC_stratified_groupcv_targetnorm_bagbiascorr_oofglobal/ablation_imaging_biomarkers/validation_figures_full_cohort/subject_level_validation_input_enriched_for_Figure4.csv
+full | written | matched: 204 | output: /mnt/newStor/paros/paros_WORK/ines/results/BrainAgePredictionADRC_stratified_groupcv_targetnorm_bagbiascorr_oofglobal/ablation_full/validation_figures_full_cohort/subject_level_validation_input_enriched_for_Figure4.csv
+full_no_cardiovascular | written | matched: 204 | output: /mnt/newStor/paros/paros_WORK/ines/results/BrainAgePredictionADRC_stratified_groupcv_targetnorm_bagbiascorr_oofglobal/ablation_full_no_cardiovascular/validation_figures_full_cohort/subject_level_validation_input_enriched_for_Figure4.csv
+
+====================================================================================================
+COHORT: HABS
+====================================================================================================
+Regional source status:
+  fa: ok | rows=85 | subject_cols=491 | roi_col=ROI | value_col= | /mnt/newStor/paros/paros_WORK/ines/data/Regional_stats/HABS/HABS_studywide_stats_for_fa.txt
+  rd: ok | rows=85 | subject_cols=491 | roi_col=ROI | value_col= | /mnt/newStor/paros/paros_WORK/ines/data/Regional_stats/HABS/HABS_studywide_stats_for_rd.txt
+  ad: ok | rows=85 | subject_cols=491 | roi_col=ROI | value_col= | /mnt/newStor/paros/paros_WORK/ines/data/Regional_stats/HABS/HABS_studywide_stats_for_ad.txt
+  adc: ok | rows=85 | subject_cols=491 | roi_col=ROI | value_col= | /mnt/newStor/paros/paros_WORK/ines/data/Regional_stats/HABS/HABS_studywide_stats_for_adc.txt
+  relative_volume: ok | rows=85 | subject_cols=491 | roi_col=ROI | value_col= | /mnt/newStor/paros/paros_WORK/ines/data/Regional_stats/HABS/HABS_studywide_stats_BrainPct.csv
+  absolute_volume: ok | rows=85 | subject_cols=491 | roi_col=ROI | value_col= | /mnt/newStor/paros/paros_WORK/ines/data/Regional_stats/HABS/HABS_studywide_stats_BrainAbs.csv
+Skipped 982 connectome sidecar/helper CSV(s) for HABS.
+
+HABS connectome filename extraction check:
+H7406_y0_conn_plain.csv -> H7406_y0 | /mnt/newStor/paros/paros_WORK/ines/data/harmonization/HABS/connectomes/DWI/plain/H7406_y0_conn_plain.csv
+H9546_y0_conn_plain.csv -> H9546_y0 | /mnt/newStor/paros/paros_WORK/ines/data/harmonization/HABS/connectomes/DWI/plain/H9546_y0_conn_plain.csv
+H8369_y0_conn_plain.csv -> H8369_y0 | /mnt/newStor/paros/paros_WORK/ines/data/harmonization/HABS/connectomes/DWI/plain/H8369_y0_conn_plain.csv
+H4882_y0_conn_plain.csv -> H4882_y0 | /mnt/newStor/paros/paros_WORK/ines/data/harmonization/HABS/connectomes/DWI/plain/H4882_y0_conn_plain.csv
+H8182_y0_conn_plain.csv -> H8182_y0 | /mnt/newStor/paros/paros_WORK/ines/data/harmonization/HABS/connectomes/DWI/plain/H8182_y0_conn_plain.csv
+H8110_y0_conn_plain.csv -> H8110_y0 | /mnt/newStor/paros/paros_WORK/ines/data/harmonization/HABS/connectomes/DWI/plain/H8110_y0_conn_plain.csv
+H4998_y2_conn_plain.csv -> H4998_y2 | /mnt/newStor/paros/paros_WORK/ines/data/harmonization/HABS/connectomes/DWI/plain/H4998_y2_conn_plain.csv
+H7364_y0_conn_plain.csv -> H7364_y0 | /mnt/newStor/paros/paros_WORK/ines/data/harmonization/HABS/connectomes/DWI/plain/H7364_y0_conn_plain.csv
+H8771_y0_conn_plain.csv -> H8771_y0 | /mnt/newStor/paros/paros_WORK/ines/data/harmonization/HABS/connectomes/DWI/plain/H8771_y0_conn_plain.csv
+H9930_y2_conn_plain.csv -> H9930_y2 | /mnt/newStor/paros/paros_WORK/ines/data/harmonization/HABS/connectomes/DWI/plain/H9930_y2_conn_plain.csv
+Computing connectome metrics with 16 worker processes...
+QA overlap file written (after_HABS): /mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Figure4_enrichment_full_cohort_WITH_GLOBAL_GRAPH/Figure4_enrichment_regional_connectome_overlap_QA.csv
+QA regional/connectome subject overlap: regional_keys=491 connectome_keys=487 matching=487 regional_only=4 connectome_only=0
+Regional features: (491, 13)
+Connectome features: (487, 13)
+Combined features: (491, 21)
+subject_source subject_match  Hc_volume_mm3  Hc_volume_pct_brain    Hc_FA    Hc_RD    Hc_AD   Hc_ADC  Hc_clustering_coeff  Hc_path_length  Total_graph_clustering_coeff  Total_graph_path_length  Global_Efficiency  Local_Efficiency  Total_Brain_volume  Total_Brain_FA
+      H4369_y0      h4369_y0       9467.896             0.689110 0.132541 0.001271 0.001544 0.001362             0.343396        0.249398                      0.304919                 0.278935           3.977729          4.023013        1.373930e+06        0.149784
+      H4369_y2      h4369_y2       9128.174             0.669016 0.138907 0.001258 0.001535 0.001350             0.340995        0.253057                      0.306649                 0.281463           3.955781          4.011189        1.364418e+06        0.155242
+      H4487_y0      h4487_y0       8448.731             0.545310 0.155763 0.000950 0.001204 0.001035             0.343854        0.258696                      0.303892                 0.287850           3.878657          3.958273        1.549345e+06        0.151007
+      H4528_y0      h4528_y0       7592.041             0.564835 0.182942 0.000878 0.001159 0.000972             0.338149        0.262898                      0.306858                 0.278451           4.003213          4.095368        1.344116e+06        0.168823
+      H4528_y2      h4528_y2       7281.861             0.552010 0.183744 0.000862 0.001141 0.000955             0.335181        0.266772                      0.304169                 0.279264           3.994233          4.101104        1.319154e+06        0.168693
+[Figure4 enrichment dedup] HABS imaging_only: 778 -> 318 rows using Subject_ID; removed 460 duplicate scan rows.
+imaging_only | written | matched: 318 | output: /mnt/newStor/paros/paros_WORK/ines/results/BrainAgePredictionHABS_stratified_groupcv_targetnorm_bagbiascorr_oofglobal/ablation_imaging_only/validation_figures_full_cohort/subject_level_validation_input_enriched_for_Figure4.csv
+[Figure4 enrichment dedup] HABS imaging_demographics: 778 -> 318 rows using Subject_ID; removed 460 duplicate scan rows.
+imaging_demographics | written | matched: 318 | output: /mnt/newStor/paros/paros_WORK/ines/results/BrainAgePredictionHABS_stratified_groupcv_targetnorm_bagbiascorr_oofglobal/ablation_imaging_demographics/validation_figures_full_cohort/subject_level_validation_input_enriched_for_Figure4.csv
+[Figure4 enrichment dedup] HABS imaging_biomarkers: 778 -> 318 rows using Subject_ID; removed 460 duplicate scan rows.
+imaging_biomarkers | written | matched: 318 | output: /mnt/newStor/paros/paros_WORK/ines/results/BrainAgePredictionHABS_stratified_groupcv_targetnorm_bagbiascorr_oofglobal/ablation_imaging_biomarkers/validation_figures_full_cohort/subject_level_validation_input_enriched_for_Figure4.csv
+full | written | matched: 486 | output: /mnt/newStor/paros/paros_WORK/ines/results/BrainAgePredictionHABS_stratified_groupcv_targetnorm_bagbiascorr_oofglobal/ablation_full/validation_figures_full_cohort/subject_level_validation_input_enriched_for_Figure4.csv
+[Figure4 enrichment dedup] HABS full_no_cardiovascular: 778 -> 318 rows using Subject_ID; removed 460 duplicate scan rows.
+full_no_cardiovascular | written | matched: 318 | output: /mnt/newStor/paros/paros_WORK/ines/results/BrainAgePredictionHABS_stratified_groupcv_targetnorm_bagbiascorr_oofglobal/ablation_full_no_cardiovascular/validation_figures_full_cohort/subject_level_validation_input_enriched_for_Figure4.csv
+
+====================================================================================================
+COHORT: AD_DECODE
+====================================================================================================
+Collapsed duplicate subject rows for AD_DECODE ad regional: 102 rows -> 100 rows (2 duplicate rows collapsed).
+Collapsed duplicate subject rows for AD_DECODE relative_volume regional: 628 rows -> 107 rows (521 duplicate rows collapsed).
+Collapsed duplicate subject rows for AD_DECODE absolute_volume regional: 628 rows -> 107 rows (521 duplicate rows collapsed).
+Regional source status:
+  fa: ok | rows=85 | subject_cols=89 | roi_col=index | value_col= | /mnt/newStor/paros/paros_WORK/ines/data/Regional_stats/ADDecode/AD_Decode_studywide_stats_for_mrtrixfa.csv
+  rd: ok | rows=85 | subject_cols=89 | roi_col=index | value_col= | /mnt/newStor/paros/paros_WORK/ines/data/Regional_stats/ADDecode/AD_Decode_studywide_stats_for_rd.txt
+  ad: ok | rows=85 | subject_cols=102 | roi_col=ROI | value_col= | /mnt/newStor/paros/paros_WORK/ines/data/Regional_stats/ADDecode/AD_Decode_studywide_stats_for_ad.txt | dedup 102->100
+  adc: ok | rows=85 | subject_cols=89 | roi_col=ROI | value_col= | /mnt/newStor/paros/paros_WORK/ines/data/Regional_stats/ADDecode/AD_Decode_studywide_stats_for_adc.txt
+  relative_volume: ok | rows=85 | subject_cols=628 | roi_col=index | value_col= | /mnt/newStor/paros/paros_WORK/ines/data/Regional_stats/ADDecode/AD_Decode_studywide_stats_for_volume_norm.txt | dedup 628->107
+  absolute_volume: ok | rows=85 | subject_cols=628 | roi_col=index | value_col= | /mnt/newStor/paros/paros_WORK/ines/data/Regional_stats/ADDecode/AD_Decode_studywide_stats_for_volume.csv | dedup 628->107
+
+AD_DECODE connectome filename extraction check:
+S02877_conn_plain.csv -> S02877 | /mnt/newStor/paros/paros_WORK/ines/data/pre_harmonization/AD_DECODE/DWI/S02877_conn_plain.csv
+S02938_conn_plain.csv -> S02938 | /mnt/newStor/paros/paros_WORK/ines/data/pre_harmonization/AD_DECODE/DWI/S02938_conn_plain.csv
+S03069_conn_plain.csv -> S03069 | /mnt/newStor/paros/paros_WORK/ines/data/pre_harmonization/AD_DECODE/DWI/S03069_conn_plain.csv
+S02720_conn_plain.csv -> S02720 | /mnt/newStor/paros/paros_WORK/ines/data/pre_harmonization/AD_DECODE/DWI/S02720_conn_plain.csv
+S03896_conn_plain.csv -> S03896 | /mnt/newStor/paros/paros_WORK/ines/data/pre_harmonization/AD_DECODE/DWI/S03896_conn_plain.csv
+S02469_conn_plain.csv -> S02469 | /mnt/newStor/paros/paros_WORK/ines/data/pre_harmonization/AD_DECODE/DWI/S02469_conn_plain.csv
+S03308_conn_plain.csv -> S03308 | /mnt/newStor/paros/paros_WORK/ines/data/pre_harmonization/AD_DECODE/DWI/S03308_conn_plain.csv
+S02506_conn_plain.csv -> S02506 | /mnt/newStor/paros/paros_WORK/ines/data/pre_harmonization/AD_DECODE/DWI/S02506_conn_plain.csv
+S02421_conn_plain.csv -> S02421 | /mnt/newStor/paros/paros_WORK/ines/data/pre_harmonization/AD_DECODE/DWI/S02421_conn_plain.csv
+S02491_conn_plain.csv -> S02491 | /mnt/newStor/paros/paros_WORK/ines/data/pre_harmonization/AD_DECODE/DWI/S02491_conn_plain.csv
+Computing connectome metrics with 16 worker processes...
+AD_DECODE regional/connectome filter: rows 107->89 keys 107->89 (kept only roots present in real connectome filenames)
+QA overlap file written (after_AD_DECODE): /mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Figure4_enrichment_full_cohort_WITH_GLOBAL_GRAPH/Figure4_enrichment_regional_connectome_overlap_QA.csv
+QA regional/connectome subject overlap: regional_keys=89 connectome_keys=89 matching=89 regional_only=0 connectome_only=0
+Regional features: (89, 13)
+Connectome features: (89, 13)
+Combined features: (89, 21)
+subject_source subject_match  Hc_volume_mm3  Hc_volume_pct_brain    Hc_FA    Hc_RD    Hc_AD   Hc_ADC  Hc_clustering_coeff  Hc_path_length  Total_graph_clustering_coeff  Total_graph_path_length  Global_Efficiency  Local_Efficiency  Total_Brain_volume  Total_Brain_FA
+        S00775        s00775      11967.967             1.252382 0.176875 0.001204 1.287799 0.000964             0.205081        0.347227                      0.236189                 0.352058           3.321328          3.745740            955616.3        0.238491
+        S01412        s01412       9640.972             0.921370 0.198452 0.000712 1.156877 0.000860             0.233473        0.315350                      0.246001                 0.339490           3.423075          3.789414           1046373.0        0.270709
+        S01470        s01470      12344.966             1.172716 0.180478 0.000839 1.033761 0.000867             0.158920        0.361631                      0.223774                 0.398917           3.015676          3.855789           1052682.0        0.192976
+        S01619        s01619       9167.974             1.019448 0.159429 0.000910 1.081034 0.000910             0.248963        0.302201                      0.255447                 0.331744           3.479202          3.808364            899307.5        0.202731
+        S01621        s01621       9110.975             0.679148 0.166483 0.001234 2.282176 0.002094             0.206822        0.348697                      0.251319                 0.386443           3.099350          3.981610           1341530.0        0.220075
+imaging_only | written | matched: 86 | output: /mnt/newStor/paros/paros_WORK/ines/results/BrainAgePredictionADDECODE_stratified_groupcv_targetnorm_bagbiascorr_oofglobal/ablation_imaging_only/validation_figures_full_cohort/subject_level_validation_input_enriched_for_Figure4.csv
+imaging_demographics | written | matched: 86 | output: /mnt/newStor/paros/paros_WORK/ines/results/BrainAgePredictionADDECODE_stratified_groupcv_targetnorm_bagbiascorr_oofglobal/ablation_imaging_demographics/validation_figures_full_cohort/subject_level_validation_input_enriched_for_Figure4.csv
+imaging_biomarkers | written | matched: 86 | output: /mnt/newStor/paros/paros_WORK/ines/results/BrainAgePredictionADDECODE_stratified_groupcv_targetnorm_bagbiascorr_oofglobal/ablation_imaging_biomarkers/validation_figures_full_cohort/subject_level_validation_input_enriched_for_Figure4.csv
+full | written | matched: 86 | output: /mnt/newStor/paros/paros_WORK/ines/results/BrainAgePredictionADDECODE_stratified_groupcv_targetnorm_bagbiascorr_oofglobal/ablation_full/validation_figures_full_cohort/subject_level_validation_input_enriched_for_Figure4.csv
+full_no_cardiovascular | written | matched: 86 | output: /mnt/newStor/paros/paros_WORK/ines/results/BrainAgePredictionADDECODE_stratified_groupcv_targetnorm_bagbiascorr_oofglobal/ablation_full_no_cardiovascular/validation_figures_full_cohort/subject_level_validation_input_enriched_for_Figure4.csv
+QA overlap file written (final): /mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Figure4_enrichment_full_cohort_WITH_GLOBAL_GRAPH/Figure4_enrichment_regional_connectome_overlap_QA.csv
+
+Saved QC/manifests to:
+/mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Figure4_enrichment_full_cohort_WITH_GLOBAL_GRAPH
+QA overlap file:
+/mnt/newStor/paros/paros_WORK/ines/results/BrainAgeValidation_AllCohorts_BAGBiasCorr_OOFGlobal_BiologicalValidation/Figure4_enrichment_full_cohort_WITH_GLOBAL_GRAPH/Figure4_enrichment_regional_connectome_overlap_QA.csv
+
+Done.
