@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+
 # -*- coding: utf-8 -*-
 """
 Created on Wed Apr  8 16:11:07 2026
@@ -52,7 +53,8 @@ import warnings
 import multiprocessing as mp
 from collections import OrderedDict
 from contextlib import contextmanager
-from concurrent.futures import ProcessPoolExecutor, as_completed
+from concurrent.futures import ThreadPoolExecutor, as_completed
+ProcessPoolExecutor = ThreadPoolExecutor  # patched: avoid torch multiprocessing ancdata crash
 
 import numpy as np
 import pandas as pd
@@ -88,7 +90,7 @@ WORK = os.environ["WORK"]
 
 EDGE_PERCENTILE = 50
 N_ROIS_EXPECTED = 84
-N_JOBS = max(1, min(16, (os.cpu_count() or 2) - 1))
+N_JOBS = 4
 
 HARMONIZED_COLUMNS = [
     "cohort",
@@ -135,7 +137,7 @@ RUN_ALL_COHORTS = False
 #   "imaging_biomarkers"        = imaging + sex/APOE + biomarkers or PCA; no BMI, no cardiovascular
 #   "full"                      = imaging + sex/APOE + BMI + cardiovascular + biomarkers/PCA
 #   "full_no_cardiovascular"    = full model without systolic BP, diastolic BP, pulse
-FEATURE_SET = "full"
+FEATURE_SET = "imaging_only"
 
 
 
@@ -1337,7 +1339,6 @@ def parallel_process_connectomes(connectome_dict, edge_percentile, stage):
     ]
 
     print(f"Parallel processing {len(jobs)} connectomes for {stage} with N_JOBS={N_JOBS}")
-
     with ProcessPoolExecutor(max_workers=N_JOBS) as ex:
         futures = [ex.submit(process_connectome_subject, job) for job in jobs]
 
@@ -1418,7 +1419,6 @@ def parallel_build_graphs(
         ))
 
     print(f"Parallel graph build for {stage}: {len(jobs)} subjects with N_JOBS={N_JOBS}")
-
     with ProcessPoolExecutor(max_workers=N_JOBS) as ex:
         futures = [ex.submit(build_graph_object_worker, job) for job in jobs]
 
